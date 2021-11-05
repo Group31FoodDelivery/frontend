@@ -1,10 +1,10 @@
 import React from 'react'
-import './Sign-In.css'
+import styles from './Sign-In.module.css'
 
 class SignIn extends React.Component {
     render () {
         return (
-            <div className='Sign-In'>
+            <div className={styles.Header}>
                 <input type="text" placeholder="Username" style={{borderRadius: '15px', height: '30px'}}/>
                 <div style={{marginTop: '20px'}}></div>
                 <input type="text" placeholder="Password" style={{borderRadius: '15px', height: '30px'}}/>
