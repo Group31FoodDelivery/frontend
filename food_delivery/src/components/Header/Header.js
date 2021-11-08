@@ -9,7 +9,7 @@ class Header extends React.Component {
             <div className={styles.Header}>
 
             <div style={{marginRight: '85%'}}>YammyGo</div>
-            <span style={{display:'flex', width:'100px', height:"40px", justifyContent:'center', alignItems:'center', backgroundColor: 'crimson', borderRadius:'15px', marginRight:'20px'}}>Front page</span>
+            <button style={{display:'flex', width:'100px', height:"40px", justifyContent:'center', alignItems:'center', backgroundColor: 'crimson', borderRadius:'15px', marginRight:'20px', color:'white'}}>Front page</button>
 
         </div>
         );
