@@ -1,6 +1,10 @@
 import React from 'react';
 import FrontPage from './components/FrontPage/FrontPage';
 import data from './restaurantsMenu.json'
+import './App.css';
+import Header from './components/Header/Header';
+import SignIn from './components/SignIn/Sign-In';
+import SignUpCustomer from './components/SignUpCustomer/Sign-Up-Customer';
 
 function App() {
   return (
@@ -10,7 +14,7 @@ function App() {
   )
 }
 
-export default App
+export default App;
 
 /*import './App.css';
 import Header from './components/Header/Header';
