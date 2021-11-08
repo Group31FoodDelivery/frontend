@@ -1,0 +1,11 @@
+.FrontPage{
+    background-color: rgb(111, 252, 210);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 30px;
+    grid-column-gap: 15px;
+    margin-top: 50px;
+    margin-bottom: 5px;
+    margin-left: 14%;
+    margin-right: 14%;
+}
