@@ -3,7 +3,7 @@ import Header from './components/Header/Header';
 import SignIn from './components/SignIn/Sign-In';
 import FrontPage from './components/FrontPage/FrontPage';
 import React from 'react';
-import data from './restaurantsMenu.json';
+import data from './restaurants.json';
 
 class App extends React.Component {
 constructor(props)
