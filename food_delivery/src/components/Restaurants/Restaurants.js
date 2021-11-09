@@ -1,37 +1,31 @@
 import React from 'react'
 import styles from './Restaurants.module.css'
 
-/*export default function Restaurants(props) {
-   return (
-        <div className = {styles.Restaurants}>
-        <div><img className = {styles.Photo} src = {`/images/${props.image}`}></img></div>
-        <div>
+export default function Restaurants(props) {
+  return (
+    <div className = {styles.Restaurants}>
+      <div><img className = {styles.Photo} src = {`/images/${props.image}`}></img></div>
+      <div>
         {props.name}
         </div>
         <div>
         {props.description}
         </div>
         <div>
-        price
+        {props.type}
         </div>
         <div>
-        operating hours
+        {props.open}
+        </div>
+        <div>
+        {props.address}
+        <div>
+        {props.pricelevel}
         </div>
         </div>
-    )*/
-
-    const Restaurant = props => {
-
-        const{name, description} = props.data
+      
+    </div>
+  )
+}
       
       
-      
-      
-      return(
-        <div> {name}{description}
-        </div>
-      );
-      }
-      
-       
-

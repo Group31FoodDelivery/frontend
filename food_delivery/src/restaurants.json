@@ -11,7 +11,7 @@
             "address": "Rantakatu 4, 90100 Oulu",
             "open": "17-23 ",
             "image": "Hugo.jpeg",
-            "price level": "€€€€"
+            "pricelevel": "€€€€"
         },
         {
             "id": 2,
@@ -23,7 +23,7 @@
             "address": "Kirkkokatu 17, 90100 Oulu",
             "open": "10-22",
             "image": "sushi.jpeg",
-            "price level": "€€"
+            "pricelevel": "€€"
         },
         {
             "id": 3,
@@ -35,7 +35,7 @@
             "address": "Isokatu 25, 90100 Oulu",
             "open": "10-22",
             "image": "Combo.png",
-            "price level": "€€"
+            "pricelevel": "€€"
         },
         {
             "id": 4,
@@ -47,7 +47,7 @@
             "open": "12-22",
             "address": "Rantakatu 4, 90100 Oulu",
             "image": "pic5.jpg",
-            "price": "€€€"
+            "pricelevel": "€€€"
         },
         {
             "id": 5,
@@ -59,7 +59,19 @@
             "open": "18-23",
             "address": "Isokatu 25, 90100 Oulu",
             "image": "pic3.jpg",
-            "price": "€€€€"
+            "pricelevel": "€€€€"
+        },
+        {
+            "id": 6,
+            "name": "ABC",
+            "description": [
+                "Just your regular ABC"
+            ],
+            "type": "Casual dining",
+            "open": "24h",
+            "address": "Riihimäki",
+            "image": "pic4.jpg",
+            "pricelevel": "€€"
         }
     ]
 }
