@@ -3,28 +3,39 @@ import styles from './Restaurants.module.css'
 
 export default function Restaurants(props) {
   return (
-    <div className = {styles.Restaurants}>
-      <div><img className = {styles.Photo} src = {`/images/${props.image}`}></img></div>
-      <div>
-        {props.name}
+     
+    <div className = {styles.restaurants}>
+      <div><img className = {styles.photo} src = {`/images/${props.image}`}></img>
+      </div>
+      <div className ={styles.name}>
+       {props.name} 
         </div>
-        <div>
+        {/* <div className={styles.description}>
         {props.description}
-        </div>
+        </div> */}
+        
+        <div className={styles.text}>
         <div>
         {props.type}
         </div>
         <div>
-        {props.open}
-        </div>
-        <div>
-        {props.address}
-        <div>
         {props.pricelevel}
         </div>
+         <div>
+        Open: {props.open}
         </div>
+        {/* <div>
+        {props.address}
+        </div> */}
+        </div>
+        <div className={styles.rating}>
+          {props.rating} 
+        </div>
+        
+    
+      </div>
       
-    </div>
+    
   )
 }
       

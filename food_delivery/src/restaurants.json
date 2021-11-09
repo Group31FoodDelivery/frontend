@@ -10,8 +10,9 @@
             "type": "Fine dining",
             "address": "Rantakatu 4, 90100 Oulu",
             "open": "17-23 ",
-            "image": "Hugo.jpeg",
-            "pricelevel": "€€€€"
+            "image": "hugo.jpeg",
+            "pricelevel": "€€€€",
+            "rating": "5/5"
         },
         {
             "id": 2,
@@ -23,7 +24,8 @@
             "address": "Kirkkokatu 17, 90100 Oulu",
             "open": "10-22",
             "image": "sushi.jpeg",
-            "pricelevel": "€€"
+            "pricelevel": "€€",
+            "rating": "4/5"
         },
         {
             "id": 3,
@@ -34,8 +36,9 @@
             "type": "Fast food",
             "address": "Isokatu 25, 90100 Oulu",
             "open": "10-22",
-            "image": "Combo.png",
-            "pricelevel": "€€"
+            "image": "combo.png",
+            "pricelevel": "€€",
+            "rating": "3.9/5"
         },
         {
             "id": 4,
@@ -47,7 +50,8 @@
             "open": "12-22",
             "address": "Rantakatu 4, 90100 Oulu",
             "image": "pic5.jpg",
-            "pricelevel": "€€€"
+            "pricelevel": "€€€",
+            "rating": "3.5/5"
         },
         {
             "id": 5,
@@ -58,8 +62,9 @@
             "type": "Fine dining",
             "open": "18-23",
             "address": "Isokatu 25, 90100 Oulu",
-            "image": "pic3.jpg",
-            "pricelevel": "€€€€"
+            "image": "alexanderpl.jpg",
+            "pricelevel": "€€€€",
+            "rating": "4.2/5"
         },
         {
             "id": 6,
@@ -70,8 +75,9 @@
             "type": "Casual dining",
             "open": "24h",
             "address": "Riihimäki",
-            "image": "pic4.jpg",
-            "pricelevel": "€€"
+            "image": "pic5.jpg",
+            "pricelevel": "€€",
+            "rating": "5/5"
         }
     ]
 }
