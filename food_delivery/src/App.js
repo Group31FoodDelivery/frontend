@@ -38,7 +38,7 @@ return (
         <Route path="/" element={<FrontPage restaurants={this.state.restaurants.filter( //filters items based on the string value and sends them as props
      (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
-        <Route path="/signin" element={<SignIn/>} />
+        <Route path="/login" element={<SignIn/>} />
 
     
 

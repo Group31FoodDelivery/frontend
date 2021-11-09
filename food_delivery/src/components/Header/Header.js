@@ -1,6 +1,9 @@
 import React from 'react';
 import styles from './Header.module.css';
 import HeaderButton from '../HeaderButton/HeaderButton';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import FrontPage from '../FrontPage/FrontPage';
+import SignIn from '../SignIn/Sign-In'
 
 class Header extends React.Component {
     render ()
@@ -8,13 +11,15 @@ class Header extends React.Component {
         return (
             <div className={styles.Header}>
 
-            <div>YammyGo</div>
+            <Link to="/" style={{textDecoration: 'none'}}><div style={{marginRight: '300px', marginLeft: '20px', color: 'white'}}>YammyGo</div></Link>
             <input type="text" placeholder="Restaurants" className={styles.searchBar}/>
             <button className={styles.searchButton}> search </button>
-            <div>log in</div>
-            <div>Register</div>
+            <Link to="/login" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Log in</div></Link>
+            <Link to="/register" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Register</div></Link>
             
             <button className={styles.button}>Orders</button>
+
+            
             
            
 
