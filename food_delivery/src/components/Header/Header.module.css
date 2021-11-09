@@ -6,7 +6,31 @@
     height: 90px;
     width: 100%;
     display: flex;
-    float: top;
     align-items: center; 
-    justify-content: center;
+}
+
+.button {
+    background-color: crimson; 
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    height: 100%;
+    width: 15%;
+    float: right;
+    }
+
+.searchBar {
+    border-radius: 15px 0 0 15px;
+    width: 200px;
+    height: 50%;
+}
+
+.searchButton{
+    margin-top: 3px;
+    background-color: crimson;
+    color: #fff;
+    border-radius: 0 15px 15px 0;
+    width: 70px;
+    height: 57%;
 }

@@ -2,8 +2,10 @@ import './App.css';
 import Header from './components/Header/Header';
 import SignIn from './components/SignIn/Sign-In';
 import FrontPage from './components/FrontPage/FrontPage';
+import SignUpCustomer from "./components/SignUpCustomer/Sign-Up-Customer";
 import React from 'react';
-import data from './restaurantsMenu.json';
+import data from './restaurants.json';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 class App extends React.Component {
 constructor(props)
@@ -26,11 +28,28 @@ this.setState({itemSearchString: event.target.value})     //puts the given value
 render()
 {
 return (
-  <div className="App">
-  <Header onSearchChange = {this.onSearchChange} itemSearchString = {this.state.itemSearchString}/>
-  <FrontPage restaurants={this.state.restaurants.filter(             //filters items based on the string value and sends them as props
-    (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  
-  </div>
+
+<BrowserRouter>
+    <div className="App">
+   <Header onSearchChange = {this.onSearchChange} itemSearchString = {this.state.itemSearchString}/>
+    </div>
+    <div>
+      <Routes> 
+        <Route path="/" element={<FrontPage restaurants={this.state.restaurants.filter( //filters items based on the string value and sends them as props
+     (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
+        <Route path="/register" element={<SignUpCustomer/>} />
+        <Route path="/signin" element={<SignIn/>} />
+
+    
+
+      </Routes>
+    
+    
+
+   </div>
+</BrowserRouter>
+
+
 );
 }
 }

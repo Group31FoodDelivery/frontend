@@ -8,8 +8,15 @@ class Header extends React.Component {
         return (
             <div className={styles.Header}>
 
-            <div style={{marginRight: '85%'}}>YammyGo</div>
-            <button style={{display:'flex', width:'100px', height:"40px", justifyContent:'center', alignItems:'center', backgroundColor: 'crimson', borderRadius:'15px', marginRight:'20px', color:'white'}}>Front page</button>
+            <div>YammyGo</div>
+            <input type="text" placeholder="Restaurants" className={styles.searchBar}/>
+            <button className={styles.searchButton}> search </button>
+            <div>log in</div>
+            <div>Register</div>
+            
+            <button className={styles.button}>Orders</button>
+            
+           
 
         </div>
         );
