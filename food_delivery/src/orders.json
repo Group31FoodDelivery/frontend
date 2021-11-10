@@ -1,0 +1,31 @@
+{
+    "orders": [
+        {
+            "id": 1,
+            "products": [
+                "Salmon party, Coca Cola"
+            ], 
+            "price": 21, 
+            "deliveryTime": 25,
+            "isDelivered": false
+        },
+        {
+            "id": 2,
+            "products": [
+                "Double Cheese Brgr Meal"
+            ], 
+            "price": 18.90, 
+            "deliveryTime": 30,
+            "isDelivered": false
+        },
+        {
+            "id": 3,
+            "products": [
+                "MENU OF THE WEEK"
+            ], 
+            "price": 58, 
+            "deliveryTime": 50,
+            "isDelivered": false
+        }
+    ]
+}
