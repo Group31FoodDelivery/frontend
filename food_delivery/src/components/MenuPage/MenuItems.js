@@ -8,7 +8,10 @@ export default function MenuPage(props) {
       <div className ={styles.name}>VEGGIE MENU</div>
       <div className={styles.description}>Creamy soup of horn chanterelles with domestic pear,Grilled broccoli, tomato and parmesan
       </div>
-      <div className={styles.price}> $78</div>
+      <div className={styles.bottom}>
+      <div className={styles.price}> € 78</div>
+      <button className={styles.card}>+</button>
+      </div>
 
         </div>
     )}
