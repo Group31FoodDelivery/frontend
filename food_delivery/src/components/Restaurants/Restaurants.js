@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './Restaurants.module.css';
-import MenuPage from '../MenuPage/MenuPage'
+import MenuPage from '../MenuPage/MenuPage';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 export default function Restaurants(props) {
   return (
      
     <div className = {styles.restaurants}>
-      <div><img className = {styles.photo} src = {`/images/${props.image}`}
-      onClick={()=> window.open(<MenuPage/>)}></img>
-      </div>
+      <Link to="/menupages" style={{textDecoration: 'none'}}><div><img className = {styles.photo} src = {`/images/${props.image}`}
+      ></img>
+      </div></Link>
       <div className ={styles.name}>
        {props.name} 
         </div>
