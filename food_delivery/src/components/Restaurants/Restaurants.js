@@ -1,11 +1,13 @@
-import React from 'react'
-import styles from './Restaurants.module.css'
+import React from 'react';
+import styles from './Restaurants.module.css';
+import MenuPage from '../MenuPage/MenuPage'
 
 export default function Restaurants(props) {
   return (
      
     <div className = {styles.restaurants}>
-      <div><img className = {styles.photo} src = {`/images/${props.image}`}></img>
+      <div><img className = {styles.photo} src = {`/images/${props.image}`}
+      onClick={()=> window.open(<MenuPage/>)}></img>
       </div>
       <div className ={styles.name}>
        {props.name} 

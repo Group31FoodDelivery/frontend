@@ -1,6 +1,7 @@
 import React from 'react';
 import MenuHeader from './HeaderParallax';
-import styles from './MenuPage.module.css'
+import styles from './MenuPage.module.css';
+import MenuItems from './MenuItems'
 
 export default function MenuPage(props) {
     return (
@@ -22,7 +23,7 @@ export default function MenuPage(props) {
       </div>
 
       <div className={styles.menuContainer}>
-       
+      <MenuItems/>
       </div>
       </div>  
        
