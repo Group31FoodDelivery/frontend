@@ -11,18 +11,16 @@ class App extends React.Component {
 constructor(props)
 {
   super(props)
-  this.state =  { restaurants: data.restaurants,  //Saves data from the json file in an array
+  this.state =  { 
+    restaurants: data.restaurants,  //Saves data from the json file in an array
     itemSearchString: "",             //String that is modified according to the given value on the search bar
     selectedItem: ""
-
-    
-    
 }
 
 }
 
 onSearchChange = (event) => {                              //handles the event when something is typed on the search bar
-this.setState({itemSearchString: event.target.value})     //puts the given value into the string
+this.setState({itemSearchString: event.target.value});     //puts the given value into the string
 }
 
 render()
@@ -31,7 +29,7 @@ return (
 
 <BrowserRouter>
     <div className="App">
-   <Header onSearchChange = {this.onSearchChange} itemSearchString = {this.state.itemSearchString}/>
+   <Header itemSearchString = {this.state.itemSearchString} onSearchChange = {this.onSearchChange} />
     </div>
     <div>
       <Routes> 

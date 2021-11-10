@@ -19,6 +19,12 @@ class SignUpCustomer extends React.Component {
                 <div style={{marginTop: '20px'}}></div>
 
                 <input type="text" placeholder="Password" style={{borderRadius: '15px', height: '30px', marginLeft: '220px'}}/>
+
+                <div style={{marginTop: '20px', marginLeft: '20px'}}>
+                    Check this box if you want to register as a manager!
+                    <input type="checkbox" style={{marginLeft: '10px'}}/>
+                </div>
+                
                 <button style={{display:'flex', width:'400px', height:"40px", justifyContent:'center', alignItems:'center', backgroundColor: '#cc2255', borderRadius:'15px', marginTop: '20px', marginLeft: '17.5%', marginBottom: '40px'}}>Register</button>
             </div>
         );
