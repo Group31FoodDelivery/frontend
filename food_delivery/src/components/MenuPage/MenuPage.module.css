@@ -1,0 +1,40 @@
+/* Header */
+.header{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:center;
+    line-height: 1.6;
+    padding-top:2%;
+    
+}
+
+.name{
+    color: white;
+    font-weight: bold;
+    font-size: 40px;
+    /* -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black; */
+}
+.description{ 
+    color:white;
+    font-weight: bold;
+    font-size: 20px;
+    /* -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    */
+}
+
+.restaurantInfo{
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-end;
+    padding-right: 2%;
+    color:white;
+    font-weight: bold;
+    
+}
+/* .address,.type{ 
+    color:white;
+} */

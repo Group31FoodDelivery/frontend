@@ -1,0 +1,218 @@
+// *******Menu Restaurant id:1 Hugo******
+{
+    "menu": [
+        {
+            "id": 1,
+            "name": "VEGGIE MENU",
+            "description": [
+                "Creamy soup of horn chanterelles with domestic pear",
+                "Grilled broccoli, tomato and parmesan",
+                "Butternut squash and goat cheese",
+                "Cep risotto",
+                "Croquette of white beans seasoned with parsley and garlic, Jerusalem artichoke and hollandaise of browned butter",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 78,
+            "image": "Hugo-Veggie.png",
+        },
+        {
+            "id": 2,
+            "name": "MENU HUGO",
+            "description": [
+                "Creamy soup of horn chanterelles with domestic pear",
+                "Local pike perch, salsify and sauce of smoked butter",
+                "Buttercup squash and confit of wild duck leg",
+                "Cep risotto",
+                "Sirloin of wild deer, parsnip and lingonberry",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 78,
+            "image": "Hugo.jpeg",
+        },
+        {
+            "id": 3,
+            "name": "MENU OF THE WEEK",
+            "description": [
+                "Creamy soup of horn chanterelles, pear and black currant",
+                "Grilled pike perch, Jerusalem artichoke and smoked butter – sauce",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 58,
+            "image": "Hugo.jpeg",
+        },
+        {
+            "id": 4,
+            "name": "Cheese assortment for the menu",
+            "description": [
+                "Delicious cheese from France and Italy"
+            ],
+            "price": 14,
+            "image": "picture.png",
+        },
+        {
+            "id": 5,
+            "name": "Wine package for the menu",
+            "description": [
+                "Red and white semidry wine from France and Italy"
+            ],
+            "price": 60,
+            "image": ,
+        }
+    ]
+}
+// *******Menu Restaurant id:2 Luckiefun's Sushi Buffet Oulu******
+{
+    "Menu": [
+        {
+            "id": 1,
+            "name": "Salmon Party",
+            "description": [
+                "8 x shake, 8 x shake yaki (unagikastike), wakame salad, inkivääri"
+            ],
+            "price": 18,
+            "image": "salmon.png",
+        },
+        {
+            "id": 2,
+            "name": "Veggie Explosion",
+            "description": [
+                "5 x avokado, 2 x inari, 2 x corn mayo gunkan, 1 x mushroom mayo gunkan",
+                "2 x pulled-oats mayo gunkan, 6 x kappamaki, wakame salad, wasabi, inkivääri"
+            ],
+            "price": 15,
+            "image": "Veggie.png",
+        },
+        {
+            "id": 3,
+            "name": "Salmon Waltz",
+            "description": [
+                "2 x shake"
+            ],
+            "price": 3.50,
+            "image": "Salmon-W.png",
+        },
+        {
+            "id": 4,
+            "name": "Coca-cola 0,25l",
+            "description": [
+                ""
+            ],
+            "price": 3,
+            "image": "Coca-cola.png",
+        },
+        {
+            "id": 5,
+            "name": "Jaffa 0,33 l",
+            "description": [
+                ""
+            ],
+            "price": 3,
+            "image": "Jaffa.png",
+        }
+    ]
+}
+// *******Menu Restaurant id:3 Friends & Brgrs Oulu******
+{
+    "id": 1,
+    "name": "First timer Combo",
+    "description": [
+        "Double Cheese-ateria Topped fries-ranskalaisilla ja juomalla sekä valitsemasi Jymy Luomujäätelö (500ml)."
+    ],
+    "price": 28,
+    "image": "Combo.png",
+},
+{
+    "id": 2,
+    "name": "Double Cheese Brgr Meal",
+    "description": [
+        "Kaksi tuoretta naudanlihapihviä, Koskenlaskija cheddarjuustoa,",
+        "Friends-majoneesia, jääsalaattia ja sipulia. Lisäksi ranskalaiset ja valitsemasi juoma."
+    ],
+    "price": 18.90,
+    "image": "Cheese.png",
+},
+{
+    "id": 3,
+    "name": "Friend's Caesar-kanasalaatti",
+    "description": [
+        "Friend's Caesar -salaatti kanafileellä. Sisältää kananmunaa, gluteenia ja laktoosia. Ei sisällä kalaa."
+    ],
+    "price": 11,
+    "image": "Salad.png",
+},
+{
+    "id": 4,
+    "name": "Coca-cola 0,25l",
+    "description": [
+        ""
+    ],
+    "price": 3,
+    "image": "Coca-cola.png",
+},
+{
+    "id": 5,
+    "name": "Jaffa 0,33 l",
+    "description": [
+        ""
+    ],
+    "price": 3,
+    "image": "Jaffa.png",
+}
+// *******Menu Restaurant id:4 M6 Oulu******
+{
+    "id": 1,
+    "name": "Tower Burger & fries",
+    "description": [
+        "yummy"
+    ],
+    "price": "15€",
+    "image": "tower.jpg"
+},
+{
+    "id": 2,
+    "name": "Kebab pizza",
+    "description": [
+        "Best pizza"
+    ],
+    "price": "9.50€",
+    "image": "kebabp.jpg"
+},
+{
+    "id": 3,
+    "name": "Cola",
+    "description": [
+        "Tons of sugar"
+    ],
+    "price": "4€",
+    "image": "cola.png"
+},
+// *******Menu Restaurant id:4 Le french restaurant******
+{
+    "id": 1,
+    "name": "Bunch of snails",
+    "description": [
+        "yummy"
+    ],
+    "price": "50€",
+    "image": "snails.jpg"
+},
+{
+    "id": 2,
+    "name": "Ratatouille",
+    "description": [
+        "Just like mother used to make"
+    ],
+    "price": "70€",
+    "image": "ratat.jpg"
+},
+{
+    "id": 3,
+    "name": "Chateu lateau 1956",
+    "description": [
+        "Quite nice",
+        "very pog"
+    ],
+    "price": "300€",
+    "image": "wine.png"
+}
+]

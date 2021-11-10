@@ -1,0 +1,83 @@
+{
+    "restaurants": [
+        {
+            "id": 1,
+            "name": "Hugo",
+            "description": [
+                "Keittiömme loihtii hyvää lihasta, kalasta ja kasviksista raaka-ainelähtöisesti.",
+                "Tarjolla on erinomaista ruokaa kaudelle ominaisista aineksista, jotka saamme läheltä meitä järkevästi ja vastuullisesti."
+            ],
+            "type": "Fine dining",
+            "address": "Rantakatu 4, 90100 Oulu",
+            "open": "17-23 ",
+            "image": "hugo.jpeg",
+            "pricelevel": "€€€€",
+            "rating": "5/5"
+        },
+        {
+            "id": 2,
+            "name": "Luckiefun's Sushi Buffet Oulu",
+            "description": [
+                "Tuoretta ja laadukasta sushia"
+            ],
+            "type": "Buffet",
+            "address": "Kirkkokatu 17, 90100 Oulu",
+            "open": "10-22",
+            "image": "sushi.jpeg",
+            "pricelevel": "€€",
+            "rating": "4/5"
+        },
+        {
+            "id": 3,
+            "name": "Friends & Brgrs Oulu",
+            "description": [
+                "Hampurilaisia ja ranskalaisia alusta asti itse tehtynä."
+            ],
+            "type": "Fast food",
+            "address": "Isokatu 25, 90100 Oulu",
+            "open": "10-22",
+            "image": "combo.png",
+            "pricelevel": "€€",
+            "rating": "3.9/5"
+        },
+        {
+            "id": 4,
+            "name": "M6",
+            "description": [
+                "Comfy restaurant"
+            ],
+            "type": "Casual dining",
+            "open": "12-22",
+            "address": "Rantakatu 4, 90100 Oulu",
+            "image": "pic5.jpg",
+            "pricelevel": "€€€",
+            "rating": "3.5/5"
+        },
+        {
+            "id": 5,
+            "name": "Le french restaurant",
+            "description": [
+                "High quality"
+            ],
+            "type": "Fine dining",
+            "open": "18-23",
+            "address": "Isokatu 25, 90100 Oulu",
+            "image": "alexanderpl.jpg",
+            "pricelevel": "€€€€",
+            "rating": "4.2/5"
+        },
+        {
+            "id": 6,
+            "name": "ABC",
+            "description": [
+                "Just your regular ABC"
+            ],
+            "type": "Casual dining",
+            "open": "24h",
+            "address": "Riihimäki",
+            "image": "pic5.jpg",
+            "pricelevel": "€€",
+            "rating": "5/5"
+        }
+    ]
+}
