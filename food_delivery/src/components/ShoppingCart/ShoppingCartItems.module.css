@@ -1,4 +1,5 @@
 .shoppingCartItems{
+
     width: 400px;
     height: 100px;
     display: flex;
@@ -13,6 +14,7 @@
     height: 100px;
 }
 .infoArea{
+
     display: flex;
     flex-direction: column;
     width: 310px;
@@ -20,8 +22,7 @@
 
 }
 .itemsUp{
-    white-space: nowrap; /* or `pre` */
-  overflow: hidden;
+
     display: flex;
     margin-left: 10px;
     margin-top: 5px;
@@ -32,19 +33,31 @@
 .itemsDown{
 
     display: flex;
-    gap: 180px;
     align-items: flex-end;
     margin-left: 10px;
     width: 310px;
     height: 50px;
 }
 .addMore{
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
     border-radius: 20px;
+    margin-left: 160px;
     height: 20px;
     width: 50px;
     background-color:#CC2255;
+}
+
+.price{
+
+  width: 50px; 
+  margin-bottom: 10px;
+  white-space: nowrap; 
+  overflow: visible;
+  text-overflow: ellipsis; 
+  
 }
 
 .photo{
