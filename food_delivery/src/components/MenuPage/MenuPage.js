@@ -23,8 +23,9 @@ export default function MenuPage(props) {
       </div>
 
       <div className={styles.menuContainer}>
-      <MenuItems/>
-      </div>
+           {props.restaurants.map(restaurants => <MenuItems key={restaurants.id.menu} {...restaurants}/>)} {/*go through the json array and send ONE new array per component*/}
+        </div>
+
       </div>  
        
     )}
