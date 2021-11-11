@@ -46,10 +46,20 @@ height: auto;
     height: auto;
 }
 
-.price{
+.checkout{
 
-    width: 500px;
-    height: 100px;
-    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 85%;
+    margin-bottom: 20px;
+    background-color: #CC2255;
+    color: white;
+    font-weight: 500;
+    font-size: 18px;
+    border-radius: 20px;
+    width: 142px;
+    height: 52px;
 }
+
 
