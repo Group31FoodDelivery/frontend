@@ -38,7 +38,7 @@ return (
      (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/login" element={<SignIn/>} /> 
-        <Route path="/menupages" element={<MenuPage/>} />
+        <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
 
     
 
