@@ -4,9 +4,11 @@ import SignIn from './components/SignIn/Sign-In';
 import FrontPage from './components/FrontPage/FrontPage';
 import SignUpCustomer from "./components/SignUpCustomer/Sign-Up-Customer";
 import MenuPage from './components/MenuPage/MenuPage';
+import CreateRestaurant from './components/CreateRestaurant/CreateRestaurant'
 import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends React.Component {
 constructor(props)
@@ -39,6 +41,7 @@ return (
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/login" element={<SignIn/>} /> {/* here should be <SignIn/> */}
         <Route path="/menupages" element={<MenuPage/>} />
+        <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
 
     
 
