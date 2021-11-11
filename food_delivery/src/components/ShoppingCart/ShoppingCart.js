@@ -18,8 +18,6 @@ class ShoppingCart extends React.Component {
                     <div><ShoppingCartItems/></div>
                     <div><ShoppingCartItems/></div>
                     <div><ShoppingCartItems/></div>
-                    <div><ShoppingCartItems/></div>
-                    <div><ShoppingCartItems/></div>
                 </div>
                <div style={{marginTop: "50px", fontSize: "18px"}}>Total</div>
                <div style={{marginBottom: "25px", fontSize: "20px", fontWeight: "500"}}>50.00€</div>
