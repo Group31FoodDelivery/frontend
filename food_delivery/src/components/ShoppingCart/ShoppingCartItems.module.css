@@ -1,0 +1,57 @@
+.shoppingCartItems{
+    width: 400px;
+    height: 100px;
+    display: flex;
+    border-bottom: 1.5px solid #DCDCDC;
+    }
+
+.photoArea{
+    
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 100px;
+}
+.infoArea{
+    display: flex;
+    flex-direction: column;
+    width: 310px;
+    height: 100px;
+
+}
+.itemsUp{
+    white-space: nowrap; /* or `pre` */
+  overflow: hidden;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 5px;
+    font-weight: 500;
+    width: 310px;
+    height: 50px;
+}
+.itemsDown{
+
+    display: flex;
+    gap: 180px;
+    align-items: flex-end;
+    margin-left: 10px;
+    width: 310px;
+    height: 50px;
+}
+.addMore{
+
+    margin-bottom: 10px;
+    border-radius: 20px;
+    height: 20px;
+    width: 50px;
+    background-color:#CC2255;
+}
+
+.photo{
+
+    height: 81px;
+    width: 96px;
+    align-self: flex-start;
+    border-radius: 20px;
+
+}

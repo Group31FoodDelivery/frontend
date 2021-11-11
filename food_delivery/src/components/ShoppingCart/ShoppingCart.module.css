@@ -1,0 +1,55 @@
+.column{
+
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    margin-left: 35%;
+    margin-top: 30px;
+    align-items: center;
+    border-radius: 20px;
+    width: 500px;
+    height: auto;
+  
+   
+}
+
+.topBar{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CC2255;
+    border-top-left-radius:2em;
+    border-top-right-radius:2em;
+    font-weight: 500;
+    color: white;
+    width: 500px;
+    height: 50px;
+}
+
+.container{
+
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-top: 20px;
+height: auto;
+
+}
+
+.shoppingCart{
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: auto;
+}
+
+.price{
+
+    width: 500px;
+    height: 100px;
+    background-color: red;
+}
+
