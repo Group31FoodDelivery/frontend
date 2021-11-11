@@ -1,31 +1,38 @@
-{
-    "orders": [
+ [
         {
             "id": 1,
+            "restaurant":"M6", 
             "products": [
                 "Salmon party, Coca Cola"
-            ], 
+            ],
+            "date":"22.10.2021",
             "price": 21, 
-            "deliveryTime": 25,
+            "delivery": "Order recived",
+            "time":"",
             "isDelivered": false
         },
         {
             "id": 2,
+            "restaurant":"Friends & Brgrs Oulu", 
             "products": [
                 "Double Cheese Brgr Meal"
             ], 
+            "date":"22.10.2021",
             "price": 18.90, 
-            "deliveryTime": 30,
+            "delivery": "Delivering",
+            "time":"10-15 min",
             "isDelivered": false
         },
         {
             "id": 3,
+            "restaurant":"Hugo", 
             "products": [
                 "MENU OF THE WEEK"
             ], 
+            "date":"22.03.2021",
             "price": 58, 
-            "deliveryTime": 50,
+            "delivery": "Delivered",
+            "time":"",
             "isDelivered": false
         }
     ]
-}
