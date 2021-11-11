@@ -12,8 +12,62 @@
             "open": "17-23 ",
             "image": "hugo.jpeg",
             "pricelevel": "€€€€",
-            "rating": "5/5"
+            "rating": "5/5",
+            "menu":[
+                {
+                "id": 1,
+                "name": "VEGGIE MENU",
+                "description": [
+                "Creamy soup,Grilled broccoli, tomato and parmesan",
+                "Butternut squash and goat cheese,Cep risotto",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 78,
+            "image": "hugo.jpeg"
         },
+        {
+            "id": 2,
+            "name": "MENU HUGO",
+            "description": [
+                "Creamy soup, Local pike perch and sauce of smoked butter",
+                "Buttercup squash and confit of wild duck leg",
+                "Cep risotto",
+                "Sirloin of wild deer, parsnip and lingonberry"
+            ],
+            "price": 78,
+            "image": "hugo2.jpeg"
+        },
+        {
+            "id": 3,
+            "name": "MENU OF THE WEEK",
+            "description": [
+                "Creamy soup,Grilled pike perch,", 
+                "Jerusalem artichoke and smoked butter – sauce",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 58,
+            "image": "hugo.jpeg"
+        },
+        {
+            "id": 4,
+            "name": "Cheese assortment for the menu",
+            "description": [
+                "Delicious cheese from France and Italy"
+            ],
+            "price": 14,
+            "image": "cheese.jpeg"
+        },
+        {
+            "id": 5,
+            "name": "Wine package for the menu",
+            "description": [
+                "Red and white semidry wine from France and Italy"
+            ],
+            "price": 60,
+            "image": "wine.jpeg"
+        }
+        ]
+            },
         {
             "id": 2,
             "name": "Luckiefun's Sushi Buffet Oulu",
