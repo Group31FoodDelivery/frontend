@@ -8,17 +8,22 @@ import CreateRestaurant from './components/CreateRestaurant/CreateRestaurant';
 import CustomerOrders from './components/CustomerOrders/CustomerOrders';
 import React from 'react';
 import data from './restaurants.json';
+import menuData from './menu.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 class App extends React.Component {
+
 constructor(props)
 {
   super(props)
   this.state =  { 
     restaurants: data.restaurants,  //Saves data from the json file in an array
     itemSearchString: "",             //String that is modified according to the given value on the search bar
-    selectedItem: ""
+    selectedItem: "",
+    menus: menuData.menu.map(menu => {
+      return { ...menu, menuId: uuidv4()}
+    })
 }
 
 }
@@ -42,7 +47,9 @@ return (
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
         <Route path="/login" element={<SignIn/>} /> 
-        <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
+        <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>}>
+          <Route path=":menuId" element={ <MenuPage menus={ menus }/> } />
+        </Route>
         <Route path="/orders" element={<CustomerOrders/>} /> 
     
 

@@ -1,65 +1,64 @@
 // *******Menu Restaurant id:1 Hugo******
 {
-    "menu": [
+    "menus": [
         {
-            "id": 1,
-            "name": "VEGGIE MENU",
-            "description": [
-                "Creamy soup of horn chanterelles with domestic pear",
-                "Grilled broccoli, tomato and parmesan",
-                "Butternut squash and goat cheese",
-                "Cep risotto",
-                "Croquette of white beans seasoned with parsley and garlic, Jerusalem artichoke and hollandaise of browned butter",
-                "Sea buckthorn berry and milk chocolate"
+            "menuName": "Hugo",
+            "menu": [{
+                "menuItem": [{
+                    "name": "VEGGIE MENU",
+                    "description": [
+                        "Creamy soup of horn chanterelles with domestic pear",
+                        "Grilled broccoli, tomato and parmesan",
+                        "Butternut squash and goat cheese",
+                        "Cep risotto",
+                        "Croquette of white beans seasoned with parsley and garlic, Jerusalem artichoke and hollandaise of browned butter",
+                        "Sea buckthorn berry and milk chocolate"
             ],
-            "price": 78,
-            "image": "Hugo-Veggie.png",
-        },
-        {
-            "id": 2,
-            "name": "MENU HUGO",
-            "description": [
-                "Creamy soup of horn chanterelles with domestic pear",
-                "Local pike perch, salsify and sauce of smoked butter",
-                "Buttercup squash and confit of wild duck leg",
-                "Cep risotto",
-                "Sirloin of wild deer, parsnip and lingonberry",
-                "Sea buckthorn berry and milk chocolate"
-            ],
-            "price": 78,
-            "image": "Hugo.jpeg",
-        },
-        {
-            "id": 3,
-            "name": "MENU OF THE WEEK",
-            "description": [
-                "Creamy soup of horn chanterelles, pear and black currant",
-                "Grilled pike perch, Jerusalem artichoke and smoked butter – sauce",
-                "Sea buckthorn berry and milk chocolate"
-            ],
-            "price": 58,
-            "image": "Hugo.jpeg",
-        },
-        {
-            "id": 4,
-            "name": "Cheese assortment for the menu",
-            "description": [
-                "Delicious cheese from France and Italy"
-            ],
-            "price": 14,
-            "image": "picture.png",
-        },
-        {
-            "id": 5,
-            "name": "Wine package for the menu",
-            "description": [
-                "Red and white semidry wine from France and Italy"
-            ],
-            "price": 60,
-            "image": ,
-        }
-    ]
-}
+                    "price": 78,
+                    "image": "Hugo-Veggie.png"
+                }],
+                "menuItem": [{
+                    "name": "MENU HUGO",
+                    "description": [
+                        "Creamy soup of horn chanterelles with domestic pear",
+                        "Local pike perch, salsify and sauce of smoked butter",
+                        "Buttercup squash and confit of wild duck leg",
+                        "Cep risotto",
+                        "Sirloin of wild deer, parsnip and lingonberry",
+                        "Sea buckthorn berry and milk chocolate"
+                    ],
+                    "price": 78,
+                    "image": "Hugo.jpeg"
+                }],
+                "menuItem": [
+                    {
+                        "name": "MENU OF THE WEEK",
+                        "description": [
+                            "Creamy soup of horn chanterelles, pear and black currant",
+                            "Grilled pike perch, Jerusalem artichoke and smoked butter – sauce",
+                            "Sea buckthorn berry and milk chocolate"
+                        ],
+                        "price": 58,
+                        "image": "Hugo.jpeg"
+                    }],
+                "menuItem": [{
+                    "name": "Cheese assortment for the menu",
+                    "description": [
+                        "Delicious cheese from France and Italy"
+                    ],
+                    "price": 14,
+                    "image": "picture.png"
+                }],
+                "menuItem": [{
+                    "name": "Wine package for the menu",
+                    "description": [
+                        "Red and white semidry wine from France and Italy"
+                    ],
+                    "price": 60,
+                    "image": ""
+                }]
+            
+        }]},
 // *******Menu Restaurant id:2 Luckiefun's Sushi Buffet Oulu******
 {
     "Menu": [
