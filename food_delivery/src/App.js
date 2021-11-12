@@ -6,7 +6,6 @@ import SignUpCustomer from "./components/SignUpCustomer/Sign-Up-Customer";
 import MenuPage from './components/MenuPage/MenuPage';
 import CreateRestaurant from './components/CreateRestaurant/CreateRestaurant';
 import CustomerOrders from './components/CustomerOrders/CustomerOrders';
-import MenuPage from "./components/MenuPage/MenuPage";
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
 import React from 'react';
 import data from './restaurants.json';
