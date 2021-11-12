@@ -21,7 +21,7 @@ export default function ShoppingCartItems() {
             <div className = {styles.infoArea}>
             <div className = {styles.itemsUp}>
                 <div style = {{marginRight: "170px"}}>A plate of food</div>     {/*Name of the order*/}
-                <div style = {{color: '#CC2255'}}>X</div>                       {/*Remove item button*/}
+               <button className = {styles.removeButton}>X</button>                      {/*Remove item button*/}
             </div>
             <div className = {styles.itemsDown}>
                 <div className = {styles.price}>10.00€</div>                    {/*Price*/}
