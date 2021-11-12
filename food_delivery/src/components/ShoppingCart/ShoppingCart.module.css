@@ -1,6 +1,19 @@
+.title{
+       
+    background-color: white;
+    width: 100%;
+    height:90px;
+    margin-top:-19px;
+}
+
+h1{ 
+
+    margin-left: 5%;
+
+}
+    
 .column{
 
-    background-color: white;
     display: flex;
     flex-direction: column;
     margin-left: 35%;
@@ -36,15 +49,6 @@ align-items: center;
 margin-top: 20px;
 height: auto;
 
-}
-
-.shoppingCart{
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 500px;
-    height: auto;
 }
 
 .checkout{

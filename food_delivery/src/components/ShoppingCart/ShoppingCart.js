@@ -7,12 +7,13 @@ class ShoppingCart extends React.Component {
     render () {
         return (
             <div>
+            <div className = {styles.title}><h1>Shopping cart</h1></div>
             <div className = {styles.column}>                                       
             <div className = {styles.topBar}>
             Your orders
             </div>
             <div className={styles.container}>
-                <div className={styles.shoppingCart}>                                  {/*Creates shopping cart items*/}
+                <div>                                           {/*Creates shopping cart items*/}
                     <div><ShoppingCartItems/></div>
                     <div><ShoppingCartItems/></div>
                     <div><ShoppingCartItems/></div>

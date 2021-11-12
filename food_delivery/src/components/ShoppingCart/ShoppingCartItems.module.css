@@ -3,7 +3,7 @@
     width: 400px;
     height: 100px;
     display: flex;
-    border-bottom: 1.5px solid #DCDCDC;
+    border-bottom: 2px solid #DCDCDC;
     }
 
 .photoArea{
@@ -35,36 +35,51 @@
     display: flex;
     align-items: flex-end;
     margin-left: 10px;
-    width: 310px;
     height: 50px;
 }
+
+.price{
+
+    width: 50px; 
+    margin-bottom: 10px;
+    white-space: nowrap; 
+    overflow: visible;
+    text-overflow: ellipsis; 
+    
+  }
+  
+  .photo{
+  
+      height: 81px;
+      width: 96px;
+      align-self: flex-start;
+      border-radius: 20px;
+  
+  }
+  
 .addMore{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 10px;
     border-radius: 20px;
-    margin-left: 160px;
-    height: 20px;
-    width: 50px;
+    margin-left: 6px;
+    height: 21px;
+    width: 45px;
     background-color:#CC2255;
 }
 
-.price{
+.buttonMinus{
 
-  width: 50px; 
-  margin-bottom: 10px;
-  white-space: nowrap; 
-  overflow: visible;
-  text-overflow: ellipsis; 
-  
+    width: 20px;
+    height: 20px;
+    margin-bottom: 7px;
+    margin-left: 110px;
 }
+.buttonPlus{
 
-.photo{
-
-    height: 81px;
-    width: 96px;
-    align-self: flex-start;
-    border-radius: 20px;
-
+    width: 20px;
+    height: 20px;
+    margin-bottom: 7px;
+    margin-left: 6px;
 }
