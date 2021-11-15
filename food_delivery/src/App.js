@@ -6,7 +6,8 @@ import SignUpCustomer from "./components/SignUpCustomer/Sign-Up-Customer";
 import MenuPage from './components/MenuPage/MenuPage';
 import CreateRestaurant from './components/CreateRestaurant/CreateRestaurant';
 import CustomerOrders from './components/CustomerOrders/CustomerOrders';
-import ShoppingCart from "./components/ShoppingCart/ShoppingCart";
+import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
+import CreateMenu from "./components/CreateMenu/CreateMenu"
 import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
 import React from 'react';
 import data from './restaurants.json';
@@ -47,6 +48,7 @@ return (
         <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
+        <Route path="/createmenu" element={<CreateMenu/>} /> 
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
     
 
