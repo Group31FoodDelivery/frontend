@@ -30,7 +30,7 @@ function RestaurantOrders(){
             <table className={styles.table}>
                 <thead>
                     <tr>
-                    <th colspan="7"> Restaurant orders</th>
+                    <th colspan="6"> Restaurant orders</th>
                     </tr>
                     <tr>
                     <th className={styles.restaurantName} colspan="7"> <h4>Friends and Burgers Oulu</h4> </th>
