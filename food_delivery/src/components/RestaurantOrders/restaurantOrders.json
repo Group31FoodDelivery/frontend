@@ -1,0 +1,54 @@
+[{
+    "id":1,
+    "name": "Matt Johnson",
+    "status":"State",
+    "address": "Cool street 3, Fancy Town",
+    "phone":"+3581233451",
+    "date":"12.12.2020",
+    "picture":"tower.jpg",
+    "title":"Very big burger",
+    "number":"x2",
+    "price":"9.90"
+},
+{
+    "id":2,
+    "name": "Wendy Smith",
+    "status":"Delivered",
+    "date":"10.12.2020",
+    "picture":"coca-cola.png",
+    "title":"Coca-cola",
+    "number":"x2",
+    "price":"3"
+},
+{
+    "id":3,
+    "name": "Jackie Chan",
+    "status":"Preparing",
+    "date":"10.12.2020",
+    "picture":"kebabp.jpg",
+    "title":"Pizza Kebab",
+    "number":"x1",
+    "price":"11.50"
+},
+{
+    "id":4,
+    "name": "Tuula Hopeavuori",
+    "status":"Delivered",
+    "date":"11.12.2020",
+    "picture":"jaffa.png",
+    "title":"Jaffa",
+    "number":"x2",
+    "price":"3"
+},
+{
+
+    "id":5,
+    "name": "Seppo Taalasmaa",
+    "date":"11.12.2020",
+    "status":"Delivered",
+    "picture":"",
+    "title":"",
+    "number":"",
+    "price":""
+}
+]

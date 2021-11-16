@@ -1,0 +1,93 @@
+.title{
+    
+    display: flex;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    height:90px;
+   
+}
+
+h1{ 
+
+    margin-left: 5%;
+
+}
+
+.column{
+
+background-color: white;
+display: flex;
+flex-direction: column;
+gap: 30px;
+align-items: center;
+width: 600px;
+height: 640px;
+border-radius: 20px;
+margin-left: 30%;
+margin-top: 20px;
+margin-bottom: 20px;
+box-shadow:     0      10px      10px       rgb(135, 135, 135);
+
+}
+
+.topBar{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CC2255;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    font-weight: 500;
+    color: white;
+    width: 600px;
+    height: 50px;
+
+}
+
+.select{
+
+    margin-top: 20px;
+    background-color: #F3F3F3;
+    border-radius: 15px;
+    height: 30px;
+    width: 165px;
+    padding-left: 10px; 
+}
+.textField{
+
+    background-color: #F3F3F3;
+    border: 2px solid #DCDCDC;
+    border-radius: 20px; 
+    height: 30px;
+    width: 150px;
+    padding-left: 10px; 
+    
+}
+
+.createMenu {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+}
+.createButton {
+
+    background-color: #CC2255;
+    color: white;
+    border-radius: 20px;
+    width: 150px;
+    height: 30px;
+    border: none;
+
+}
+textarea{
+
+    border-radius: 20px; 
+    padding-left: 10px; 
+    padding-left: 10px; 
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+}

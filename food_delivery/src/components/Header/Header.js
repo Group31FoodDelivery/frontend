@@ -22,7 +22,9 @@ class Header extends React.Component {
             <Link to="/login" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Log in</div></Link>
             <Link to="/register" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Register</div></Link>
             
-            <button className={styles.button}>Orders</button>
+            <Link to="/orders" style={{textDecoration: 'none',backgroundColor: '#cc2255',textAlign: 'center',
+    fontSize: '16px', height: '100%',width: '15%', marginLeft: 'auto'}}>
+                <button className={styles.button}>Orders</button></Link>
 
             
             
