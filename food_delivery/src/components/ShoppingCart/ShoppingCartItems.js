@@ -4,13 +4,6 @@ import img from './images/food.jpg'
 import minus from'./images/minus.png'
 import plus from'./images/plus.png'
 
-
- /*UI still needs:
-
- -add and remove button
- 
- */
-
 export default function ShoppingCartItems() {
     return (
         <div className = {styles.shoppingCartItems}>

@@ -17,8 +17,8 @@ class Header extends React.Component {
             <div className={styles.Header}>
 
             <Link to="/" style={{textDecoration: 'none'}}><div style={{marginRight: '300px', marginLeft: '20px', color: 'white'}}>YammyGo</div></Link>
-            <input type="text" placeholder="Restaurants" className={styles.searchBar} onChange={this.props.onSearchChange} value={this.props.itemSearchString}/>
-            <button className={styles.searchButton}> search </button>
+            <input type="text" placeholder="Search restaurants..." className={styles.searchBar} onChange={this.props.onSearchChange} value={this.props.itemSearchString}/>
+            <button className={styles.searchButton}> Search </button>
             <Link to="/login" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Log in</div></Link>
             <Link to="/register" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Register</div></Link>
             
