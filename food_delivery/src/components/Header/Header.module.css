@@ -24,6 +24,9 @@
     border-radius: 15px 0 0 15px;
     width: 400px;
     height: 50%;
+    padding-left: 10px;
+    border: none;
+    
 }
 
 .searchButton{
@@ -32,6 +35,8 @@
     color: #fff;
     border-radius: 0 15px 15px 0;
     width: 70px;
-    height: 57%;
+    height: 52%;
     margin-right: 100px;
+    margin-bottom: 3px;
+    border: none;
 }
