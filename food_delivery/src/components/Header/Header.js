@@ -24,6 +24,7 @@ class Header extends React.Component {
             <button className={styles.searchButton}> Search </button>
             <Link to="/login" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Log in</div></Link>
             <Link to="/register" style={{textDecoration: 'none'}}><div style={{marginRight: '50px', color: 'white'}}>Register</div></Link>
+<<<<<<< HEAD
             <Link to="/shoppingcart" className = {styles.buttonContainer}>
             <button className = {styles.shoppingcartButton}>
             <img className = {styles.icon} src = "images/Cart.png"></img>
@@ -31,6 +32,17 @@ class Header extends React.Component {
                 Empty 
             </div>
             </button></Link>             
+=======
+            
+            <Link to="/orders" style={{textDecoration: 'none',backgroundColor: '#cc2255',textAlign: 'center',
+    fontSize: '16px', height: '100%',width: '15%', marginLeft: 'auto'}}>
+                <button className={styles.button}>Orders</button></Link>
+
+            
+            
+           
+
+>>>>>>> e68f7db4737691eddd283a967a10916bbc1e9d7d
         </div>
         );
     }
