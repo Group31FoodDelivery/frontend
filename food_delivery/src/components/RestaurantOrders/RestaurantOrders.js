@@ -6,56 +6,45 @@ function RestaurantOrders(){
     const CustomerOrders=data.map(
         (data)=>{
             return(
-        
-        
-                <tr>
-                   
-                    <td className={styles.title}><img className = {styles.photo} src = {`/images/${data.picture}`} alt=""></img></td>
-                    <td className = {styles.title}>{data.title}</td>
-                    <td className = {styles.number}>{data.number}</td>
-                    <td className = {styles.price}>€{data.price}</td>
-                </tr>
-                /* <tr>
-                     <td className={styles.name}>{data.name}</td>
-                     <td className={styles.date}>{data.date}
-                     <button className={styles.status}>{data.status}</button></td>   */
+             <div className={styles.customerOrders}>
+    
+             <div className={styles.infoCustomer}>
+              <div className={styles.name}><b>{data.name}</b></div>
+              <div className={styles.btnData}>
+              <div className={styles.date}><b>{data.date}</b>
+              <button className={styles.status}>{data.status}</button>
+            
+              </div>
+              </div>
+              </div>
+              <div className={styles.orders}>
+                
+                <img className = {styles.photo} src = {`/images/${data.picture}`} alt="">
+                </img> 
+                <div className = {styles.title}>{data.title}</div>
+                <div className = {styles.number}>{data.number}</div>
+                <div className = {styles.price}>€ {data.price}</div>
+                </div> 
+                </div>
+                
             )
         }
     )
- 
     return(
         <div>
-            <div className={styles.container}>
-            <div className={styles.title1}><h3>Orders</h3></div>
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                    <th colspan="6"> Restaurant orders</th>
-                    </tr>
-                    <tr>
-                    <th className={styles.restaurantName} colspan="7"> <h4>Friends and Burgers Oulu</h4> </th>
-                    </tr>
-                    <div className={styles.info}><tr className={styles.customerInfo}>
-                    <th className={styles.customerInfo1} cosplan ="2"  ><b>Name</b> Matt Johnson</th>
-                    <th className={styles.customerInfo} cosplan ="5" ><b>Address</b></th>
-                    <th className={styles.customerInfo} cosplan ="1"><b>Phone number</b></th>
-                    </tr>
-                    </div>
-                    <tr>
-                        <td>Matt Johnson</td>
-                        <td>Cool street 3, Fancy Town</td>
-                        <td>+358123456</td>
-                    </tr>
-
-                </thead>
-                <tbody>
+            <div className={styles.titleTable}><h4>Restaurant Orders</h4></div>
+            <div className={styles.leftTable}><b>Recent orders</b></div>
+            <div className={styles.rightTable}><b>Friends and Burgers</b></div>
+            <div className={styles.infoBox}>
+                <div className={styles.nameBox}><b>Name</b><br/>Matt Johnson</div>
+                <div className={styles.addressBox}><b>Address</b><br/>Cool street 3, Fancy Town</div>
+                <div className={styles.phone}><b>Phone number</b><br/>+35812345678</div>
+                </div>
+              
                  
                     
                     {CustomerOrders}
                     
-                </tbody>
-            </table>
-           </div>  
         </div>
     )
  }

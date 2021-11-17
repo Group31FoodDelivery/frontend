@@ -26,7 +26,7 @@ table{
     width: 80%;
     box-shadow: 3px 5px rgb(201, 195, 195);
 }
-th{
+.th1{
     background-color: #cc2255;
     height: 54px;
     width:100%;
