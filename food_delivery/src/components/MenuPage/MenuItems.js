@@ -10,7 +10,7 @@ export default function MenuPage(props) {
       <div className={styles.description}>{props.description}
       </div>
       <div className={styles.bottom}>
-      <div className={styles.price}> {props.price}</div>
+      <div className={styles.price}> {props.price} €</div>
       <button className={styles.card}>+</button>
       </div>
 
