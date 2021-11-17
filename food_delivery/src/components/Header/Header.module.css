@@ -9,16 +9,27 @@
     align-items: center; 
 }
 
-.button {
+.buttonContainer{
+    display: flex;
     background-color: #cc2255; 
-    border: none;
-    color: white;
     text-align: center;
     font-size: 16px;
     height: 100%;
     width: 15%;
     margin-left: auto;
+    text-decoration: none;
     }
+
+.shoppingcartButton{
+
+    background-color: #cc2255;
+    width: '250px';
+    border: 'none';
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: none;
+}
 
 .searchBar {
     border-radius: 15px 0 0 15px;
@@ -39,4 +50,11 @@
     margin-right: 100px;
     margin-bottom: 3px;
     border: none;
+}
+
+.icon{
+    display: flex;
+    margin-left: 10px;
+    width: 55px;
+    height: 55px;
 }

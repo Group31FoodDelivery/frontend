@@ -7,6 +7,7 @@ import MenuPage from './components/MenuPage/MenuPage';
 import CreateRestaurant from './components/CreateRestaurant/CreateRestaurant';
 import CustomerOrders from './components/CustomerOrders/CustomerOrders';
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
+import CustomerInfoPage from './components/CustomerInfoPage/CustomerInfoPage';
 import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -46,11 +47,8 @@ return (
         <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
-    
-
-      </Routes>
-    
-    
+        <Route path="/customerinfo" element={<CustomerInfoPage/>} />
+      </Routes>   
 
    </div>
 </BrowserRouter>
