@@ -23,7 +23,7 @@ function RestaurantOrders(){
                 </img> 
                 <div className = {styles.title}>{data.title}</div>
                 <div className = {styles.number}>{data.number}</div>
-                <div className = {styles.price}>€ {data.price}</div>
+                <div className = {styles.price}>{data.price} € </div>
                 </div> 
                 </div>
                 
@@ -32,18 +32,23 @@ function RestaurantOrders(){
     )
     return(
         <div>
+            <div className = {styles.order}><h3>Orders</h3></div>
+            <div className={styles.table}>
             <div className={styles.titleTable}><h4>Restaurant Orders</h4></div>
+            <div className={styles.tables}>
             <div className={styles.leftTable}><b>Recent orders</b></div>
             <div className={styles.rightTable}><b>Friends and Burgers</b></div>
+            </div>
             <div className={styles.infoBox}>
-                <div className={styles.nameBox}><b>Name</b><br/>Matt Johnson</div>
-                <div className={styles.addressBox}><b>Address</b><br/>Cool street 3, Fancy Town</div>
-                <div className={styles.phone}><b>Phone number</b><br/>+35812345678</div>
+                <div className={styles.nameBox}><b>Name</b>Matt Johnson</div>
+                <div className={styles.addressBox}><b>Address</b>Cool street 3, Fancy Town</div>
+                <div className={styles.phone}><b>Phone number</b>+35812345678</div>
                 </div>
               
                  
                     
                     {CustomerOrders}
+             </div>       
                     
         </div>
     )
