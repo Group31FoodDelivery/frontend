@@ -1,0 +1,77 @@
+
+.container{
+background-color: rgb(255, 255, 255);
+display: flex;
+align-items: flex-start;
+width: 800px;
+height: 300px;
+margin-left: 350px;
+}
+
+.topBar{
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #CC2255;
+    border-top-left-radius:20px;
+    border-top-right-radius:20px;
+    font-weight: 500;
+    color: white;
+    width: 800px;
+    height: 50px;
+    margin-left: 350px;
+    margin-top: 20px;
+}
+
+.info{
+    display: inline-flex;
+    margin-left: 40px;
+    margin-top: 20px;
+    font-weight: 500;
+    gap: 100px; 
+    
+       
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.editInfo{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 800px;
+    height: 300px;
+    margin-left: 350px;
+    margin-top: 2px;
+    margin-bottom: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+ 
+    }
+
+ .inputs{
+        border-radius: 15px;
+        padding-left: 10px;
+        margin-left: 40px;
+        height: 25px;
+        margin-top: 20px;
+        width: 250px;
+        border-color: black;
+    }
+
+.submitButton{
+
+    margin-left: 650px;
+    background-color: #CC2255;
+    border-radius: 20px;
+    border: none;
+    width: 80px;
+    height: 30px;
+    color: white;
+
+    }
