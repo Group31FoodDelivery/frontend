@@ -23,7 +23,8 @@
                 "Sea buckthorn berry and milk chocolate"
             ],
             "price": 78,
-            "image": "hugo.jpeg"
+            "image": "hugo.jpeg",
+            "category":"Main dish"
         },
         {
             "id": 2,
@@ -35,7 +36,8 @@
                 "Sirloin of wild deer, parsnip and lingonberry"
             ],
             "price": 78,
-            "image": "hugo2.jpeg"
+            "image": "hugo2.jpeg",
+            "category":"Main dish"
         },
         {
             "id": 3,
@@ -46,7 +48,8 @@
                 "Sea buckthorn berry and milk chocolate"
             ],
             "price": 58,
-            "image": "hugo.jpeg"
+            "image": "hugo.jpeg",
+            "category":"Main dish"
         },
         {
             "id": 4,
@@ -55,7 +58,8 @@
                 "Delicious cheese from France and Italy"
             ],
             "price": 14,
-            "image": "cheese.jpeg"
+            "image": "cheese.jpeg",
+            "category":"snaks"
         },
         {
             "id": 5,
@@ -64,7 +68,8 @@
                 "Red and white semidry wine from France and Italy"
             ],
             "price": 60,
-            "image": "wine.jpeg"
+            "image": "wine.jpeg",
+            "category":"drink"
         }
         ]
             },

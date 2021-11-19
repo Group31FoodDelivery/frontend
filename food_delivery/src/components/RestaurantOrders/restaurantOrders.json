@@ -39,16 +39,5 @@
     "title":"Jaffa",
     "number":"x2",
     "price":"3"
-},
-{
-
-    "id":5,
-    "name": "Seppo Taalasmaa",
-    "date":"11.12.2020",
-    "status":"Delivered",
-    "picture":"",
-    "title":"",
-    "number":"",
-    "price":""
 }
 ]

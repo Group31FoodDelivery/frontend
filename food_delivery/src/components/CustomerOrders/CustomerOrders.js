@@ -7,6 +7,7 @@ import data from './orders.json'
     const CustomerOrders=data.map(
         (info)=>{
             return(
+            
                 <tr>
                     <td>{info.restaurant}</td>
                     <td>{info.products}</td>
@@ -15,6 +16,7 @@ import data from './orders.json'
                     <td>{info.delivery}
                         {info.time} </td>
                 </tr>
+            
             )
         }
     )
@@ -26,7 +28,7 @@ import data from './orders.json'
             <table className={styles.table}>
                 <thead>
                     <tr>
-                    <th colspan="7"> Your orders</th>
+                    <th className={styles.th1} colspan="7"> Your orders</th>
 
                     </tr>
                 </thead>
