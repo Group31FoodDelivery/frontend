@@ -52,9 +52,26 @@
     border: none;
 }
 
-.icon{
+.text{
+
+    margin-right: 50px;
+    color: white;
+    display: flex;
+    align-items: center;
+
+}
+
+.shoppingIcon{
     display: flex;
     margin-left: 10px;
     width: 55px;
     height: 55px;
+}
+
+.icon{
+
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
+
 }

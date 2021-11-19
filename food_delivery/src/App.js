@@ -7,12 +7,9 @@ import MenuPage from './components/MenuPage/MenuPage';
 import CreateRestaurant from './components/CreateRestaurant/CreateRestaurant';
 import CustomerOrders from './components/CustomerOrders/CustomerOrders';
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
-<<<<<<< HEAD
 import CustomerInfoPage from './components/CustomerInfoPage/CustomerInfoPage';
-=======
 import CreateMenu from "./components/CreateMenu/CreateMenu"
 import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
->>>>>>> e68f7db4737691eddd283a967a10916bbc1e9d7d
 import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -48,7 +45,7 @@ return (
      (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
-        <Route path="/login" element={<RestaurantOrders/>} />  {/* here should be SignIn */}
+        <Route path="/login" element={<SignIn/>} />  {/* here should be SignIn */}
         <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
