@@ -23,7 +23,7 @@ class Header extends React.Component {
             <input type="text" placeholder="Search restaurants..." className={styles.searchBar} onChange={this.props.onSearchChange} value={this.props.itemSearchString}/>
             <button className={styles.searchButton}> Search </button>
             <Link to="/login" style={{textDecoration: 'none'}}><div className={styles.text}>
-                <img src = '/images/user.png' className = {styles.icon}/>Log in</div></Link>
+                <img src = '/images/user.png' className = {styles.icon}/>Sign in</div></Link>
             <Link to="/register" style={{textDecoration: 'none'}}><div className={styles.text}>
             <img src = '/images/register.png' className = {styles.icon}/>Register</div></Link>
             <Link to="/shoppingcart" className = {styles.buttonContainer}>

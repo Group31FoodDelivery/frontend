@@ -29,8 +29,8 @@ class SignUpCustomer extends React.Component {
                     Check this box if you want to register as a manager!
                     <input type="checkbox" style={{marginLeft: '10px'}}/>
                 </div>
-
-                <button className = {styles.button}><div style = {{fontSize: '16px', fontWeight: '500'}}>Register</div></button>
+                
+                <button className = {styles.button}><div style = {{fontSize: '16px', fontWeight: '500'}}>Create a new account</div></button>
             </div>
             </div>
         );

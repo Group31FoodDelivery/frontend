@@ -10,6 +10,7 @@ import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
 import CustomerInfoPage from './components/CustomerInfoPage/CustomerInfoPage';
 import CreateMenu from "./components/CreateMenu/CreateMenu"
 import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
+import PaymentPage from './components/PaymentPage/PaymentPage';
 import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -54,6 +55,7 @@ return (
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
         <Route path="/createmenu" element={<CreateMenu/>} /> 
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
+        <Route path="/payment" element={<PaymentPage/>} /> 
   
       </Routes>   
 

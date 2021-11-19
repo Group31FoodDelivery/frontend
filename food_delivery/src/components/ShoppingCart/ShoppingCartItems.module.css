@@ -67,6 +67,7 @@
     height: 21px;
     width: 45px;
     background-color:#CC2255;
+    font-weight: 600;
 }
 
 .buttonMinus{
@@ -87,6 +88,9 @@
 .removeButton{
 
 color:#CC2255;
+font-size: large;
+font-family:cursive;
+font-weight: 600;
 padding: 0;
 border: none;
 background: none;
