@@ -11,6 +11,7 @@ import CustomerInfoPage from './components/CustomerInfoPage/CustomerInfoPage';
 import CreateMenu from "./components/CreateMenu/CreateMenu"
 import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
 import PaymentPage from './components/PaymentPage/PaymentPage';
+import ManagerFrontPage from './components/ManagerFrontPage/ManagerFrontPage'
 import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -46,9 +47,7 @@ return (
      (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
-
         <Route path="/login" element={<SignIn />} />  
-
         <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
@@ -56,13 +55,10 @@ return (
         <Route path="/createmenu" element={<CreateMenu/>} /> 
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
-  
+        <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
       </Routes>   
-
    </div>
 </BrowserRouter>
-
-
 );
 }
 }
