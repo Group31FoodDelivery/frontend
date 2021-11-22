@@ -21,39 +21,37 @@ class CreateRestaurant extends React.Component {
 
     render() {
         return (
+            <div>
+            <div className = {styles.title}><h1>Create Restaurant</h1></div>
+            <div className = {styles.topBar}>Add a new restaurant</div>
             <div className={styles.CreateRestaurant}>
-                <h1 style={{marginLeft: '220px'}}>Restaurant</h1>
-                <div style={{marginLeft: '220px', marginBottom: '10px'}}>Restaurant type</div>
-                <select value={this.state.type} onChange={this.handleChange} style={{borderRadius: '15px', height: '30px', width: '100px', marginLeft: '220px', marginBottom: '10px'}}>
+                <div style = {{marginTop: '10px'}}>Restaurant type</div>
+                <select value={this.state.type} onChange={this.handleChange} className = {styles.select} style = {{marginTop: '10px'}} >
                     <option name="fine_dining">Fine Dining</option>
                     <option name="casual_dining">Casual Dining</option>
                     <option name="fast_food">Fast food</option>
                     <option name="buffet">Buffet</option>
                 </select>
 
-                <div style={{marginLeft: '220px', marginBottom: '10px'}}>Price level</div>
-                <select value={this.state.priceLevel} onChange={this.handleChange2} style={{borderRadius: '15px', height: '30px', width: '100px', marginLeft: '220px'}}>
+                <div style = {{marginTop: '10px'}}>Price level</div>
+                <select value={this.state.priceLevel} onChange={this.handleChange2} className = {styles.select} style = {{marginTop: '10px'}}>
                     <option name="1">1</option>
                     <option name="2">2</option>
                     <option name="3">3</option>
                     <option name="4">4</option>
                     <option name="5">5</option>
                 </select>
-                <div style={{marginTop: '20px'}}></div>
 
-                <input type="text" placeholder="Name" style={{borderRadius: '15px', height: '30px', marginLeft: '220px'}}/>
-                <div style={{marginTop: '20px'}}></div>
+                <input type="text" placeholder="Name" className = {styles.inputs}/>
 
-                <input type="text" placeholder="Description" style={{borderRadius: '15px', height: '30px', marginLeft: '220px'}}/>
-                <div style={{marginTop: '20px'}}></div>
+                <input type="text" placeholder="Description"  className = {styles.inputs}/>
 
-                <input type="text" placeholder="Operating hours" style={{borderRadius: '15px', height: '30px', marginLeft: '220px'}}/>
-                <div style={{marginTop: '20px'}}></div>
+                <input type="text" placeholder="Operating hours"  className = {styles.inputs}/>
 
-                <input type="text" placeholder="Address" style={{borderRadius: '15px', height: '30px', marginLeft: '220px'}}/>
-                <div style={{marginTop: '20px'}}></div>
+                <input type="text" placeholder="Address"  className = {styles.inputs}/>
                 
-                <button style={{display:'flex', width:'400px', height:"40px", justifyContent:'center', alignItems:'center', backgroundColor: '#cc2255', borderRadius:'15px', marginTop: '20px', marginLeft: '17.5%', marginBottom: '40px'}}>Create</button>
+                <button className = {styles.button}>Create</button>
+            </div>
             </div>
         );
     }

@@ -1,6 +1,5 @@
 import React from 'react';
-import styles from './Restaurants.module.css';
-import MenuPage from '../MenuPage/MenuPage';
+import styles from './ManagerRestaurants.module.css';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 export default function Restaurants(props) {
@@ -31,11 +30,12 @@ export default function Restaurants(props) {
         {props.address}
         </div> */}
         </div>
+        <div className = {styles.bottomParts}>
+        <button className = {styles.removeButton}>X</button>
         <div className={styles.rating}>
-          {props.rating} 
+          {props.rating}
         </div>
-        
-    
+        </div>
       </div>
       
     

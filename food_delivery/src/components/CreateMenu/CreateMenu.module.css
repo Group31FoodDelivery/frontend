@@ -24,7 +24,7 @@ align-items: center;
 width: 600px;
 height: 640px;
 border-radius: 20px;
-margin-left: 30%;
+margin-left: 33%;
 margin-top: 20px;
 margin-bottom: 20px;
 box-shadow:     0      10px      10px       rgb(135, 135, 135);
@@ -52,7 +52,7 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     background-color: #F3F3F3;
     border-radius: 15px;
     height: 30px;
-    width: 165px;
+    width: 210px;
     padding-left: 10px; 
 }
 .textField{
@@ -61,7 +61,7 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     border: 2px solid #DCDCDC;
     border-radius: 20px; 
     height: 30px;
-    width: 150px;
+    width: 200px;
     padding-left: 10px; 
     
 }
