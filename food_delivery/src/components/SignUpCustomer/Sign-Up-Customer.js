@@ -11,7 +11,7 @@ class SignUpCustomer extends React.Component {
             </div>
             <div className={styles.SignUpCustomer}>
                 <div style = {{maringTop: '20px', marginBottom: '40px', fontWeight: '500'}}>New user? Register here!</div>
-                <input type="text" placeholder="Username" className = {styles.inputs}/>
+                <input type="text" placeholder="Name" className = {styles.inputs}/>
                 <div style={{marginTop: '20px'}}></div>
 
                 <input type="text" placeholder="Last Name" className = {styles.inputs}/>

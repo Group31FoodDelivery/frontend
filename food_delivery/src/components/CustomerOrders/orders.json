@@ -34,5 +34,17 @@
             "delivery": "Delivered",
             "time":"",
             "isDelivered": false
+        },
+           {
+            "id": 3,
+            "restaurant":"Hugo", 
+            "products": [
+                "MENU OF THE WEEK"
+            ], 
+            "date":"22.03.2021",
+            "price": 58, 
+            "delivery": "Delivered",
+            "time":"",
+            "isDelivered": false
         }
     ]
