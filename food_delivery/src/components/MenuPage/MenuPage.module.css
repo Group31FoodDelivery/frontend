@@ -36,6 +36,15 @@
     font-weight: bold;
     
 }
+
+/* Dropdown */
+
+.dropdown{
+    display:flex;
+    justify-content: flex-end;
+    padding:50px;
+}
+
 /* Menu container  */
 
 .menuContainer{
@@ -44,7 +53,6 @@
     background-color: rgb(240, 240, 240) ;
     grid-row-gap: 30px;
     grid-column-gap: 15px;
-    margin-top: 50px;
     margin-bottom: 5px;
     margin-left: 18%;
     margin-right: 14%;

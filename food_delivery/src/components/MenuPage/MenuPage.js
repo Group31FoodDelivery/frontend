@@ -1,7 +1,8 @@
 import React from 'react';
 import MenuHeader from './HeaderParallax';
 import styles from './MenuPage.module.css';
-import MenuItems from './MenuItems'
+import MenuItems from './MenuItems';
+import DropDown from './DropDown';
 
 export default function MenuPage(props) {
     return (
@@ -21,6 +22,13 @@ export default function MenuPage(props) {
         <div className={styles.rating}>5/5</div>
 </div>
       </div>
+
+{/* DropDown */}
+
+<div className={styles.dropdown}>
+    <DropDown/>
+
+</div>
 
       <div className={styles.menuContainer}>
            {props.restaurants.map(restaurants => <MenuItems key={restaurants.id.menu} {...restaurants}/>)} {/*go through the json array and send ONE new array per component*/}
