@@ -58,6 +58,15 @@
     height: 30px;
    
 }
+.descriptionInputs{
+    height:100px;
+    overflow: scroll;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin-top: 30px;
+    width:200px;
+    
+}
 
 .button{
 
@@ -65,9 +74,17 @@
     margin-bottom: 30px;
     border-radius: 15px;
     width: 300px;
-    height: 40px;
+    height: 70px;
     font-size: 16px;
     background-color: #CC2255;
     color: white;
     border: none;
+}
+.addressInputs{
+    height:70px;
+    overflow: scroll;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin-top: 30px;
+    width:200px;
 }

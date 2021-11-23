@@ -48,7 +48,7 @@ return (
      (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
-        <Route path="/login" element={<SignIn />} />  
+        <Route path="/login" element={<CreateRestaurant/>} />  
         <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 

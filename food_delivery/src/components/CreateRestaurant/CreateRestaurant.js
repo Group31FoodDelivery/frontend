@@ -44,11 +44,12 @@ class CreateRestaurant extends React.Component {
 
                 <input type="text" placeholder="Name" className = {styles.inputs}/>
 
-                <input type="text" placeholder="Description"  className = {styles.inputs}/>
+                <textarea type="text" placeholder="Description" cols="40"  rows="5" 
+               className = {styles.descriptionInputs}></textarea>
 
                 <input type="text" placeholder="Operating hours"  className = {styles.inputs}/>
 
-                <input type="text" placeholder="Address"  className = {styles.inputs}/>
+                <textarea  type="text" placeholder="Address"  className = {styles.addressInputs}></textarea>
                 
                 <button className = {styles.button}>Create</button>
             </div>
