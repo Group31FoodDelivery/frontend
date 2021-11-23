@@ -13,9 +13,6 @@ export default function FrontPage(props) {
         <div className = {styles.frontPage}>
            {props.restaurants.map(restaurants => <Restaurants key={restaurants.id} {...restaurants}/>)} {/*go through the json array and send ONE new array per component*/}
         </div>
-        <div className = {styles.frontPage}>
-           {props.restaurants.map(restaurants => <ManagerRestaurants key={restaurants.id} {...restaurants}/>)} {/*if account is a manager render manager view (somehow)*/}
-        </div>
 </div>
         
     )
