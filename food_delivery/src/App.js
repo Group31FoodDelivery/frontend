@@ -12,6 +12,7 @@ import CreateMenu from "./components/CreateMenu/CreateMenu"
 import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
 import PaymentPage from './components/PaymentPage/PaymentPage';
 import ManagerFrontPage from './components/ManagerFrontPage/ManagerFrontPage'
+import BottomBar from './components/BottomBar/BottomBar';
 import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
@@ -56,7 +57,8 @@ return (
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
-      </Routes>   
+      </Routes>
+      <BottomBar></BottomBar>
    </div>
 </BrowserRouter>
 );
