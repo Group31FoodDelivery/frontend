@@ -2,9 +2,12 @@ import React from 'react'
 import styles from './ShoppingCart.module.css'
 import ShoppingCartItems from './ShoppingCartItems';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import data from './Orders2.json'
 
 class ShoppingCart extends React.Component {
+
     render () {
+        const orders = data;
         return (
             <div>
             <div className = {styles.title}><h1>Shopping cart</h1></div>
@@ -13,13 +16,8 @@ class ShoppingCart extends React.Component {
             Your orders
             </div>
             <div className={styles.column}>
-                <div>                                           {/*Creates shopping cart items*/}
-                    <div><ShoppingCartItems/></div>
-                    <div><ShoppingCartItems/></div>
-                    <div><ShoppingCartItems/></div>
-                    <div><ShoppingCartItems/></div>
-                    <div><ShoppingCartItems/></div>
-                    
+                <div>                                          
+                {orders.map((order) => <ShoppingCartItems key={order.id}{...order}/>)}   {/*Creates shopping cart items*/}
                 </div>
                <div style={{marginTop: "50px", fontSize: "18px"}}>Total</div>
                <div style={{marginBottom: "25px", fontSize: "24px", fontWeight: "500"}}>50.00€</div>
