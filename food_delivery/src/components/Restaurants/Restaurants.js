@@ -4,6 +4,20 @@ import MenuPage from '../MenuPage/MenuPage';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 export default function Restaurants(props) {
+
+  const priceInt = parseInt(props.Price_level);
+  let priceString = '';
+ 
+   const getPriceLevel = () => {
+
+    for(let i=0; i<priceInt; i++)
+    {
+      priceString += '€'
+    }
+
+    return priceString;
+  }
+
   return (
      
     <div className = {styles.restaurants}>
@@ -22,7 +36,7 @@ export default function Restaurants(props) {
         {props.Type}
         </div>
         <div>
-        {props.Price_level}
+        {getPriceLevel()}
         </div>
          <div>
         Open: {props.OperatingHours}
@@ -37,7 +51,7 @@ export default function Restaurants(props) {
         
     
       </div>
-      
+
     
   )
 }
