@@ -7,11 +7,11 @@ export default function Restaurants(props) {
   return (
      
     <div className = {styles.restaurants}>
-      <Link to="/menupages" style={{textDecoration: 'none'}}><div><img className = {styles.photo} src = {`/images/${props.image}`}
+      <Link to="/menupages" style={{textDecoration: 'none'}}><div><img className = {styles.photo} src = {`/images/${props.Image}`}
       ></img>
       </div></Link>
       <div className ={styles.name}>
-       {props.name} 
+       {props.Name} 
         </div>
         {/* <div className={styles.description}>
         {props.description}
@@ -19,20 +19,20 @@ export default function Restaurants(props) {
         
         <div className={styles.text}>
         <div>
-        {props.type}
+        {props.Type}
         </div>
         <div>
-        {props.pricelevel}
+        {props.Price_level}
         </div>
          <div>
-        Open: {props.open}
+        Open: {props.OperatingHours}
         </div>
         {/* <div>
         {props.address}
         </div> */}
         </div>
         <div className={styles.rating}>
-          {props.rating} 
+          {props.Rating} 
         </div>
         
     

@@ -17,6 +17,7 @@ import React from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
+import axios from 'axios'
 
 class App extends React.Component {
 constructor(props)
@@ -25,8 +26,25 @@ constructor(props)
   this.state =  { 
     restaurants: data.restaurants,  //Saves data from the json file in an array
     itemSearchString: "",             //String that is modified according to the given value on the search bar
-    selectedItem: ""
+    selectedItem: "",
+
+    restaurantData: [],
+    error: ''
 }
+
+}
+
+async componentDidMount(){
+
+  try {
+    const response = await axios.get('/restaurants'); //sends a request and waits til the response is fetched
+    //const data = await response;
+    this.setState({restaurantData: response.data}); //sets the promise response object to restaurantData
+    console.log(this.state.restaurantData);
+
+  } catch(err) {
+    console.log(err);
+  } 
 
 }
 
@@ -41,11 +59,12 @@ return (
 <BrowserRouter>
     <div className="App">
    <Header itemSearchString = {this.state.itemSearchString} onSearchChange = {this.onSearchChange} />
+
     </div>
     <div>
       <Routes> 
-        <Route path="/" element={<FrontPage restaurants={this.state.restaurants.filter( //filters items based on the string value and sends them as props
-     (restaurants) => restaurants.name.includes(this.state.itemSearchString))}/>  } />
+        <Route path="/" element={<FrontPage restaurants={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
+     (restaurants) => restaurants.Name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
         <Route path="/login" element={<SignIn/>} />  
