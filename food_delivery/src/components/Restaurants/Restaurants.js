@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 export default function Restaurants(props) {
 
-  const priceInt = parseInt(props.Price_level);
+  let priceInt = parseInt(props.Price_level);
   let priceString = '';
  
    const getPriceLevel = () => {
@@ -48,11 +48,7 @@ export default function Restaurants(props) {
         <div className={styles.rating}>
           {props.Rating} 
         </div>
-        
-    
-      </div>
-
-    
+      </div>  
   )
 }
       
