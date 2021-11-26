@@ -1,4 +1,5 @@
 import React from 'react';
+import Restaurants from '../Restaurants/Restaurants';
 import styles from './MenuItems.module.css'
 
 export default function MenuPage(props) {
