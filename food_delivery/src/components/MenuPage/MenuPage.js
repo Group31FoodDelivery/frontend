@@ -39,17 +39,18 @@ export default function MenuPage(props) {
       }
       ]
 
-    const {restaurantId} = useParams();
+    const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
 
     
     return (
         <div>
             {/* <div className={styles.header}> */}
             <MenuHeader/>
-            <div className={styles.header}>
+        <div className={styles.header}>
         <div className={styles.name}>{
-        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Name}</div>)
+        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Name}</div>) //Filters all the restaurants, finds the current restaurant array and maps through its elements
         }</div>
+    <div className = {styles.container}>
         <div className={styles.description}>{
         props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Description}</div>)
         }</div>
@@ -62,11 +63,12 @@ export default function MenuPage(props) {
         <div className={styles.type}>{
         props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Type}</div>)
         }
-    </div>
+        </div>
         <div className={styles.rating}>{
         props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Rating}</div>)
         }</div>
-</div>
+        </div>
+    </div>
       </div>
 
 {/* DropDown */}
