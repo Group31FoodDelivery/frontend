@@ -1,0 +1,162 @@
+
+.order{
+    display:flex;
+    background-color: white;
+    width: 100%;
+    height:60px;
+}
+h3{
+    margin-left: 5%;
+}
+.table{
+margin-top:2%;
+height:auto;
+background-color:rgb(219, 217, 217);
+width:781px;
+justify-content:center;
+margin-left:15%;
+border-radius: 9px 9px 9px 9px;
+box-shadow: 3px 5px rgb(201, 195, 195);
+}
+
+.titleTable{
+display:flex;
+justify-content: center;
+width:775px;
+background-color: #cc2255;
+height: 54px;
+border-radius: 9px 9px 0px 0px;
+color:white;  
+}
+
+
+/* header of the table */
+.infoBox{
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+    align-items: center;
+    justify-content: center;
+    margin-left:19.5% ;
+    font-size: 14px;
+    background-color: white;
+    width: 621px;
+    overflow: scroll;
+    padding-bottom: 1%;
+    border-bottom:0.5px solid gray;
+    padding-top:1%    
+}
+.nameBox{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   gap:1%;
+   overflow: visible;
+
+}
+.addressBox{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:1%;
+    overflow: visible;
+ }
+ .phone{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:1%;
+    overflow: visible;
+ }
+ .tables{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     
+ }
+ .rightTable{
+    display:flex;
+    width: 621px;
+    background-color: white;
+    justify-content: center;
+    font-size: 14px;
+    padding-top: 1%;
+    
+ }
+.leftTable{
+    display: flex;
+    justify-content: center;
+    width: 145px;
+    font-size: 14px;
+    padding-top: 1%;
+    
+}
+
+/* Main body */
+.customerOrders{
+    display:flex;
+    flex-direction: row;
+    gap: 1%;
+    justify-content: center;
+}
+.infoContainer{
+    padding:0%;
+}
+.infoCustomer{
+    justify-content: center;
+    background-color: white;
+    border-radius:12px;
+    height:50px;
+    width:130px;
+    padding:0.5%
+
+}
+.name{
+    font-size: 10px;
+    overflow: visible;
+}
+.date{
+    
+    font-size: 10px;
+    color:gray;
+    padding-top:10px;
+    padding-right:5px;
+}
+.status{
+    border-radius:12px;
+    border:none;
+    height:20px;
+    width:65px;
+    color:rgb(128, 128, 128);
+}
+.orders{
+    background-color: white;
+    display:flex;
+    flex-direction: row;
+    border-color: none;
+    align-items: center;
+    width: 600px;
+    padding:10px;
+    border-bottom: 0.5px solid #a09f9f;
+    
+}
+.photo{
+    height: 70px;
+    width: 70px;
+    padding-bottom:2px;
+}
+.title{
+width: 80px;
+overflow: visible;
+font-size: 14px;
+padding-left: 1%;
+}
+.number{
+    width:60px;
+    padding-left: 20%;
+
+}
+.price{
+    width:60px;
+    padding-left: 20%
+}
