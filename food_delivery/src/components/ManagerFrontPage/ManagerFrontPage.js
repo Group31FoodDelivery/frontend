@@ -11,6 +11,7 @@ export default function FrontPage(props) {
         <h1>Your restaurants</h1>
         <Link to="/createrestaurant" style = {{textDecoration: 'none'}}><button className = {styles.text} style = {{marginLeft: '260px'}}>Create restaurant</button></Link>
         <Link to="/createmenu" style={{textDecoration: 'none'}}><button className = {styles.text}>Create menu</button></Link>
+        <Link to="/restaurantorders" style={{textDecoration: 'none'}}><button className = {styles.text}>Orders</button></Link>
         </div>
         <div className = {styles.frontPage}>
            {props.restaurants.map(restaurants => <ManagerRestaurants key={restaurants.id} {...restaurants}/>)}
