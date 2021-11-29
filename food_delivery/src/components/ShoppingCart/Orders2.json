@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "restaurant":"M6", 
+        "name": "really long salmooooooooooooooooooooooooooooooooooooooooooon oh wow!! we can go even longeeeeeeeeeeeeeeeeeeeeeer, biggest salmon in the world",
+        "date":"22.10.2021",
+        "price": 21, 
+        "delivery": "Order recived",
+        "time":"",
+        "isDelivered": false
+    },
+    {
+        "id": 2,
+        "restaurant":"Friends & Brgrs Oulu", 
+        "name": "Hamburger",
+        "date":"22.10.2021",
+        "price": 18.90, 
+        "delivery": "Delivering",
+        "time":"10-15 min",
+        "isDelivered": false
+    },
+    {
+        "id": 3,
+        "restaurant":"Hugo", 
+        "name": "Beefy beef",
+        "date":"22.03.2021",
+        "price": 58, 
+        "delivery": "Delivered",
+        "time":"",
+        "isDelivered": false
+    },
+       {
+        "id": 4,
+        "restaurant":"Hugo", 
+        "name": 
+            "chicken"
+        , 
+        "date":"22.03.2021",
+        "price": 58, 
+        "delivery": "Delivered",
+        "time":"",
+        "isDelivered": false
+    },
+    {
+        "id": 5,
+        "restaurant":"Hugo", 
+        "name": 
+            "chicken2"
+        , 
+        "date":"22.03.2021",
+        "price": 58, 
+        "delivery": "Delivered",
+        "time":"",
+        "isDelivered": false
+    }
+]
