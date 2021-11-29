@@ -27,7 +27,6 @@ constructor(props)
     restaurants: data.restaurants,  //Saves data from the json file in an array
     itemSearchString: "",             //String that is modified according to the given value on the search bar
     selectedItem: "",
-
     restaurantData: [],
     error: ''
 }
@@ -40,7 +39,6 @@ async componentDidMount(){
     const response = await axios.get('/restaurants'); //sends a request and waits til the response is fetched
     //const data = await response;
     this.setState({restaurantData: response.data}); //sets the promise response object to restaurantData
-    console.log(this.state.restaurantData);
 
   } catch(err) {
     console.log(err);
@@ -63,12 +61,12 @@ return (
     </div>
     <div>
       <Routes> 
-        <Route path="/" element={<FrontPage restaurants={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
-     (restaurants) => restaurants.Name.includes(this.state.itemSearchString))}/>  } />
+        <Route path="/" element={<FrontPage restaurantData={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
+     (restaurantData) => restaurantData.Name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
         <Route path="/login" element={<SignIn/>} />  
-        <Route path="/menupages" element={<MenuPage restaurants={this.state.restaurants}/>} />
+        <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />

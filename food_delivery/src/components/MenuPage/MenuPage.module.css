@@ -16,10 +16,26 @@
     /* -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black; */
 }
+
+.container{
+
+    display:flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    text-align:center;
+    width: auto;
+
+}
 .description{ 
+    width: 800px;
+    max-height: 120px;
     color:white;
     font-weight: bold;
     font-size: 20px;
+    align-content: center;
+    text-align: center;
+    margin-left: 300px;
     
     /* -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
@@ -29,12 +45,10 @@
 .restaurantInfo{
     display:flex;
     flex-direction: column;
-    width: 100%;
-    align-items: flex-end;
-    padding-right: 2%;
+    align-items: center;
     color:white;
     font-weight: bold;
-    
+    margin-left: 120px;
 }
 
 /* Dropdown */
@@ -48,9 +62,9 @@
 /* Menu container  */
 
 .menuContainer{
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: rgb(240, 240, 240) ;
     grid-row-gap: 30px;
     grid-column-gap: 15px;
     margin-bottom: 5px;

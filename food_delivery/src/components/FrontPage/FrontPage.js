@@ -11,10 +11,12 @@ export default function FrontPage(props) {
         <h1>Restaurants</h1>
         </div>
         <div className = {styles.frontPage}>
-           {props.restaurants.map(restaurants => <Restaurants key={restaurants.restaurantId} {...restaurants}/>)} {/*go through the json array and send ONE new array per component*/}
+           {props.restaurantData.map(restaurants => <Restaurants key={restaurants.restaurantId} {...restaurants}/>)} {/*go through the json array and send ONE new array per component*/}
         </div>
 </div>
         
     )
 }
+
+
 
