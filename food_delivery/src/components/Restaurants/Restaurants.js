@@ -21,7 +21,7 @@ export default function Restaurants(props) {
   return (
      
     <div className = {styles.restaurants}>
-      <Link to="/menupages" style={{textDecoration: 'none'}}><div><img className = {styles.photo} src = {`/images/${props.Image}`}
+      <Link to={`/menupages/${props.restaurantId}`} style={{textDecoration: 'none'}}><div><img className = {styles.photo} src = {`/images/${props.Image}`}
       ></img>
       </div></Link>
       <div className ={styles.name}>
