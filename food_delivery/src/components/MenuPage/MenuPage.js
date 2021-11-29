@@ -59,7 +59,7 @@ export default function MenuPage(props) {
         {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Type}</div>)}
         </div>
         <div className={styles.rating}>
-        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Rating}</div>)}
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Rating}/5</div>)}
         </div>
         </div>
     </div>
