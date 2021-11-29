@@ -22,8 +22,7 @@ export default function ShoppingCartItems(props) {
 
     }
 
-
-    return (
+        return (
         <div className = {styles.shoppingCartItems}>
             <div className = {styles.photoArea}>
             <div><img className = {styles.photo} src = {img}                    
@@ -49,4 +48,4 @@ export default function ShoppingCartItems(props) {
         </div>
     )
 }
- 
+

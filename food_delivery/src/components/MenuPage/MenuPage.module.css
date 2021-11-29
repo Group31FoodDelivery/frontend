@@ -35,7 +35,7 @@
     font-size: 20px;
     align-content: center;
     text-align: center;
-    margin-left: 300px;
+    margin-left: 250px;
     
     /* -webkit-text-stroke-width: 0.5px;
     -webkit-text-stroke-color: black;
@@ -48,7 +48,7 @@
     align-items: center;
     color:white;
     font-weight: bold;
-    margin-left: 120px;
+    margin-left: 180px;
 }
 
 /* Dropdown */
@@ -64,7 +64,6 @@
 .menuContainer{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: rgb(240, 240, 240) ;
     grid-row-gap: 30px;
     grid-column-gap: 15px;
     margin-bottom: 5px;
