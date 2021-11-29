@@ -10,7 +10,8 @@ class ShoppingCart extends React.Component {
  {
   super(props)
   this.state =  { 
-    deliveryString: "",             
+    deliveryString: "",      
+    test: ""       
  }
 
  }
