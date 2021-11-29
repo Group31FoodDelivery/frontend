@@ -62,9 +62,9 @@
 /* Menu container  */
 
 .menuContainer{
+    margin-top: 50px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    background-color: rgb(240, 240, 240) ;
     grid-row-gap: 30px;
     grid-column-gap: 15px;
     margin-bottom: 5px;

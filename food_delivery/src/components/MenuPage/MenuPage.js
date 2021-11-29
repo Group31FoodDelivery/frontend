@@ -10,25 +10,26 @@ import axios from 'axios';
 
 export default function MenuPage(props) {
 
-    const [restaurantData, setRestaurantData] = React.useState([]);
+    const [menuData, setMenuData] = React.useState([]);
 
     const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
     
     useEffect(() => {
        
         try {
-            console.log("HEllo")
+        
             axios.get('/restaurants/menuitem/'+ restaurantId, //sends a request and waits til the response is fetched
             
             ).then(response => {
               //console.log(response.data);
-              setRestaurantData(response.data);
-          
+              setMenuData(response.data);
+              console.log(props);
+ 
             })
             //sets the promise response object to restaurantData
       
             console.log(restaurantId);
-            console.log(restaurantData);
+            
             
           } catch(err) {
             console.log(err);
@@ -43,11 +44,12 @@ export default function MenuPage(props) {
             <MenuHeader/>
         <div className={styles.header}>
         <div className={styles.name}>
-           {restaurantData.Name}
+            {props.Name}
+         
     </div>
     <div className = {styles.container}>
         <div className={styles.description}>
-       
+ 
         </div>
 
        <div className={styles.restaurantInfo}>
@@ -73,9 +75,13 @@ export default function MenuPage(props) {
 </div>
 
       <div className={styles.menuContainer}>
+      {menuData.map(menu=> <MenuItems key = {menu.id} {...menu}/>)}
         {/* {menuTestData.filter(f => f.id == restaurantId).map(menu => <MenuItems key = {menu.id} {...menu}/>)}*/}
         </div>
 
       </div>  
        
     )}
+
+
+   

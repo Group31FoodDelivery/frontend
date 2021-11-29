@@ -46,7 +46,7 @@ export default function Restaurants(props) {
         </div> */}
         </div>
         <div className={styles.rating}>
-          {props.Rating} 
+          {props.Rating}/5
         </div>
       </div>  
   )

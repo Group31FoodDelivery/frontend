@@ -66,7 +66,7 @@ return (
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
         <Route path="/login" element={<SignIn/>} />  
-        <Route path="/menupages/:restaurantId" element={<MenuPage/>} />
+        <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
