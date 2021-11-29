@@ -4,42 +4,37 @@ import styles from './MenuPage.module.css';
 import MenuItems from './MenuItems';
 import DropDown from './DropDown';
 import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import axios from 'axios';
+
 
 export default function MenuPage(props) {
 
-    const menuTestData = [  {
-        id: 1,
-        name: 'hugo carrot pie',
-        description: 'yummy carrot pie',
-        price: 2
-      },
-      {
-        id: 1,
-        name: 'hugo cucumber pie',
-        description: 'yummy cucumber pie',
-        price: 4.50
-      },
-      {
-        id: 2,
-        name: 'Luckiefun chocolate pie',
-        description: 'yummy chocolate pie',
-        price: 3
-      },
-      {
-        id: 3,
-        name: 'Friends meat pie',
-        description: 'yummy meat pie',
-        price: 12
-      },
-      {
-        id: 4,
-        name: 'M6 buttorchothot pie',
-        description: 'yummy b-pie',
-        price: 20
-      }
-      ]
+    const [restaurantData, setRestaurantData] = React.useState([]);
 
     const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
+    
+    useEffect(() => {
+       
+        try {
+            console.log("HEllo")
+            axios.get('/restaurants/menuitem/'+ restaurantId, //sends a request and waits til the response is fetched
+            
+            ).then(response => {
+              //console.log(response.data);
+              setRestaurantData(response.data);
+          
+            })
+            //sets the promise response object to restaurantData
+      
+            console.log(restaurantId);
+            console.log(restaurantData);
+            
+          } catch(err) {
+            console.log(err);
+          } 
+    }, [])
+    
 
     
     return (
@@ -47,26 +42,25 @@ export default function MenuPage(props) {
             {/* <div className={styles.header}> */}
             <MenuHeader/>
         <div className={styles.header}>
-        <div className={styles.name}>{
-        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Name}</div>) //Filters all the restaurants, finds the current restaurant array and maps through its elements
-        }</div>
+        <div className={styles.name}>
+           {restaurantData.Name}
+    </div>
     <div className = {styles.container}>
-        <div className={styles.description}>{
-        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Description}</div>)
-        }</div>
+        <div className={styles.description}>
+       
+        </div>
 
        <div className={styles.restaurantInfo}>
-           <div className={styles.address}>{
-        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Address}</div>)
-        }
+           <div className={styles.address}>
+        
        </div>
-        <div className={styles.type}>{
-        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Type}</div>)
-        }
+        <div className={styles.type}>
+    
+        
         </div>
-        <div className={styles.rating}>{
-        props.restaurants.filter(f => f.restaurantId == restaurantId).map(r => <div>{r.Rating}</div>)
-        }</div>
+        <div className={styles.rating}>
+       
+        </div>
         </div>
     </div>
       </div>
@@ -79,7 +73,7 @@ export default function MenuPage(props) {
 </div>
 
       <div className={styles.menuContainer}>
-         {menuTestData.filter(f => f.id == restaurantId).map(menu => <MenuItems key = {menu.id} {...menu}/>)}
+        {/* {menuTestData.filter(f => f.id == restaurantId).map(menu => <MenuItems key = {menu.id} {...menu}/>)}*/}
         </div>
 
       </div>  
