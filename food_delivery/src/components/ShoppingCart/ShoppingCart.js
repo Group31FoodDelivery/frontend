@@ -3,6 +3,7 @@ import styles from './ShoppingCart.module.css'
 import ShoppingCartItems from './ShoppingCartItems';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import data from './Orders2.json'
+import PaymentPage from '../PaymentPage/PaymentPage';
 
 class ShoppingCart extends React.Component {
 
@@ -42,6 +43,7 @@ class ShoppingCart extends React.Component {
         return (
             <div>
             <div className = {styles.title}><h1>Shopping cart</h1></div>
+            <div className = {styles.mainContainer}>
             <div className = {styles.container}>                                       
             <div className = {styles.topBar}>
             Your orders
@@ -54,8 +56,10 @@ class ShoppingCart extends React.Component {
                <div style={{marginBottom: "25px", fontSize: "24px", fontWeight: "500"}}>{this.countPrice()}€</div>
                Delivery location
                <input placeholder = "Street, apartment, postal code, city" className = {styles.deliveryLocation} value = {this.setState.deliveryString} onChange = {this.handleChange}></input>
-               <Link to="/payment" style={{textDecoration: 'none'}}><div className = {styles.checkout} onClick = {this.handleChange}>Checkout</div></Link>  {/*Checkout 'button' to the payment page*/}
+               {/* <Link to="/payment" style={{textDecoration: 'none'}}><div className = {styles.checkout} onClick = {this.handleChange}>Checkout</div></Link>  Checkout 'button' to the payment page */}
             </div>
+            </div>
+            <PaymentPage/>
             </div>
             </div>
         );
