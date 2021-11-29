@@ -44,24 +44,22 @@ export default function MenuPage(props) {
             <MenuHeader/>
         <div className={styles.header}>
         <div className={styles.name}>
-            {props.Name}
-         
+          {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Name}</div>)}  
     </div>
     <div className = {styles.container}>
         <div className={styles.description}>
- 
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Description}</div>)}
         </div>
 
        <div className={styles.restaurantInfo}>
            <div className={styles.address}>
-        
+           {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Address}</div>)}     
        </div>
         <div className={styles.type}>
-    
-        
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Type}</div>)}
         </div>
         <div className={styles.rating}>
-       
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Rating}/5</div>)}
         </div>
         </div>
     </div>
