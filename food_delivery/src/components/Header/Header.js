@@ -4,15 +4,19 @@ import HeaderButton from '../HeaderButton/HeaderButton';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import FrontPage from '../FrontPage/FrontPage';
 import SignIn from '../SignIn/Sign-In'
-
-
+import { connect } from 'react-redux';
 
 
 class Header extends React.Component {
     constructor(props) {
         super(props);
-    }
+        const {cart} = props;
 
+        this.state = {
+            cartCounter: 0
+
+        }
+    }
 
     render ()
     {
@@ -29,8 +33,8 @@ class Header extends React.Component {
             <Link to="/shoppingcart" className = {styles.buttonContainer}>
             <button className = {styles.shoppingcartButton}>
             <img className = {styles.shoppingIcon} src = "images/Cart.png"></img>
-            <div style = {{fontSize: '16px'}}>
-                Empty 
+            <div style = {{fontSize: '16px', color: 'white'}}>
+                {this.state.cartCounter} orders 
             </div>
             </button></Link>             
             
@@ -43,5 +47,9 @@ class Header extends React.Component {
     }
         
 }
-
-export default Header;
+const mapStateToProps = state => {
+    return{
+    cart: state.shop.cart
+    };
+}
+export default connect(mapStateToProps)(Header);

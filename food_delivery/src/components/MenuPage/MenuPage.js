@@ -1,14 +1,17 @@
 import React from 'react';
-import HeaderParallax from './HeaderParallax';
+import MenuHeader from './HeaderParallax';
 import styles from './MenuPage.module.css';
 import MenuItems from './MenuItems';
 import DropDown from './DropDown';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 
-export default function MenuPage(props) {
+function MenuPage(props) {
+
+    const {menuItems} = props;
 
     const [menuData, setMenuData] = React.useState([]);
 
@@ -34,6 +37,8 @@ export default function MenuPage(props) {
           } catch(err) {
             console.log(err);
           } 
+          console.log("menuitemit")
+          console.log(menuItems);
     }, [])
     
 
@@ -41,7 +46,7 @@ export default function MenuPage(props) {
     return (
         <div>
             {/* <div className={styles.header}> */}
-            <HeaderParallax/>
+            <MenuHeader/>
         <div className={styles.header}>
         <div className={styles.name}>
           {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Name}</div>)}  
@@ -50,14 +55,11 @@ export default function MenuPage(props) {
         <div className={styles.description}>
         {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Description}</div>)}
         </div>
-</div><div>
+
        <div className={styles.restaurantInfo}>
            <div className={styles.address}>
-           {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>Addres: {info.Address}</div>)}     
+           {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Address}</div>)}     
        </div>
-       <div className={styles.time}>
-        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>Open: {info.OperatingHours}</div>)}
-        </div>
         <div className={styles.type}>
         {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Type}</div>)}
         </div>
@@ -76,8 +78,7 @@ export default function MenuPage(props) {
 </div>
 
       <div className={styles.menuContainer}>
-      {menuData.map(menu=> <MenuItems key = {menu.id} {...menu}/>)}
-        {/* {menuTestData.filter(f => f.id == restaurantId).map(menu => <MenuItems key = {menu.id} {...menu}/>)}*/}
+      {menuItems.map(menu=> <MenuItems key = {menu.itemId} {...menu}/>)}
         </div>
 
       </div>  
@@ -86,3 +87,14 @@ export default function MenuPage(props) {
 
 
    
+const mapStateToProps = state => {
+
+    return{
+        menuItems: state.shop.menuItems
+    };
+    
+}
+
+export default connect(mapStateToProps)(MenuPage);
+
+
