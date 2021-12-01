@@ -2,7 +2,7 @@ import * as React from "react";
 import { useEffect, useState } from "react";
 import styles from './HeaderParallax.module.css'
 
-export default function MenuPage( ) {
+export default function HeaderParallax( ) {
  
  const [offset, setOffset] = useState(0);
 
@@ -22,7 +22,7 @@ return (
   <div className={styles.parallax}>
     <section className={styles.hero}>
       <img
-        src="../images/hugo.jpeg"
+        src="../images/ratat.jpg"
         alt="test"
         style={{
           filter: `brightness(50%)`,

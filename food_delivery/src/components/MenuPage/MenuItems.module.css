@@ -4,8 +4,8 @@
    border-radius:4px;
     /* width: 251px;
     height: 295px; */
-    margin-bottom: 20px;
-    margin-top: 50px;  
+    margin-bottom: 20px; 
+    margin-top:1%; 
     justify-content:start;
     box-shadow: 3px 5px rgb(201, 195, 195);
     flex-direction: column;
@@ -20,15 +20,17 @@
 .name{
     font-weight: bold;
     width:100%;
+    padding-left: 2%;
 }
 .description{
     font-size: 10px;
     width:80%;
     height: 80%;
+    padding-left: 2%;
     
 }
 .bottom{
-    display:fixed;
+    display:flex;
     flex-direction: row;
     gap:2%;
     padding-bottom: 2%;
