@@ -12,15 +12,12 @@ constructor(props) {
     email: "",
     password: "",
     token: "",
-    errorMessage: ""
+    errorMessage: "",
+    isChecked: false
 }
     this.authError = this.authError.bind(this);
+    this.checkbox = this.checkbox.bind(this);
 }
-
-/*setToken(token) {
-    this.setState({token: token});
-    
-}*/
 
 authError() {
     if (this.state.errorMessage) {
@@ -30,6 +27,14 @@ authError() {
     } else {
         return null;
     }
+}
+
+checkbox() {
+    return (
+        <div style={{marginTop: '10px'}}> I want to sign in as a manager
+            <input type="checkbox"  />
+            </div>
+    )
 }
 
 async loginUser() {
@@ -59,13 +64,7 @@ handleSubmit = async e => {
             this.props.setToken(res.data.token);
             //this.setToken(res.data.token);
             //window.localStorage.setItem('token', JSON.stringify(res.data.token));
-        }).catch(err => this.setState({errorMessage: err.message}));
-    /*const token = await this.loginUser({
-      email: this.state.email,
-      password: this.state.password
-    });*/
-    //this.setToken(token);
-    //console.log(token);
+        }).catch(err => this.setState({errorMessage: "Wrong credentials"}));
   }
         
 
@@ -83,6 +82,7 @@ handleSubmit = async e => {
             <label>
                 <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({password: e.target.value}, console.log(this.state.password))}/>
             </label>
+            <this.checkbox/>
             <this.authError/>
                 <button type = "submit" className = {styles.button} onClick={this.props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button> 
             </div>
