@@ -4,11 +4,13 @@ import img from './images/food.jpg'
 import minus from'./images/minus.png'
 import plus from'./images/plus.png'
 import { render } from '@testing-library/react'
+import {connect}from 'react-redux';
+import { removeFromCart } from '../../redux/Shopping/shopping-actions'
 
-export default function ShoppingCartItems(props) {
 
-    console.log("KARTTI ITEMEISSÄ: ");
-    console.log(props);
+ function ShoppingCartItems(props) {
+
+    const { removeFromCart} = props;
     let [qnty, setQnty] = React.useState(1);
 
     const addItems = () => {  //setState doesn't immediately mutate, visual problem, 2 shows 1, 3 shows 2 etc.
@@ -34,7 +36,7 @@ export default function ShoppingCartItems(props) {
             <div className = {styles.itemsUp}>
                 <div className = {styles.orderName}>{props.Name}</div>                    {/*Name of the order*/}
                 <div style = {{marginRight: '20px', marginLeft: '20px'}}></div>
-                <button className = {styles.removeButton}>X</button>                      {/*Remove item button*/}
+                <button className = {styles.removeButton} onClick = {() => removeFromCart(props.itemId)}>X</button>                      {/*Remove item button*/}
             </div>
             <div className = {styles.itemsDown}>
                 <div className = {styles.price}>{props.Price}€</div>            {/*Price*/}
@@ -51,3 +53,13 @@ export default function ShoppingCartItems(props) {
     )
 }
 
+const mapDispatchToProps = dispatch => {
+
+    return{
+
+        removeFromCart: (itemId) => dispatch(removeFromCart(itemId)) //sends the removeFromCart function from shopping-actions.js as a prop
+                                                                     //takes the itemId as a parameter, so the function knows which item to delete
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ShoppingCartItems)

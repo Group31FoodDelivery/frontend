@@ -32,11 +32,9 @@ function ShoppingCart({cart}) {
 
 const handleChange = (event) =>
     {
-        setDeliveryAddress(event.target.value);
+        setDeliveryAddress(event.target.value);  //is always one letter behind because of the way setState works, needs to be fixed
         console.log(deliveryAddress);        
     }
-
-
 
     return (
             <div>
@@ -47,14 +45,24 @@ const handleChange = (event) =>
             Your orders
             </div>
             <div className={styles.column}>
+                <div>
+            {cart.length == 0 &&
+                <h2>
+                Your shopping cart is empty!
+                </h2>
+            }
+                </div>
                 <div>                                          
                 {cart.map((order) => <ShoppingCartItems key={order.itemId}{...order}/>)}   {/*Creates shopping cart items*/}
                 </div>
-               <div style={{marginTop: "50px", fontSize: "18px"}}></div>
-               <div style={{marginBottom: "25px", fontSize: "24px", fontWeight: "500"}}>{totalPrice}€</div>
-               Delivery location
-               <input placeholder = "Street, apartment, postal code, city" className = {styles.deliveryLocation} value = {deliveryAddress} onChange = {handleChange}></input>
-               {/* <Link to="/payment" style={{textDecoration: 'none'}}><div className = {styles.checkout} onClick = {this.handleChange}>Checkout</div></Link>  Checkout 'button' to the payment page */}
+                <div style={{marginTop: "100px", fontSize: "18px"}}></div>
+                <div style={{marginBottom: "25px", fontSize: "24px", fontWeight: "500"}}>{totalPrice}€</div>
+            {cart.length > 0 &&
+                <div> 
+                 <div style = {{marginLeft: '100px'}}> Delivery location </div>
+                <input placeholder = "Street, apartment, postal code, city" className = {styles.deliveryLocation} value = {deliveryAddress} onChange = {handleChange}></input>
+                </div>
+            }   
             </div>
             </div>
             <PaymentPage/>

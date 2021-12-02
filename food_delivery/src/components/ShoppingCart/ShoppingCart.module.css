@@ -55,7 +55,6 @@ h1{
     align-items: center;
     margin-top: 20px;
     height: auto;
-    background-color: white;
     border-radius: 20px;
 
 }
@@ -63,27 +62,11 @@ h1{
 .deliveryLocation{
 
     margin-top: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     border-radius: 10px;
     padding-left: 10px;
     width: 300px;
     height: 25px;
 
 }
-
-.checkout{
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    background-color: #CC2255;
-    color: white;
-    font-weight: 500;
-    font-size: 18px;
-    border-radius: 20px;
-    width: 130px;
-    height: 45px;
-}
-
 
