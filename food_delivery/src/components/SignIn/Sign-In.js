@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import styles from './Sign-In.module.css'
 import PropTypes from 'prop-types';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 class SignIn extends React.Component {
@@ -80,7 +81,7 @@ handleSubmit = async e => {
             <label>
                 <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({password: e.target.value}, console.log(this.state.password))}/>
             </label>
-                <button type = "submit" className = {styles.button} onClick={this.props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button>
+                <button type = "submit" className = {styles.button} onClick={this.props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button> 
             </div>
             </form>
             </div>
