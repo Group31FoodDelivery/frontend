@@ -12,15 +12,14 @@ constructor(props) {
     email: "",
     password: "",
     token: "",
-    errorMessage: ""
+    errorMessage: "",
+    isChecked: false
 }
     this.authError = this.authError.bind(this);
+    this.checkbox = this.checkbox.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
 }
 
-/*setToken(token) {
-    this.setState({token: token});
-    
-}*/
 
 authError() {
     if (this.state.errorMessage) {
@@ -30,6 +29,21 @@ authError() {
     } else {
         return null;
     }
+}
+
+handleCheck() {
+
+    this.setState({isChecked: !this.state.isChecked});
+    console.log(this.state.isChecked)
+
+}
+
+checkbox() {
+    return (
+        <div style={{marginTop: '10px'}}> I want to sign in as a manager
+            <input type="checkbox" onChange={this.handleCheck } />
+            </div>
+    )
 }
 
 async loginUser() {
@@ -47,6 +61,10 @@ async loginUser() {
 
 handleSubmit = async e => {
     e.preventDefault();
+    
+    
+    if (this.state.isChecked){
+    
     axios.post('http://localhost:9000/loginForJWT',null, {
 
         auth: {
@@ -57,15 +75,26 @@ handleSubmit = async e => {
             console.log("vastaus" + res);
             this.setState({errorMessage: ""})
             this.props.setToken(res.data.token);
-            //this.setToken(res.data.token);
-            //window.localStorage.setItem('token', JSON.stringify(res.data.token));
-        }).catch(err => this.setState({errorMessage: err.message}));
-    /*const token = await this.loginUser({
-      email: this.state.email,
-      password: this.state.password
-    });*/
-    //this.setToken(token);
-    //console.log(token);
+            
+        }).catch(err => this.setState({errorMessage: "Wrong credentials"}));
+    }
+
+    else {
+        axios.post('http://localhost:8000/loginForcustomer',null, {
+
+            auth: {
+                username: this.state.email,
+                password: this.state.password
+              }
+            }).then(res => {
+                console.log("vastaus" + res);
+                this.setState({errorMessage: ""})
+                this.props.setToken(res.data.token);
+                
+            }).catch(err => this.setState({errorMessage: "Wrong credentials"}));
+
+    }
+
   }
         
 
@@ -83,6 +112,7 @@ handleSubmit = async e => {
             <label>
                 <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({password: e.target.value}, console.log(this.state.password))}/>
             </label>
+            <this.checkbox/>
             <this.authError/>
                 <button type = "submit" className = {styles.button} onClick={this.props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button> 
             </div>
