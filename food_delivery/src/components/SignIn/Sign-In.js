@@ -11,15 +11,26 @@ constructor(props) {
     this.state = {
     email: "",
     password: "",
-    token: ""
+    token: "",
+    errorMessage: ""
 }
-
+    this.authError = this.authError.bind(this);
 }
 
 /*setToken(token) {
     this.setState({token: token});
     
 }*/
+
+authError() {
+    if (this.state.errorMessage) {
+        return (
+            <h3> { this.state.errorMessage } </h3>
+        );
+    } else {
+        return null;
+    }
+}
 
 async loginUser() {
     //console.log(credentials);
@@ -29,19 +40,9 @@ async loginUser() {
             username: this.state.email,
             password: this.state.password
           }
-        }).then(res => {
-            //console.log(res.data.token);
-            //this.setToken(res.data.token);
-            //window.localStorage.setItem('token', JSON.stringify(res.data.token));
+        }).then(response => {
+            console.log("vastaus " + response);
         });
-   /*method: 'POST',
-   headers: {
-     'Content-Type': 'application/json',
-     'Authorization': 'basic'
-   },
-   body: JSON.stringify(credentials)
- })
-   .then(data => data.json())*/
 }
 
 handleSubmit = async e => {
@@ -53,11 +54,12 @@ handleSubmit = async e => {
             password: this.state.password
           }
         }).then(res => {
-            console.log(res.data.token);
+            console.log("vastaus" + res);
+            this.setState({errorMessage: ""})
             this.props.setToken(res.data.token);
             //this.setToken(res.data.token);
             //window.localStorage.setItem('token', JSON.stringify(res.data.token));
-        });
+        }).catch(err => this.setState({errorMessage: err.message}));
     /*const token = await this.loginUser({
       email: this.state.email,
       password: this.state.password
@@ -81,6 +83,7 @@ handleSubmit = async e => {
             <label>
                 <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({password: e.target.value}, console.log(this.state.password))}/>
             </label>
+            <this.authError/>
                 <button type = "submit" className = {styles.button} onClick={this.props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button> 
             </div>
             </form>
