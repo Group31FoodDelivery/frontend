@@ -7,7 +7,7 @@ const INITIAL_STATE = {
     "itemId":"d58dbc6e-a6c5-43fc-b1fe-f68c7515e28d",
     "Name":"KEBUKÄNKKY",
     "Description":"Kebua känkyn päällä",
-    "Price":10,
+    "Price":8,
     "Image":{"type":"Buffer","data":[]},
     "Category":"Pizza",
     "amount":0,
