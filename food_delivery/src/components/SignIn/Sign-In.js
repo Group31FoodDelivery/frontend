@@ -2,11 +2,15 @@ import React, {useState} from 'react'
 import styles from './Sign-In.module.css'
 import PropTypes from 'prop-types';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-class SignIn extends React.Component {
+function SignIn(props) {
 
-constructor(props) {
+let [email, setEmail] = useState("");
+let [password, setPassword] = useState("");
+let [errorMessage, setErrorMessage] = useState("");
+let [isChecked, setIsChecked] = useState(false); /*{
     super(props);
     this.state = {
     email: "",
@@ -18,36 +22,40 @@ constructor(props) {
     this.authError = this.authError.bind(this);
     this.checkbox = this.checkbox.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
-}
+}*/
 
 
-authError() {
-    if (this.state.errorMessage) {
+function authError() {
+    if (errorMessage != "") {
         return (
-            <h3> { this.state.errorMessage } </h3>
+            <h3> { errorMessage } </h3>
         );
     } else {
         return null;
     }
 }
 
-handleCheck() {
+let navigate = useNavigate();
 
-    this.setState({isChecked: !this.state.isChecked});
-    console.log(this.state.isChecked)
+function handleCheck() {
+
+    isChecked = setIsChecked(isChecked = !isChecked);
+    //console.log(this.state.isChecked)
 
 }
 
-checkbox() {
+function checkbox() {
     return (
         <div style={{marginTop: '10px'}}> I want to sign in as a manager
-            <input type="checkbox" onChange={this.handleCheck } />
+            <input type="checkbox" onChange={handleCheck } />
             </div>
     )
 }
 
-async loginUser() {
+
+/*async loginUser() {
     //console.log(credentials);
+    
     axios.post('http://localhost:9000/loginForJWT',null, {
 
         auth: {
@@ -57,41 +65,40 @@ async loginUser() {
         }).then(response => {
             console.log("vastaus " + response);
         });
-}
+}*/
 
-handleSubmit = async e => {
+ const handleSubmit = async(e) => {
     e.preventDefault();
     
-    
-    if (this.state.isChecked){
+    debugger
+    if (isChecked){
     
     axios.post('http://localhost:9000/loginForJWT',null, {
-
         auth: {
-            username: this.state.email,
-            password: this.state.password
+            username: email,
+            password: password
           }
         }).then(res => {
             console.log("vastaus" + res);
-            this.setState({errorMessage: ""})
-            this.props.setToken(res.data.token);
-            
-        }).catch(err => this.setState({errorMessage: "Wrong credentials"}));
+            errorMessage = "";
+            props.setToken(res.data.token);
+            navigate('/', { replace: true });
+        }).catch(err => ({errorMessage: err.message}));
     }
 
     else {
         axios.post('http://localhost:8000/loginForcustomer',null, {
 
             auth: {
-                username: this.state.email,
-                password: this.state.password
+                username: email,
+                password: password
               }
             }).then(res => {
                 console.log("vastaus" + res);
                 this.setState({errorMessage: ""})
                 this.props.setToken(res.data.token);
                 
-            }).catch(err => this.setState({errorMessage: "Wrong credentials"}));
+            }).catch(err => ({errorMessage: "Wrong credentials"}));
 
     }
 
@@ -99,32 +106,28 @@ handleSubmit = async e => {
         
 
 
-    render () {
         return (
             <div className = {styles.container}>
             <div className = {styles.topBar}><div style = {{alignSelf: 'center'}}>Sign In</div></div>
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <div className={styles.SignIn}>
             <div style = {{fontWeight: '500', marginBottom: '20px'}}>Welcome back!</div>
             <label>
-                <input type="text" placeholder="Email" className ={styles.inputs} onChange={e => this.setState({email: e.target.value})}/>
+                <input type="text" placeholder="Email" className ={styles.inputs} onChange={e => {email = setEmail(email = e.target.value)}}/>
             </label>
             <label>
-                <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({password: e.target.value}, console.log(this.state.password))}/>
+                <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => {password = setPassword(password = e.target.value)}}/>
             </label>
-            <this.checkbox/>
-            <this.authError/>
-                <button type = "submit" className = {styles.button} onClick={this.props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button> 
+            {checkbox()}
+            {authError()}
+                <button type = "submit" className = {styles.button} onClick={props.getToken}><div style = {{fontSize: '16px',fontWeight: '500'}}>Sign in</div></button> 
             </div>
             </form>
             </div>
         );
     }
     
-}
 
-/*SignIn.propTypes = {
-    setToken: PropTypes.func.isRequired
-  };*/
+
 
 export default SignIn;
