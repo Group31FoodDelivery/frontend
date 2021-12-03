@@ -34,7 +34,7 @@ function Header(props) {
         <img src = '/images/register.png' className = {styles.icon}/>Register</div></Link>
         <Link to="/shoppingcart" className = {styles.buttonContainer}>
         <button className = {styles.shoppingcartButton}>
-        <img className = {styles.shoppingIcon} src = "images/Cart.png"></img>
+        <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
         <div style = {{fontSize: '16px', color: 'white'}}>
             {cartCounter} orders 
         </div>

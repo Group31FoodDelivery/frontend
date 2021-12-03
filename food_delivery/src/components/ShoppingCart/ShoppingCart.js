@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './ShoppingCart.module.css'
 import ShoppingCartItems from './ShoppingCartItems';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import data from './orders2.json';
 import { useState } from 'react';
 import{ connect } from 'react-redux';
 import PaymentPage from '../PaymentPage/PaymentPage';

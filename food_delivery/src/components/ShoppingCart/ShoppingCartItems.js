@@ -5,6 +5,7 @@ import minus from'./images/minus.png'
 import plus from'./images/plus.png'
 import { render } from '@testing-library/react'
 import {connect}from 'react-redux';
+import { useState } from 'react'
 import { removeFromCart } from '../../redux/Shopping/shopping-actions';
 import {adjustQty} from '../../redux/Shopping/shopping-actions';
 
@@ -13,18 +14,32 @@ import {adjustQty} from '../../redux/Shopping/shopping-actions';
 
     const { removeFromCart} = props;
     const {adjustQty} = props;
-    let [qnty, setQnty] = React.useState(1);
 
-    const addItems = () => {  //setState doesn't immediately mutate, visual problem, 2 shows 1, 3 shows 2 etc.
+    let [qnty, setQnty] = useState(props.amount);
 
-        setQnty(qnty++);
+    const addItems = () => { 
+
+        console.log("hello");
+       
+        let newAmount = qnty + 1;
+        setQnty(newAmount);
+        console.log(qnty);
+        adjustQty(props.itemId, newAmount)
 
     }
 
-    const removeItems = () => { //also needs to know WHICH order to add/remove
+    const removeItems = () => { 
 
-        setQnty(qnty--);
+        if(qnty > 1){
+        let newAmount = qnty -1;
+        setQnty(newAmount);
         console.log(qnty);
+        adjustQty(props.itemId, newAmount)
+    }
+    else{
+
+    }
+    console.log(qnty);
 
     }
 
@@ -42,7 +57,7 @@ import {adjustQty} from '../../redux/Shopping/shopping-actions';
             </div>
             <div className = {styles.itemsDown}>
                 <div className = {styles.price}>{props.Price}€</div>            {/*Price*/}
-                <div><img className = {styles.buttonMinus} src = {minus} onClick ={() => adjustQty(props.itemId,2)}>
+                <div><img className = {styles.buttonMinus} src = {minus} onClick ={removeItems}>
                     </img></div>                     
                 <div className = {styles.addMore}>{props.amount}</div>                                {/*how many*/}
                 <div><img className = {styles.buttonPlus} src = {plus} onClick = {addItems}>

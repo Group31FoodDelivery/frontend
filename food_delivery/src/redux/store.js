@@ -3,6 +3,16 @@ import {createStore} from 'redux';
 import rootReducer from './rootReducer';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer, composeWithDevTools());
+const savedState = localStorage.getItem('reduxState') 
+                       ? JSON.parse(localStorage.getItem('reduxState')) //makes sure the taken data is in a JSON form
+                       : {}
+
+const store = createStore(rootReducer, savedState, composeWithDevTools());
+
+store.subscribe(()=>{
+  localStorage.setItem('reduxState', JSON.stringify(store.getState())); //Saves the state in local storage everytime action is dispatched
+  console.log(savedState);
+})
+
 
 export default store;
