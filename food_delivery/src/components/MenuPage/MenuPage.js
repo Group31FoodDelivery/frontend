@@ -7,38 +7,22 @@ import { useParams } from 'react-router';
 import { useEffect } from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
-
+import {getMenuItems} from '../../redux/Shopping/shopping-actions';
 
 function MenuPage(props) {
 
     const {menuItems} = props; //redux menuItem state, harcoded, doesn't have api calls yet. props.restaurantId must be passed to redux somehow
-
+    const {getMenuItems} = props;
     //const [menuData, setMenuData] = React.useState([]);
 
     const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
+
     
-    /*useEffect(() => {
+    useEffect(() => {
+
+        getMenuItems(restaurantId)
        
-        try {
-        
-            axios.get('/restaurants/menuitem/'+ restaurantId, //sends a request and waits til the response is fetched
-            
-            ).then(response => {
-              //console.log(response.data);
-              setMenuData(response.data);
-              console.log(props);
- 
-            })
-            //sets the promise response object to restaurantData
-      
-            console.log(restaurantId);
-            
-            
-          } catch(err) {
-            console.log(err);
-          } 
-          
-    }, [])*/
+    }, [])
     
 
     
@@ -99,6 +83,16 @@ const mapStateToProps = state => {
     
 }
 
-export default connect(mapStateToProps)(MenuPage);
+const mapDispatchToProps = dispatch => {
+
+    console.log("hi");
+    return{
+        getMenuItems: (restaurantId) => dispatch(getMenuItems(restaurantId))
+    };
+    
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuPage);
 
 

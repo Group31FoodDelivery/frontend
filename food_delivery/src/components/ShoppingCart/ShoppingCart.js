@@ -12,21 +12,17 @@ function ShoppingCart({cart}) {
 
     const [deliveryAddress, setDeliveryAddress] = useState('')
     const [totalPrice, setTotalPrice] = useState(0)
-    const [totalItems, setTotalItems] = useState(0)
 
     useEffect(() => {
         let price = 0;
-        let items = 0;
         cart.forEach(menuItem => {
 
-            items += menuItem.amount;
             price += menuItem.amount * menuItem.Price;
             
         });
 
         setTotalPrice(price);
-        setTotalItems(items);
-    }, [cart, totalPrice, totalItems, setTotalPrice, setTotalItems])
+    }, [cart, totalPrice, setTotalPrice])
 
 
 const handleChange = (event) =>

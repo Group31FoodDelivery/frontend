@@ -2,30 +2,11 @@ import * as actionTypes from './shopping-type';
 
 const INITIAL_STATE = {
  menuItems: [ 
-
-    {
-    "itemId":"d58dbc6e-a6c5-43fc-b1fe-f68c7515e28d",
-    "Name":"KEBUKÄNKKY",
-    "Description":"Kebua känkyn päällä",
-    "Price":8,
-    "Image":{"type":"Buffer","data":[]},
-    "Category":"Pizza",
-    "amount":0,
-    "restaurantId":"99c2d507-061e-456a-a370-8130db1454ae"
-    },
-    {"itemId":"edf1b467-9ce0-4d29-a979-2af49964e84c",
-    "Name":"Tipuämpäri",
-    "Description":"Rapeaa popparikanaa",
-    "Price":10,
-    "Image":{"type":"Buffer","data":[]},
-    "Category":"Chicken",
-    "amount":0,
-    "restaurantId":"ae4c23ce-9ccf-4fed-991f-2d8d31b276d4"
-    }
-
  ],
  cart: [],
  currentItem: null,
+ isFetching: false,
+ error: undefined
 }
 const shopReducer  = (state = INITIAL_STATE, action) => {
 
@@ -59,6 +40,21 @@ const shopReducer  = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentItem: action.payload,
             }
+        case actionTypes.GET_MENUITEMS_REQUEST:
+            return {
+                ...state
+            
+            }
+        case actionTypes.GET_MENUITEMS_FAILURE:
+            return {
+                ...state
+                }
+        case actionTypes.GET_MENUITEMS_SUCCESS:
+            return {
+                ...state,
+                isFetching: false,
+                menuItems: action.menuItems
+              };
         default:
             return state;
 

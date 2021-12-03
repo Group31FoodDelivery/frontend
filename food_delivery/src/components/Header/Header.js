@@ -13,6 +13,7 @@ function Header(props) {
     const [cartCounter,setCartCounter] = React.useState(0)
 
     useEffect(() => {
+    
        let count = 0;
        cart.forEach(menuItem => {
 

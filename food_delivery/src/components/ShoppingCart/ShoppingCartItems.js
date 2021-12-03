@@ -19,8 +19,6 @@ import {adjustQty} from '../../redux/Shopping/shopping-actions';
 
     const addItems = () => { 
 
-        console.log("hello");
-       
         let newAmount = qnty + 1;
         setQnty(newAmount);
         console.log(qnty);
