@@ -46,7 +46,7 @@ function handleCheck() {
 
 function checkbox() {
     return (
-        <div style={{marginTop: '10px'}}> I want to sign in as a manager
+        <div style={{marginTop: '20px'}}> I want to sign in as a manager
             <input type="checkbox" onChange={handleCheck } />
             </div>
     )

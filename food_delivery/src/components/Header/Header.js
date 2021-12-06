@@ -9,30 +9,30 @@ import { useEffect } from 'react';
 
 function Header(props) {
 
-    const {cart} = props;
+    const {shoppingcart} = props;
     const [cartCounter,setCartCounter] = React.useState(0)
 
-    logout = () => {
-        this.props.logout();
+    const logout = () => {
+        props.logout();
     } 
 
-    register = () => {
-        this.props.register();
+    const register = () => {
+        props.register();
     }
 
-    cart = () => {
-        this.props.cart();
+    const cart = () => {
+        props.cart();
     }
 
-    restaurant = () => {
-        this.props.restaurant();
+    const restaurant = () => {
+        props.restaurant();
     }
     
 
-    loginLogoutButton = () => {
-        if(this.props.token) {
+    const LoginLogoutButton = () => {
+        if(props.token) {
             return (
-                <div onClick={this.props.logout} style={{cursor: 'pointer', marginRight: '30px'}}>Log out</div>
+                <div onClick={props.logout} style={{cursor: 'pointer', marginRight: '30px'}}>Log out</div>
             )
         } else {
             return (
@@ -42,11 +42,11 @@ function Header(props) {
         }
     }
     
-    registerButton = () => {
+    const RegisterButton = () => {
 
-        if(this.props.token) {
+        if(props.token) {
             return (
-                <div onClick={this.props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
+                <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
             )
         } else {
             return (
@@ -58,20 +58,20 @@ function Header(props) {
     }
     }
 
-    cartButton = () => {
+    const CartButton = () => {
         return(
         <Link to="/shoppingcart" className = {styles.buttonContainer}>
             <button className = {styles.shoppingcartButton}>
             <img className = {styles.shoppingIcon} src = "images/Cart.png"></img>
             <div style = {{fontSize: '16px'}}>
-                if Empty 
+                {cartCounter} items
              </div>
             </button></Link>
             )
 
     }
-    createRestaurant = () => {
-        if(this.props.token) {
+    const CreateRestaurant = () => {
+        if(props.token) {
             
            
             return(
@@ -90,13 +90,13 @@ function Header(props) {
     useEffect(() => {
     
        let count = 0;
-       cart.forEach(menuItem => {
+       shoppingcart.forEach(menuItem => {
 
        count += menuItem.amount;
            
        });
        setCartCounter(count);
-    }, [cart, cartCounter])
+    }, [shoppingcart, cartCounter])
 
 
     return (
@@ -105,10 +105,10 @@ function Header(props) {
         <Link to="/" style={{textDecoration: 'none'}}><div style={{marginRight: '300px', marginLeft: '20px', color: 'white'}}>YammyGo</div></Link>
         <input type="text" placeholder="Search restaurants..." className={styles.searchBar} onChange={props.onSearchChange} value={props.itemSearchString}/>
         <button className={styles.searchButton}> Search </button>
-        <this.loginLogoutButton/>
-                <this.registerButton/>
-                <this.createRestaurant/>
-                <this.cartButton/>         
+        <LoginLogoutButton/>
+        <RegisterButton/>
+        <CreateRestaurant/>
+        <CartButton/>         
         
        {/*<Link to="/orders" style={{textDecoration: 'none',backgroundColor: '#cc2255',textAlign: 'center',
             fontSize: '16px', height: '100%',width: '15%', marginLeft: 'auto'}}>
@@ -121,7 +121,7 @@ function Header(props) {
         
 const mapStateToProps = state => {
     return{
-    cart: state.shop.cart
+    shoppingcart: state.shop.cart
     };
 }
 export default connect(mapStateToProps)(Header);
