@@ -21,6 +21,7 @@ function MenuPage(props) {
     useEffect(() => {
 
         getMenuItems(restaurantId)
+        console.log(getMenuItems)
        
     }, [])
     
