@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './CreateRestaurant.module.css';
 import axios from 'axios';
+import jwt from 'jwt-decode';
 
 class CreateRestaurant extends React.Component {
     constructor(props) {
@@ -40,7 +41,7 @@ class CreateRestaurant extends React.Component {
             Rating: 3,
             Description: this.state.description,
             Image: "",
-            managerId: "a09cca1d-77d9-483d-a3fd-da2b786acf4e"
+            managerId: ""
         };
        
        
@@ -48,7 +49,10 @@ class CreateRestaurant extends React.Component {
 
        
 
-        console.log(formData);
+        console.log("DATA "+ formData);
+        
+        const user = jwt(this.props.token);
+        this.setState({managerId: JSON.stringify(user.manager.managerId)});
 
 
         const config = {
@@ -65,6 +69,7 @@ class CreateRestaurant extends React.Component {
        }
        else{
            console.log(formData);
+           //console.log("KÄYTTÄJÄ " + JSON.stringify(user.manager.managerId));
        }
 
     }
