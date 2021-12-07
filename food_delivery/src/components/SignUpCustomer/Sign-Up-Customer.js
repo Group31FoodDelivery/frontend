@@ -24,7 +24,7 @@ class SignUpCustomer extends React.Component {
         if (this.state.isChecked){
             return (
                 <><input type="text" placeholder="Name" className={styles.inputs} onChange={e => this.setState({Firstname: e.target.value})}/><div style={{ marginTop: '20px' }}></div>
-                <input type="text" placeholder="Last Name" className={styles.inputs} onChange={e => this.setState({Lastname: e.target.value})}/><div style={{ marginTop: '20px' }}></div></>
+                <input type="text" placeholder="Last Name" className={styles.inputs} onChange={e => this.setState({Surname: e.target.value})}/><div style={{ marginTop: '20px' }}></div></>
             )
         } else {
             return (
@@ -58,7 +58,7 @@ class SignUpCustomer extends React.Component {
 
         let formData = {
             Firstname: this.state.Firstname,
-            Lastname: this.state.Lastname,
+            Surname: this.state.Surname,
             Address: this.state.Address,
             ContactInfo: this.state.ContactInfo,
             Password: this.state.Password
