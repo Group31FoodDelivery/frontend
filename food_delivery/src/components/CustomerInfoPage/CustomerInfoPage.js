@@ -1,9 +1,11 @@
 import React from 'react'
 import styles from './CustomerInfoPage.module.css'
 
+//Account information
+
 export default function CustomerInfoPage() {
     return (
-            <div>
+        <div>
         <div className = {styles.topBar}>
             Your account
         </div>
@@ -38,6 +40,5 @@ export default function CustomerInfoPage() {
            
         </div>
         </div>
-    
     )
 }

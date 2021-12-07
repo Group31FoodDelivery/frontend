@@ -58,7 +58,7 @@ class CreateRestaurant extends React.Component {
                     <option name="2">2</option>
                     <option name="3">3</option>
                     <option name="4">4</option>
-                    <option name="5">5</option>
+                    <option name="5">5</option>  
                 </select>
 
                 <input type="text" placeholder="Name" className = {styles.inputs} onChange={e => this.setState({name: e.target.value})}/>

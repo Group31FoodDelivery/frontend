@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from './PaymentPage.module.css'
+import { useEffect } from 'react';
 
-export default function PaymentPage() {
+export default function PaymentPage({cart}) {
+    console.log(cart);
+
+    useEffect(() => {
+       console.log(cart);
+    }, [cart])
     return (
         <div>
         <div className = {styles.topBar}>Payment</div>
