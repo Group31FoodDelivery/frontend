@@ -101,7 +101,7 @@ return (
         <Route path="/" element={<FrontPage restaurantData={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
      (restaurantData) => restaurantData.Name.includes(this.state.itemSearchString))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
-        <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
+        <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />

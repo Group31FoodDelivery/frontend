@@ -1,20 +1,24 @@
 import React from 'react';
 import styles from './CreateRestaurant.module.css';
+import axios from 'axios';
 
 class CreateRestaurant extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { 
             type: "fine_dining", 
             priceLevel: "1",
-            name: null,
-            description: null,
-            operatingHours: null,
-            address: null
+            name: "",
+            description: "",
+            operatingHours: "",
+            address: "",
+            
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
     }
+
+
 
     handleChange(event) {
         this.setState({ type: event.target.value });
@@ -25,13 +29,42 @@ class CreateRestaurant extends React.Component {
     }
 
     handleRestaurant = async e => {
-       if (this.state.name && this.state.address && this.state.operatingHours && this.state.description){
+        e.preventDefault();
+       
+        let formData = {
+            Name: this.state.name,
+            Address: this.state.address,
+            OperatingHours: this.state.operatingHours,
+            Price_level: this.state.priceLevel,
+            Type: this.state.type,
+            Rating: 3,
+            Description: this.state.description,
+            Image: "",
+            managerId: "a09cca1d-77d9-483d-a3fd-da2b786acf4e"
+        };
+       
+       
+        if (this.state.name && this.state.address && this.state.operatingHours && this.state.description){
 
+       
+
+        console.log(formData);
+
+
+        const config = {
+            headers: {"Authorization": "Bearer " + this.props.token}
+        };
+
+        console.log(this.props.token);
+
+        axios.post('http://localhost:9000/restaurants',formData, config).then(console.log("postissa")).catch((e) => {
+            console.log( e.response )
+          });
         console.log("Tähän lisää");
 
        }
        else{
-           console.log("ei ollu kaikki laitettu")
+           console.log(formData);
        }
 
     }
