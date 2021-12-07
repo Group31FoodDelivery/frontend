@@ -33,7 +33,7 @@ const handleChange = (event) =>
 
     return (
             <div>
-            <div className = {styles.title}><h1>Shopping cart</h1></div>
+            <div className = {styles.title}><span>Shopping cart</span></div>
             <div className = {styles.mainContainer}>
             <div className = {styles.container}>                                       
             <div className = {styles.topBar}>
