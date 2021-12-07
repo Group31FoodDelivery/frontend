@@ -8,7 +8,10 @@
     display: flex;
     align-items: center; 
 }
-
+.logo{ 
+    padding:2%;
+     color: white
+}
 .buttonContainer{
     display: flex;
     background-color: #cc2255; 
@@ -73,5 +76,157 @@
     margin-right: 8px;
     width: 24px;
     height: 24px;
+
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+    
+    .Header{
+        display: flex;
+        flex-direction:column;
+        align-items: center; 
+        height: auto;
+        gap:2%;
+    }
+    .logo{ 
+        padding:2%;
+        font-size:25px;
+    }
+    .search{
+        display:flex;
+        flex-direction: row;
+        align-items: center; 
+        padding-left:20%;
+    }
+    .searchBar {
+        border-radius: 15px 0 0 15px;
+        border: none;
+        width:60%;
+        height:30px;  
+    }
+    .searchButton{
+        height:32.5px;
+    }
+    .login{
+        display:flex;
+        flex-direction: row;
+        padding-top:6%;
+        padding-left: 7%;
+        padding-bottom:5%;
+    }
+    .buttonContainer{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    }
+   
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .Header{
+        display: flex;
+        flex-direction:column;
+        align-items: center; 
+        height: auto;
+        gap:2%;
+    }
+    .logo{ 
+        padding:5%;
+        font-size:35px;
+        margin-left:-10%;
+    }
+    .search{
+        display:flex;
+        flex-direction: row;
+        align-items: center; 
+        padding-left:20%;
+    }
+    .searchBar {
+        border-radius: 15px 0 0 15px;
+        border: none;
+        height:50px;  
+    }
+    .searchButton{
+        height:52.5px;
+    }
+    .login{
+        display:flex;
+        flex-direction: row;
+        padding-top:3%;
+        padding-left: 7%;
+        padding-bottom:5%;
+    }
+    .buttonContainer{
+    display:flex;
+    justify-content:center;
+    width:100%;
+    }
+   
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .Header{
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
+        font-size: 30px;
+        height: 80px;
+    }
+    .logo{ 
+        font-size:25px;
+        margin-left:0%;
+        margin-right:0%;
+       
+    }
+    .search{
+        padding-left: 0%;
+        padding-right: 0%;
+        margin-left: 0%;
+        margin-right: 0%;
+    }
+    .searchBar {
+        border-radius: 15px 0 0 15px;
+        border: none;
+        height:40px;  
+        width:300px;
+        padding: 1%;
+    }
+    .searchButton{
+    height: 46.9px;  
+    width:20%;
+    padding:0%;
+    margin-right: 0px;
+    }
+
+    .buttonContainer{  
+        width: 300px;
+        height: 80px;
+        display:flex;
+        align-items: center;
+    }
+
+    .login{
+        display:flex;
+        flex-direction: row;
+        gap:1%;
+        padding-left:0%;
+        font-size:16px;
+        display:flex;
+        align-items: center;
+        padding-top:5%;
+
+    }
+    .text{
+        width:100%;
+
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 
 }
