@@ -25,7 +25,7 @@ function Header(props) {
 
     return (
         <div className={styles.Header}>
-        <Link to="/" style={{textDecoration: 'none'}}><div className={styles.logo} style={{}}>YammyGo</div></Link>
+        <Link to="/" style={{textDecoration: 'none'}}><div className={styles.logo}>YammyGo</div></Link>
         <div className={styles.search}>
         <input type="text" placeholder="Search restaurants..." className={styles.searchBar} onChange={props.onSearchChange} value={props.itemSearchString}/>
         <button className={styles.searchButton}> Search </button>

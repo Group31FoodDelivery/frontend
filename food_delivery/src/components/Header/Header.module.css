@@ -175,27 +175,59 @@
         flex-direction: row;
         align-items: center; 
         font-size: 30px;
+        height: 80px;
     }
     .logo{ 
-        padding:5%;
-        font-size:35px;
+        font-size:25px;
         margin-left:0%;
-        width: 100px;
+        margin-right:0%;
+       
     }
     .search{
-        padding-right: 20%;
+        padding-left: 0%;
+        padding-right: 0%;
+        margin-left: 0%;
+        margin-right: 0%;
     }
     .searchBar {
         border-radius: 15px 0 0 15px;
         border: none;
         height:40px;  
         width:300px;
-        
+        padding: 1%;
     }
-    .buttonContainer{
-        width:15%;
+    .searchButton{
+    height: 46.9px;  
+    width:20%;
+    padding:0%;
+    margin-right: 0px;
+    }
+
+    .buttonContainer{  
+        width: 300px;
+        height: 80px;
+        display:flex;
+        align-items: center;
+    }
+
+    .login{
+        display:flex;
+        flex-direction: row;
+        gap:1%;
+        padding-left:0%;
+        font-size:16px;
+        display:flex;
+        align-items: center;
+        padding-top:5%;
+
+    }
+    .text{
+        width:100%;
+
     }
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {}
+@media only screen and (min-width: 1200px) {
+
+}
