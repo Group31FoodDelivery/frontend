@@ -12,12 +12,24 @@ class SignUpCustomer extends React.Component {
             Address: "",
             ContactInfo: "",
             Password: "",
-            isChecked: false
+            isChecked: false,
+            errorMessage: ""
         }
 
         this.checkbox = this.checkbox.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.userOrManager = this.userOrManager.bind(this);
+        this.error = this.error.bind(this);
+    }
+
+    error() {
+        if (this.state.errorMessage != "") {
+            return (
+                <h3> { this.state.errorMessage } </h3>
+            );
+        } else {
+            return null;
+        }
     }
 
     userOrManager() {
@@ -74,10 +86,14 @@ class SignUpCustomer extends React.Component {
         if (this.state.isChecked) {
             axios.post('http://localhost:9000/registerManager',formData).then(res => {
                 console.log(res);
+            }).catch(err => {
+                this.setState({errorMessage: "Don't leave any fields empty"});
             })
         } else {
             axios.post('http://localhost:8000/register',formData2, {
                 headers: formData2
+            }).catch(err => {
+                this.setState({errorMessage: "Don't leave any fields empty"});
             })
         }
 
@@ -103,6 +119,8 @@ class SignUpCustomer extends React.Component {
                     <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({Password: e.target.value})}/>
 
                     <this.checkbox/>
+
+                    <this.error/>
 
                     <button className = {styles.button} type="submit"><div style = {{fontSize: '16px', fontWeight: '500'}}>Create a new account</div></button>
                 </form>

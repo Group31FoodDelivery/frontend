@@ -70,7 +70,6 @@ function checkbox() {
  const handleSubmit = async(e) => {
     e.preventDefault();
     
-    debugger
     if (isChecked){
     
     axios.post('http://localhost:9000/loginForJWT',null, {
@@ -80,10 +79,10 @@ function checkbox() {
           }
         }).then(res => {
             console.log("vastaus" + res);
-            errorMessage = "";
+            errorMessage = setErrorMessage(errorMessage = "");
             props.setToken(res.data.token);
             navigate('/', { replace: true });
-        }).catch(err => ({errorMessage: err.message}));
+        }).catch(err => (errorMessage = setErrorMessage(errorMessage = "Wrong credentials")));
     }
 
     else {
@@ -95,10 +94,10 @@ function checkbox() {
               }
             }).then(res => {
                 console.log("vastaus" + res);
-                this.setState({errorMessage: ""})
-                this.props.setToken(res.data.token);
-                
-            }).catch(err => ({errorMessage: "Wrong credentials"}));
+                errorMessage = setErrorMessage(errorMessage = "");
+                props.setToken(res.data.token);
+                navigate('/', { replace: true });
+            }).catch(err => (errorMessage = setErrorMessage(errorMessage = err.message)));
 
     }
 

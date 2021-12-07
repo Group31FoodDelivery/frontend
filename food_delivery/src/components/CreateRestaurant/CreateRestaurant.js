@@ -13,13 +13,22 @@ class CreateRestaurant extends React.Component {
             description: "",
             operatingHours: "",
             address: "",
-            
+            errorMessage: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
+        this.error = this.error.bind(this);
     }
 
-
+    error() {
+        if (this.state.errorMessage != "") {
+            return (
+                <h3> { this.state.errorMessage } </h3>
+            );
+        } else {
+            return null;
+        }
+    }
 
     handleChange(event) {
         this.setState({ type: event.target.value });
@@ -69,6 +78,7 @@ class CreateRestaurant extends React.Component {
        }
        else{
            console.log(formData);
+           this.setState({errorMessage: "Don't leave empty fields!"})
            //console.log("KÄYTTÄJÄ " + JSON.stringify(user.manager.managerId));
        }
 
@@ -109,6 +119,7 @@ class CreateRestaurant extends React.Component {
                 <input type="text" placeholder="Operating hours"  className = {styles.inputs} onChange={e => this.setState({operatingHours: e.target.value})}/>
                 <input type="text" placeholder="Address"  className = {styles.inputs} onChange={e => this.setState({address: e.target.value})}/>
 
+               <this.error/>
                 {/*<input  type="text" placeholder="Address"  className = {styles.addressInputs} onChange={e => this.setState({address: e.target.value})} > </input> */}
                 
                 <button type="submit" className = {styles.button}>Create</button>
