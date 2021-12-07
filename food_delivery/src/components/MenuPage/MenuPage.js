@@ -1,26 +1,62 @@
 import React from 'react';
-import MenuHeader from './HeaderParallax';
+import HeaderParallax from './HeaderParallax';
 import styles from './MenuPage.module.css';
 import MenuItems from './MenuItems';
 import DropDown from './DropDown';
+import { useParams } from 'react-router';
+import { useEffect } from 'react';
+import axios from 'axios';
+import {connect} from 'react-redux';
+import {getMenuItems} from '../../redux/Shopping/shopping-actions';
 
-export default function MenuPage(props) {
+function MenuPage(props) {
+
+    const {menuItems} = props; //redux menuItem state, harcoded, doesn't have api calls yet. props.restaurantId must be passed to redux somehow
+    const {getMenuItems} = props;
+    //const [menuData, setMenuData] = React.useState([]);
+
+    const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
+
+    
+    useEffect(() => {
+
+        getMenuItems(restaurantId)
+        console.log(getMenuItems)
+       
+    }, [])
+    
+
+    
     return (
+
+        //Gets restaurants from app.js as normal props
         <div>
             {/* <div className={styles.header}> */}
-            <MenuHeader/>
-            <div className={styles.header}>
-        <div className={styles.name}>Luckiefun's Sushi Buffet Oulu</div>
-        <div className={styles.description}>Tarjolla on erinomaista ruokaa kaudelle ominaisista aineksista, jotka saamme läheltä meitä järkevästi ja vastuullisesti.
-       </div>
-
-       <div className={styles.restaurantInfo}>
-           <div className={styles.address}>Rantakatu 4, 90100 Oulu
-       </div>
-        <div className={styles.type}>Fine dining
+            <HeaderParallax/>
+        <div className={styles.header}>
+        <div className={styles.name}>
+          {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Name}</div>)}  
     </div>
-        <div className={styles.rating}>5/5</div>
-</div>
+    <div className = {styles.container}>
+        <div className={styles.description}>
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Description}</div>)}
+        </div>
+</div><div>
+       <div className={styles.restaurantInfo}>
+           <div className={styles.address}>
+           {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>Addres: {info.Address}</div>)}     
+       </div>
+       <div className={styles.time}>
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>Open: {info.OperatingHours}</div>)}
+        </div>
+        <div className={styles.type}>
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Type}</div>)}
+        </div>
+        <div className={styles.rating}>
+        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Rating}/5</div>)}
+        </div>
+        </div>
+    </div>
       </div>
 
 {/* DropDown */}
@@ -31,9 +67,33 @@ export default function MenuPage(props) {
 </div>
 
       <div className={styles.menuContainer}>
-           {props.restaurants.map(restaurants => <MenuItems key={restaurants.id.menu} {...restaurants}/>)} {/*go through the json array and send ONE new array per component*/}
+      {menuItems.map(menu=> <MenuItems key = {menu.itemId} {...menu}/>)}
         </div>
 
       </div>  
        
     )}
+
+
+   
+const mapStateToProps = state => {
+
+    return{
+        menuItems: state.shop.menuItems
+    };
+    
+}
+
+const mapDispatchToProps = dispatch => {
+
+    console.log("hi");
+    return{
+        getMenuItems: (restaurantId) => dispatch(getMenuItems(restaurantId))
+    };
+    
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MenuPage);
+
+

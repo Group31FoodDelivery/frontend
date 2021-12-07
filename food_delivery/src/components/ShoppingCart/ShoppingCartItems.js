@@ -4,21 +4,40 @@ import img from './images/food.jpg'
 import minus from'./images/minus.png'
 import plus from'./images/plus.png'
 import { render } from '@testing-library/react'
+import {connect}from 'react-redux';
+import { useState } from 'react'
+import { removeFromCart } from '../../redux/Shopping/shopping-actions';
+import {adjustQty} from '../../redux/Shopping/shopping-actions';
 
-export default function ShoppingCartItems(props) {
 
-    let [qnty, setQnty] = React.useState(1);
+ function ShoppingCartItems(props) {
 
-    const addItems = () => {  //setState doesn't immediately mutate, visual problem, 2 shows 1, 3 shows 2 etc.
+    const { removeFromCart} = props;
+    const {adjustQty} = props;
 
-        setQnty(qnty++);
+    let [qnty, setQnty] = useState(props.amount);
+
+    const addItems = () => { 
+
+        let newAmount = qnty + 1;
+        setQnty(newAmount);
+        console.log(qnty);
+        adjustQty(props.itemId, newAmount)
 
     }
 
-    const removeItems = () => { //also needs to know WHICH order to add/remove
+    const removeItems = () => { 
 
-        setQnty(qnty--);
+        if(qnty > 1){
+        let newAmount = qnty -1;
+        setQnty(newAmount);
         console.log(qnty);
+        adjustQty(props.itemId, newAmount)
+    }
+    else{
+
+    }
+    console.log(qnty);
 
     }
 
@@ -30,15 +49,15 @@ export default function ShoppingCartItems(props) {
             </div>
             <div className = {styles.infoArea}>
             <div className = {styles.itemsUp}>
-                <div className = {styles.orderName}>{props.name}</div>                    {/*Name of the order*/}
+                <div className = {styles.orderName}>{props.Name}</div>                    {/*Name of the order*/}
                 <div style = {{marginRight: '20px', marginLeft: '20px'}}></div>
-                <button className = {styles.removeButton}>X</button>                      {/*Remove item button*/}
+                <button className = {styles.removeButton} onClick = {() => removeFromCart(props.itemId)}>X</button>                      {/*Remove item button*/}
             </div>
             <div className = {styles.itemsDown}>
-                <div className = {styles.price}>{props.price.toFixed(2)}€</div>            {/*Price*/}
-                <div><img className = {styles.buttonMinus} src = {minus} onClick = {removeItems}>
+                <div className = {styles.price}>{props.Price}€</div>            {/*Price*/}
+                <div><img className = {styles.buttonMinus} src = {minus} onClick ={removeItems}>
                     </img></div>                     
-                <div className = {styles.addMore}>{qnty}</div>                                {/*how many*/}
+                <div className = {styles.addMore}>{props.amount}</div>                                {/*how many*/}
                 <div><img className = {styles.buttonPlus} src = {plus} onClick = {addItems}>
                     </img></div> 
             </div>
@@ -49,3 +68,13 @@ export default function ShoppingCartItems(props) {
     )
 }
 
+const mapDispatchToProps = dispatch => {
+
+    return{
+
+        removeFromCart: (itemId) => dispatch(removeFromCart(itemId)), //sends the removeFromCart function from shopping-actions.js as a prop
+        adjustQty : (itemId, value) => dispatch(adjustQty(itemId, value))                                                          //takes the itemId as a parameter, so the function knows which item to delete
+    }
+}
+
+export default connect(null, mapDispatchToProps)(ShoppingCartItems)

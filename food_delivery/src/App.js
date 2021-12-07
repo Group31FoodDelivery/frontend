@@ -99,7 +99,7 @@ return (
     <div>
       <Routes> 
         <Route path="/" element={<FrontPage restaurantData={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
-     (restaurantData) => restaurantData.Name.includes(this.state.itemSearchString))}/>  } />
+     (restaurantData) => restaurantData.Name.toLowerCase().includes(this.state.itemSearchString.toLowerCase()))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
