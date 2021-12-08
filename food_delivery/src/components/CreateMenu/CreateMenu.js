@@ -28,7 +28,7 @@ export default class CreateMenu extends Component {
     render() {
         return (
             <div>
-            <div className = {styles.title}><h1>Create Menu</h1></div>
+            <div className = {styles.title}> Create Menu</div>
             <div className = {styles.column}>
                 <div className = {styles.topBar}>Add menu item</div> 
             <select value={this.state.name} onChange={this.handleChange} className={styles.select}>

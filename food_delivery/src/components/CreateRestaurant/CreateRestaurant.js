@@ -88,7 +88,7 @@ class CreateRestaurant extends React.Component {
     render() {
         return (
             <div>
-            <div className = {styles.title}><h1>Create Restaurant</h1></div>
+            <div className = {styles.title}> Create Restaurant </div>
             <div className = {styles.topBar}>Add a new restaurant</div>
             <form className={styles.CreateRestaurant} onSubmit={this.handleRestaurant}>
             
