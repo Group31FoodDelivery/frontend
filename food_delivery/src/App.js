@@ -13,13 +13,18 @@ import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
 import PaymentPage from './components/PaymentPage/PaymentPage';
 import ManagerFrontPage from './components/ManagerFrontPage/ManagerFrontPage'
 import BottomBar from './components/BottomBar/BottomBar';
-import React from 'react';
+import React, { useState } from 'react';
 import data from './restaurants.json';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios'
+import axios from 'axios';
+import useToken from './useToken';
+
+//const { token, setToken } = useToken();
+
 
 class App extends React.Component {
+
 constructor(props)
 {
   super(props)
@@ -28,13 +33,39 @@ constructor(props)
     itemSearchString: "",             //String that is modified according to the given value on the search bar
     selectedItem: "",
     restaurantData: [],
-    error: ''
+    error: '',
+    token: ""
+}
+this.getToken = this.getToken.bind(this);
+this.logout = this.logout.bind(this);
+
+//const [token, setToken] = useState();
+/*if(!token) {
+  return <SignIn setToken={setToken}></SignIn>
+}*/
 }
 
+getToken() {
+  const tokenString = window.localStorage.getItem('token');
+  const userToken = JSON.parse(tokenString);
+  this.setState({token: userToken});
+  //return userToken?.token;
 }
+
+setToken(userToken) {
+  window.localStorage.setItem('token', JSON.stringify(userToken));
+  console.log("Setting token");
+  this.getToken();
+}
+
+logout() {
+  window.localStorage.removeItem('token');
+  this.setState({token: ""});
+  console.log("Logout")
+}
+
 
 async componentDidMount(){
-
   try {
     const response = await axios.get('/restaurants'); //sends a request and waits til the response is fetched
     //const data = await response;
@@ -44,28 +75,34 @@ async componentDidMount(){
     console.log(err);
   } 
 
+  this.getToken();
+  console.log("Apin tokeni " + this.state.token)
+
 }
 
 onSearchChange = (event) => {                              //handles the event when something is typed on the search bar
 this.setState({itemSearchString: event.target.value});     //puts the given value into the string
 }
 
+
+ 
 render()
 {
+  //this.getToken();
 return (
 
 <BrowserRouter>
     <div className="App">
-   <Header itemSearchString = {this.state.itemSearchString} onSearchChange = {this.onSearchChange} />
+   <Header itemSearchString = {this.state.itemSearchString} onSearchChange = {this.onSearchChange} token = {this.state.token} logout = {this.logout}/>
 
     </div>
     <div>
       <Routes> 
         <Route path="/" element={<FrontPage restaurantData={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
-     (restaurantData) => restaurantData.Name.includes(this.state.itemSearchString))}/>  } />
-        <Route path="/register" element={<SignUpCustomer/>} />
-        <Route path="/createrestaurant" element={<CreateRestaurant/>}/>
-        <Route path="/login" element={<SignIn/>} />  
+     (restaurantData) => restaurantData.Name.toLowerCase().includes(this.state.itemSearchString.toLowerCase()))}/>  } />
+        <Route path="/register" element={ <SignUpCustomer/> } />   
+        <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
+        <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
@@ -82,5 +119,7 @@ return (
 }
 }
 
+
 export default App;
+
 

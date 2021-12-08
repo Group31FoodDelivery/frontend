@@ -77,6 +77,7 @@
     width: 45px;
     background-color:#CC2255;
     font-weight: 600;
+    color: white;
 }
 
 .buttonMinus{
@@ -98,7 +99,7 @@
 
 color:#CC2255;
 font-size: large;
-font-family:cursive;
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 font-weight: 600;
 padding: 0;
 border: none;
@@ -106,4 +107,25 @@ background: none;
 margin-bottom: 23px;
 margin-left: 280px;
 position:absolute
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+   
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+ 
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+ 
+
 }
