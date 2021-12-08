@@ -61,13 +61,22 @@ export default function PaymentPage(props){
         console.log("hello??")
         console.log(orderId);
 
-        let itemid = 'ffc1fe01-30f5-4810-9090-e23f23bc96a3'
-        //let orderid =  'efb6125e-4e0d-48d4-9513-7e48861bc994'
+        //let itemid = 'ffc1fe01-30f5-4810-9090-e23f23bc96a3'
 
+        for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
+
+            let itemid = itemId[i];
+            let amount = qnty[i];
+
+            console.log("sisältö")
+            console.log(itemid)
+            console.log(amount)
+        
         axios.post('http://localhost:9000/AddOrderItems' , {
+
             itemId: itemid,
             orderId: orderId,
-            amount: 4  
+            amount: amount
         })
         .then(function (response) {
             console.log("responssi")
@@ -76,6 +85,7 @@ export default function PaymentPage(props){
         .catch(function (error){
             console.log(error);
         });
+    }
     }
    
     return (
