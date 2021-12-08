@@ -19,6 +19,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import useToken from './useToken';
+import jwt from 'jwt-decode';
 
 //const { token, setToken } = useToken();
 
@@ -34,7 +35,8 @@ constructor(props)
     selectedItem: "",
     restaurantData: [],
     error: '',
-    token: ""
+    token: "",
+    managerId: ""
 }
 this.getToken = this.getToken.bind(this);
 this.logout = this.logout.bind(this);
@@ -48,7 +50,17 @@ this.logout = this.logout.bind(this);
 getToken() {
   const tokenString = window.localStorage.getItem('token');
   const userToken = JSON.parse(tokenString);
+  console.log("usertoken " + userToken)
   this.setState({token: userToken});
+  if (userToken != null && userToken != "") {
+    const user = jwt(userToken);
+    if(user.hasOwnProperty("manager")) {
+      this.setState({managerId: user.manager.managerId});
+      console.log("ID " + this.state.managerId);
+      return this.state.managerId;
+    }
+  }
+  //this.setState({managerId: JSON.stringify(user.manager.managerId)});
   //return userToken?.token;
 }
 
@@ -61,6 +73,7 @@ setToken(userToken) {
 logout() {
   window.localStorage.removeItem('token');
   this.setState({token: ""});
+  this.setState({managerId: ""});
   console.log("Logout")
 }
 
@@ -69,14 +82,19 @@ async componentDidMount(){
   try {
     const response = await axios.get('/restaurants'); //sends a request and waits til the response is fetched
     //const data = await response;
+    console.log(response.data);
     this.setState({restaurantData: response.data}); //sets the promise response object to restaurantData
+    if(this.state.managerId != null && this.state.managerId != "") {
+      console.log("Testaillaan " + this.state.restaurantData);
+      
+    }
 
   } catch(err) {
     console.log(err);
   } 
-
   this.getToken();
-  console.log("Apin tokeni " + this.state.token)
+  console.log("HALOO"+this.state.managerId);
+  console.log("Apin tokeni " + this.state.token);
 
 }
 
@@ -89,8 +107,8 @@ this.setState({itemSearchString: event.target.value});     //puts the given valu
 render()
 {
   //this.getToken();
+  
 return (
-
 <BrowserRouter>
     <div className="App">
    <Header itemSearchString = {this.state.itemSearchString} onSearchChange = {this.onSearchChange} token = {this.state.token} logout = {this.logout}/>
@@ -99,7 +117,8 @@ return (
     <div>
       <Routes> 
         <Route path="/" element={<FrontPage restaurantData={this.state.restaurantData.filter( //filters items based on the string value and sends them as props
-     (restaurantData) => restaurantData.Name.toLowerCase().includes(this.state.itemSearchString.toLowerCase()))}/>  } />
+     (restaurantData) => (restaurantData.Name.toLowerCase().includes(this.state.itemSearchString.toLowerCase()))
+    && (restaurantData.managerId.includes(this.state.managerId)))}/>  } />
         <Route path="/register" element={<SignUpCustomer/>} />
         <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
@@ -107,7 +126,7 @@ return (
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
-        <Route path="/createmenu" element={<CreateMenu/>} /> 
+        <Route path="/createmenu" element={<CreateMenu managerId={this.state.managerId}/>} /> 
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 

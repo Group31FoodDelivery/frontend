@@ -6,6 +6,7 @@ import FrontPage from '../FrontPage/FrontPage';
 import SignIn from '../SignIn/Sign-In'
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
+import jwt from 'jwt-decode';
 
 function Header(props) {
 
@@ -43,11 +44,15 @@ function Header(props) {
     }
     
     const RegisterButton = () => {
-
         if(props.token) {
-            return (
-                <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
-            )
+            const user = jwt(props.token);
+            if(user.hasOwnProperty("manager")) {
+                return (
+                    <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
+                )
+            } else {
+                return(null)
+            }
         } else {
             return (
                 <Link to="/register" style={{textDecoration: 'none'}}><div className={styles.text}>
@@ -70,14 +75,20 @@ function Header(props) {
             )
 
     }
+
     const CreateRestaurant = () => {
+
         if(props.token) {
-            
+            const user = jwt(props.token);
+            if(user.hasOwnProperty("manager")) {
            
             return(
             <Link to="/createrestaurant" style={{textDecoration: 'none'}}><div className={styles.text}>
             <img src = '/images/register.png' className = {styles.icon}/>Luo ravintola</div></Link>
             )
+            } else {
+                return null
+            }
 
         } else {
             return (
