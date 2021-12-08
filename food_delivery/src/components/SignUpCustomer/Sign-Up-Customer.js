@@ -57,7 +57,7 @@ class SignUpCustomer extends React.Component {
         return (
             <div style={{marginTop: '40px'}}>
                     Check this box if you want to register as a manager!
-                    <input type="checkbox" onChange={this.handleCheck} style={{marginLeft: '10px'}}/>
+                    <input type="checkbox"  onChange={this.handleCheck} style={{marginLeft: '10px'}}/>
                 </div>
         )
     }
@@ -126,6 +126,7 @@ class SignUpCustomer extends React.Component {
                 </form>
             </div>
             </div>
+            
         );
     }
     

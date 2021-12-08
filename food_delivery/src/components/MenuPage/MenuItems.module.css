@@ -50,3 +50,80 @@
 .price{
     color:black;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+    .bottom{
+        display:flex;
+        align-items:center;
+        flex-direction: row;
+        padding-bottom: 2%;
+        padding-left: 75%;
+       
+    }
+
+    .card{
+        margin-left: 1%;
+        width:40px;
+        height:30px;
+        border-radius: 4%;
+        border:1px solid black;
+        
+    }
+    .image{ 
+        height: 170px;
+        width: 100%;   
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .bottom{
+        display:flex;
+        align-items:center;
+        flex-direction: row;
+        padding-bottom: 2%;
+        padding-left: 70%;
+       
+    }
+
+    .card{
+        margin-left: 1%;
+        width:40px;
+        height:30px;
+        border-radius: 50%;
+        margin-left:2%;
+        border:1px solid black;
+        
+    }
+    .image{ 
+        height: 200px;
+        width:100%;
+    }
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .bottom{
+        display:flex;
+        align-items:center;
+        flex-direction: row;
+        padding-bottom: 2%;
+        padding-left: 60%;
+    }
+    .image{ 
+        height: 216px;
+        width:100%;
+    }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .bottom{
+        display:flex;
+        align-items:center;
+        padding-bottom: 2%;
+        padding-left: 70%;
+    }
+
+  }

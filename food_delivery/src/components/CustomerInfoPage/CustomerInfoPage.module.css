@@ -1,12 +1,17 @@
 
-
+.customerInfo{
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+}
 .container{
 background-color: rgb(255, 255, 255);
 display: flex;
 align-items: flex-start;
 width: 800px;
 height: 300px;
-margin-left: 350px;
+align-self: center;
+
 }
 
 .topBar{
@@ -21,7 +26,7 @@ margin-left: 350px;
     color: white;
     width: 800px;
     height: 50px;
-    margin-left: 350px;
+    align-self: center;
     margin-top: 20px;
 }
 
@@ -31,6 +36,7 @@ margin-left: 350px;
     margin-top: 20px;
     font-weight: 500;
     gap: 100px; 
+    overflow: visible;
     
        
 }
@@ -47,11 +53,12 @@ margin-left: 350px;
     flex-direction: column;
     width: 800px;
     height: 300px;
-    margin-left: 350px;
     margin-top: 2px;
     margin-bottom: 20px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    align-self: center;
+    overflow: visible;
  
     }
 
@@ -76,3 +83,63 @@ margin-left: 350px;
     color: white;
 
     }
+
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+    .topBar{
+        width:300px;
+    }
+    .container{
+        width:300px;
+    }
+    .editInfo{
+        width:300px;
+    }
+    .submitButton{
+        margin-left:35%;
+        margin-top:5%
+    }
+    .info{
+        margin-left:1%;
+    }
+    .inputs{
+        margin-left: 1%;
+    }
+    
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .topBar{
+        width:600px;
+    }
+    .container{
+        width:600px;
+    }
+    .editInfo{
+        width:600px;
+    }
+    .submitButton{
+        margin-left:70%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+   
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .customerInfo{ 
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    }
+    .submitButton{
+        height:50px;
+        width:100px;
+    }
+}
