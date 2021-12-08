@@ -51,33 +51,38 @@ export default function PaymentPage(props){
     .then(function (response) {
         console.log(response.data);
         setOrderId(response.data);
-       /* placeItemsIntoOrder();*/
+        placeItemsIntoOrder();
 
     })
     .catch(function (error){
-        console.log(error.response);
+        //console.log(error.response);
     });
     } 
 
 
 
     //set menuitems into the order
-    /*const placeItemsIntoOrder = () => {
+    const placeItemsIntoOrder = () => {
 
+        console.log("hello??")
         console.log(orderId);
 
-        axios.post('/AddOrderItems' , {
-            orderId: 'efb6125e-4e0d-48d4-9513-7e48861bc994',
-            itemId: 'a4640544-f094-4b8b-b9f1-07d1d7ba34d3',
+        let itemid = 'ffc1fe01-30f5-4810-9090-e23f23bc96a3'
+        let orderid =  'efb6125e-4e0d-48d4-9513-7e48861bc994'
+
+        axios.post('http://localhost:9000/AddOrderItems' , {
+            itemId: itemid,
+            orderId: orderId,
             amount: 3   
         })
         .then(function (response) {
+            console.log("responssi")
             console.log(response);
         })
         .catch(function (error){
             console.log(error);
         });
-    }*/
+    }
    
     return (
         <div>
