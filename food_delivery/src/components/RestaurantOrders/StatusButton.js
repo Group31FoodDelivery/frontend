@@ -5,8 +5,8 @@ export default function StatusButton(props){
 
     return(
         <div>
-            hello 
-     
+           
+     <button className={styles.btn1}>  </button>
 
         </div>
     )
