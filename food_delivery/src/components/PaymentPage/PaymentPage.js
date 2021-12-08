@@ -35,6 +35,8 @@ export default function PaymentPage(props){
 
         placeItemsIntoOrder();
 
+        console.log("hinta")
+        console.log(price)
     axios.post('http://localhost:9000/Addorders' , {
         time: 20,
         customerId: CustomerId,
@@ -62,12 +64,9 @@ export default function PaymentPage(props){
 
         //yo wtf bruh
 
-        console.log("ORDER IIDEE??")
         console.log(orderId);
-        let orderIdd = qs.stringify(orderId)
-        console.log(orderIdd);
-        let orderIdReal = orderIdd.substr(8)
-        console.log(orderIdReal);
+        let orderIdString = qs.stringify(orderId).substr(8)
+        console.log(orderIdString);
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
 
@@ -81,7 +80,7 @@ export default function PaymentPage(props){
         axios.post('http://localhost:9000/AddOrderItems' , {
 
             itemId: itemid,
-            orderId: orderIdReal,
+            orderId: orderIdString,
             amount: amount
         })
         .then(function (response) {
