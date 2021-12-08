@@ -3,6 +3,7 @@ import styles from './PaymentPage.module.css'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
+const qs = require('qs');
 
 export default function PaymentPage(props){
 
@@ -32,6 +33,7 @@ export default function PaymentPage(props){
     //create Order. Needs time, address, total price, state
     const handleButtonClick = () => {
 
+        placeItemsIntoOrder();
 
     axios.post('http://localhost:9000/Addorders' , {
         time: 20,
@@ -58,10 +60,14 @@ export default function PaymentPage(props){
     //set menuitems into the order
     const placeItemsIntoOrder = (orderId) => {
 
-        console.log("hello??")
-        console.log(orderId);
+        //yo wtf bruh
 
-        //let itemid = 'ffc1fe01-30f5-4810-9090-e23f23bc96a3'
+        console.log("ORDER IIDEE??")
+        console.log(orderId);
+        let orderIdd = qs.stringify(orderId)
+        console.log(orderIdd);
+        let orderIdReal = orderIdd.substr(8)
+        console.log(orderIdReal);
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
 
@@ -75,7 +81,7 @@ export default function PaymentPage(props){
         axios.post('http://localhost:9000/AddOrderItems' , {
 
             itemId: itemid,
-            orderId: orderId,
+            orderId: orderIdReal,
             amount: amount
         })
         .then(function (response) {
