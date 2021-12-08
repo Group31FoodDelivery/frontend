@@ -60,7 +60,7 @@ const handleChange = (event) =>
             }   
             </div>
             </div>
-            <PaymentPage cart = {cart}/>
+            <PaymentPage cart = {cart} price = {totalPrice} address = {deliveryAddress}/>
             </div>
             </div>
     )
