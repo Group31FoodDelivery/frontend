@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './RestaurantOrders.module.css';
 import data from './restaurantOrders.json';
+import StatusButton from './StatusButton';
 
 function RestaurantOrders(){
     const CustomerOrders=data.map(
@@ -12,7 +13,7 @@ function RestaurantOrders(){
               <div className={styles.name}><b>{data.name}</b></div>
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.date}</b>
-              <button className={styles.status}>{data.status}</button>
+              <StatusButton className={styles.status} />
             
               </div>
               </div>

@@ -167,17 +167,25 @@ padding-left: 1%;
         margin-top:2%;
         height:auto;
         background-color:rgb(219, 217, 217);
-        width:500px;
+        width:390px;
         justify-content:center;
         margin-left:7%;
         margin-top:5%;
     }
     .titleTable{
-        width:500px;
+        width:390px;
     }
     .infoBox{
-        width:405px;
+        width:315px;
         margin-left:19% 
+    }
+    .infoCustomer{
+        height: 80px;
+        overflow:visible;
+    }
+    .status{
+        margin-top:15%;
+        height: 28px;
     }
 }
 
