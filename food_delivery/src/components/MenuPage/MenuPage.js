@@ -35,25 +35,25 @@ function MenuPage(props) {
             <HeaderParallax/>
         <div className={styles.header}>
         <div className={styles.name}>
-          {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Name}</div>)}  
+          {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Name}</div>)}  
     </div>
     <div className = {styles.container}>
         <div className={styles.description}>
-        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Description}</div>)}
+        {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Description}</div>)}
         </div>
 </div><div>
        <div className={styles.restaurantInfo}>
            <div className={styles.address}>
-           {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>Addres: {info.Address}</div>)}     
+           {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>Addres: {info.Address}</div>)}     
        </div>
        <div className={styles.time}>
-        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>Open: {info.OperatingHours}</div>)}
+        {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>Open: {info.OperatingHours}</div>)}
         </div>
         <div className={styles.type}>
-        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Type}</div>)}
+        {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Type}</div>)}
         </div>
         <div className={styles.rating}>
-        {props.restaurantData.filter(info => info.restaurantId == restaurantId).map(info => <div>{info.Rating}/5</div>)}
+        {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Rating}/5</div>)}
         </div>
         </div>
     </div>
@@ -86,7 +86,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 
-    console.log("hi");
     return{
         getMenuItems: (restaurantId) => dispatch(getMenuItems(restaurantId))
     };

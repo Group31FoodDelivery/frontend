@@ -35,6 +35,10 @@ class CreateRestaurant extends React.Component {
         }
     }
 
+    timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
     handleChange(event) {
         this.setState({ type: event.target.value });
     }
@@ -79,6 +83,9 @@ class CreateRestaurant extends React.Component {
             console.log( e.response )
           });
         console.log("Tähän lisää");
+        this.setState({errorMessage: "Successful!"});
+        await this.timeout(2000);
+        this.setState({errorMessage: ""});
 
        }
        else{
@@ -131,7 +138,7 @@ class CreateRestaurant extends React.Component {
     render() {
         return (
             <div>
-            <div className = {styles.title}><h1>Create Restaurant</h1></div>
+            <div className = {styles.title}> Create Restaurant </div>
             <div className = {styles.topBar}>Add a new restaurant</div>
             <form className={styles.CreateRestaurant} onSubmit={this.handleRestaurant}>
             

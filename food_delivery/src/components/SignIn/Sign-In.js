@@ -97,7 +97,7 @@ function checkbox() {
                 errorMessage = setErrorMessage(errorMessage = "");
                 props.setToken(res.data.token);
                 navigate('/', { replace: true });
-            }).catch(err => (errorMessage = setErrorMessage(errorMessage = err.message)));
+            }).catch(err => (errorMessage = setErrorMessage(errorMessage = "Wrong credentials")));
 
     }
 
