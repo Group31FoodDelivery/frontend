@@ -30,6 +30,10 @@ class CreateRestaurant extends React.Component {
         }
     }
 
+    timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+
     handleChange(event) {
         this.setState({ type: event.target.value });
     }
@@ -74,6 +78,9 @@ class CreateRestaurant extends React.Component {
             console.log( e.response )
           });
         console.log("Tähän lisää");
+        this.setState({errorMessage: "Successful!"});
+        await this.timeout(2000);
+        this.setState({errorMessage: ""});
 
        }
        else{
