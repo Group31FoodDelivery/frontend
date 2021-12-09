@@ -113,16 +113,17 @@ export default function PaymentPage(props){
     } 
 
     //set menuitems into the order
-    const placeItemsIntoOrder = (orderId) => {
+    const placeItemsIntoOrder = async (orderId) => {
 
         let orderIdString = qs.stringify(orderId).substr(8)
+        let fail = false;
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
 
             let itemid = itemId[i];
             let amount = qnty[i];
         
-        axios.post('http://localhost:9000/AddOrderItems' , {
+        await axios.post('http://localhost:9000/AddOrderItems' , {
 
             itemId: itemid,
             orderId: orderIdString,
@@ -133,12 +134,25 @@ export default function PaymentPage(props){
             console.log(response);
         })
         .catch(function (error){
+            console.log("CATHC")
             console.log(error);
+            fail = true;
         });
     }
-    onShowAlert('success');
-    window.localStorage.removeItem('reduxState');
-    navigate('/success', { replace: true });
+        purchaseDone(fail);
+    }
+
+    const purchaseDone = (fail) => {
+
+        if(fail == true){
+            console.log('fail')  //mby navigation to failure page and then button back to shopping cart or sum
+        }
+        else{
+        console.log(fail)
+        onShowAlert('success');
+        window.localStorage.removeItem('reduxState');
+        navigate('/success', { replace: true });
+        }
     }
    
     const showAlert = () => {
