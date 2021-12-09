@@ -33,10 +33,6 @@ export default function PaymentPage(props){
     //create Order. Needs time, address, total price, state
     const handleButtonClick = () => {
 
-        placeItemsIntoOrder();
-
-        console.log("hinta")
-        console.log(price)
     axios.post('http://localhost:9000/Addorders' , {
         time: 20,
         customerId: CustomerId,
@@ -63,10 +59,7 @@ export default function PaymentPage(props){
     const placeItemsIntoOrder = (orderId) => {
 
         //yo wtf bruh
-
-        console.log(orderId);
         let orderIdString = qs.stringify(orderId).substr(8)
-        console.log(orderIdString);
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
 
