@@ -20,6 +20,9 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import useToken from './useToken';
 import jwt from 'jwt-decode';
+import SuccessPage from './components/ShoppingCart/SuccessPage';
+import FailPage from './components/ShoppingCart/FailPage';
+
 
 //const { token, setToken } = useToken();
 
@@ -130,6 +133,8 @@ return (
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
+        <Route path="/success" element={<SuccessPage/>}/>
+        <Route path="/fail" element={<FailPage/>}/>
       </Routes>
       <BottomBar></BottomBar>
    </div>
