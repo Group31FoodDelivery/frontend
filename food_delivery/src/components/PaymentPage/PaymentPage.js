@@ -14,7 +14,18 @@ export default function PaymentPage(props){
     const [itemId, setItemId] = useState('')
     const [qnty, setQnty] = useState( )
 
+    function getCurrentDate(separator='/'){
+
+        let newDate = new Date()
+        let date = newDate.getDate();
+        let month = newDate.getMonth() + 1;
+        let year = newDate.getFullYear();
+        
+        return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+        }
+
     useEffect(() => {
+
        
        let itemId = cart.map(x => x.itemId)
        setItemId(itemId)
@@ -25,13 +36,15 @@ export default function PaymentPage(props){
        console.log(itemId)
        console.log(qnty)
 
+
     }, [cart])
 
-    let timeStamp = '2021';
     let CustomerId = 'dfe456b5-90d6-488b-bf8d-80bae68fb3d9';
 
-    //create Order. Needs time, address, total price, state
+    //creates an order, needs real customerId
     const handleButtonClick = () => {
+
+    let timeStamp = getCurrentDate();
 
     axios.post('http://localhost:9000/Addorders' , {
         time: 20,
@@ -49,16 +62,13 @@ export default function PaymentPage(props){
 
     })
     .catch(function (error){
-        //console.log(error.response);
+        console.log(error.response);
     });
     } 
-
-
 
     //set menuitems into the order
     const placeItemsIntoOrder = (orderId) => {
 
-        //yo wtf bruh
         let orderIdString = qs.stringify(orderId).substr(8)
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
