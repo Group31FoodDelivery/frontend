@@ -124,7 +124,7 @@ return (
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />
-        <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
+        <Route path="/shoppingcart" element={<ShoppingCart token = {this.state.token}/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
         <Route path="/createmenu" element={<CreateMenu token = {this.state.token}/>} /> 
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
@@ -138,7 +138,5 @@ return (
 }
 }
 
-
 export default App;
-
 
