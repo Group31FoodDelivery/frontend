@@ -13,7 +13,7 @@ function RestaurantOrders(){
               <div className={styles.name}><b>{data.name}</b></div>
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.date}</b>
-              <StatusButton className={styles.status} />
+              <StatusButton/>
             
               </div>
               </div>
