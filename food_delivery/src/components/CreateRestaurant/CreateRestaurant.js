@@ -13,11 +13,16 @@ class CreateRestaurant extends React.Component {
             description: "",
             operatingHours: "",
             address: "",
-            errorMessage: ""
+            errorMessage: "",
+            file: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.error = this.error.bind(this);
+        /*
+        this.onFormSubmit = this.onFormSubmit.bind(this)
+        this.onChange = this.onChange.bind(this)
+        this.fileUpload = this.fileUpload.bind(this)*/
     }
 
     error() {
@@ -84,6 +89,44 @@ class CreateRestaurant extends React.Component {
 
     }
 
+    /*onFormSubmit(e){
+        e.preventDefault()
+        const url = '/restaurants/images/:restaurantId';
+        const formData = new FormData();
+        formData.append('file', this.state.file);
+        const config = {
+          headers: {
+            'content-type': 'multipart/form-data'
+          }
+        }
+        post(url, formData, config);
+          .then((response) => {
+            console.log(response.data);
+          })
+      }
+      
+      
+        onChange(e) {
+    this.setState({ file: e.target.files[0 ]})
+  }
+      
+      
+      
+      */
+
+    /* imagePosting = event => {
+        this.setState({image: event.target.files[0]})
+
+    }
+
+    ImageUpload = () => {
+         let PostedImage = {
+            Image: this.state.image,
+            restaurantId: "this.state.restaurantid"
+        }
+
+    }*/
+
 
     render() {
         return (
@@ -125,6 +168,14 @@ class CreateRestaurant extends React.Component {
                 <button type="submit" className = {styles.button}>Create</button>
             
             </form>
+
+            <div>
+               <input type="file" onChange={this.imagePosting} />
+               <button on onClick={this.ImageUpload}>
+                   Upload
+               </button>
+
+            </div>
             </div>
         );
     }
