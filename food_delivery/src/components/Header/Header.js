@@ -6,6 +6,7 @@ import FrontPage from '../FrontPage/FrontPage';
 import SignIn from '../SignIn/Sign-In'
 import { connect } from 'react-redux';
 import { useEffect } from 'react';
+import jwt from 'jwt-decode';
 
 function Header(props) {
 
@@ -32,7 +33,7 @@ function Header(props) {
     const LoginLogoutButton = () => {
         if(props.token) {
             return (
-                <div onClick={props.logout} style={{cursor: 'pointer', marginRight: '30px'}}>Log out</div>
+                <div onClick={props.logout} style={{cursor: 'pointer'}}>Log out</div>
             )
         } else {
             return (
@@ -43,11 +44,15 @@ function Header(props) {
     }
     
     const RegisterButton = () => {
-
         if(props.token) {
-            return (
-                <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
-            )
+            const user = jwt(props.token);
+            if(user.hasOwnProperty("manager")) {
+                return (
+                    <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
+                )
+            } else {
+                return(null)
+            }
         } else {
             return (
                 <Link to="/register" style={{textDecoration: 'none'}}><div className={styles.text}>
@@ -60,7 +65,7 @@ function Header(props) {
 
     const CartButton = () => {
         return(
-        <Link to="/shoppingcart" className = {styles.buttonContainer}>
+        <Link to="/shoppingcart" >
             <button className = {styles.shoppingcartButton}>
             <img className = {styles.shoppingIcon} src = "images/Cart.png"></img>
             <div style = {{fontSize: '16px'}}>
@@ -70,14 +75,20 @@ function Header(props) {
             )
 
     }
+
     const CreateRestaurant = () => {
+
         if(props.token) {
-            
+            const user = jwt(props.token);
+            if(user.hasOwnProperty("manager")) {
            
             return(
             <Link to="/createrestaurant" style={{textDecoration: 'none'}}><div className={styles.text}>
             <img src = '/images/register.png' className = {styles.icon}/>Luo ravintola</div></Link>
             )
+            } else {
+                return null
+            }
 
         } else {
             return (
@@ -102,19 +113,27 @@ function Header(props) {
     return (
         <div className={styles.Header}>
 
-        <Link to="/" style={{textDecoration: 'none'}}><div style={{marginRight: '300px', marginLeft: '20px', color: 'white'}}>YammyGo</div></Link>
+        <Link to="/" style={{textDecoration: 'none'}}><div className={styles.logo} style={{}}>YammyGo</div></Link>
+        <div className={styles.search}>
         <input type="text" placeholder="Search restaurants..." className={styles.searchBar} onChange={props.onSearchChange} value={props.itemSearchString}/>
         <button className={styles.searchButton}> Search </button>
+        </div>
+        <div className={styles.login}>
         <LoginLogoutButton/>
         <RegisterButton/>
         <CreateRestaurant/>
-        <CartButton/>         
+    </div>
+
+        <div className = {styles.buttonContainer}>
+        <CartButton/>  
+        </div>       
         
        {/*<Link to="/orders" style={{textDecoration: 'none',backgroundColor: '#cc2255',textAlign: 'center',
             fontSize: '16px', height: '100%',width: '15%', marginLeft: 'auto'}}>
             <button className={styles.button}>Orders</button></Link>*/}         
        
     </div>
+    
     
     )
 }

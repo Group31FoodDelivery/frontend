@@ -12,19 +12,31 @@ class SignUpCustomer extends React.Component {
             Address: "",
             ContactInfo: "",
             Password: "",
-            isChecked: false
+            isChecked: false,
+            errorMessage: ""
         }
 
         this.checkbox = this.checkbox.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.userOrManager = this.userOrManager.bind(this);
+        this.error = this.error.bind(this);
+    }
+
+    error() {
+        if (this.state.errorMessage != "") {
+            return (
+                <h3> { this.state.errorMessage } </h3>
+            );
+        } else {
+            return null;
+        }
     }
 
     userOrManager() {
         if (this.state.isChecked){
             return (
                 <><input type="text" placeholder="Name" className={styles.inputs} onChange={e => this.setState({Firstname: e.target.value})}/><div style={{ marginTop: '20px' }}></div>
-                <input type="text" placeholder="Last Name" className={styles.inputs} onChange={e => this.setState({Lastname: e.target.value})}/><div style={{ marginTop: '20px' }}></div></>
+                <input type="text" placeholder="Last Name" className={styles.inputs} onChange={e => this.setState({Surname: e.target.value})}/><div style={{ marginTop: '20px' }}></div></>
             )
         } else {
             return (
@@ -45,7 +57,7 @@ class SignUpCustomer extends React.Component {
         return (
             <div style={{marginTop: '40px'}}>
                     Check this box if you want to register as a manager!
-                    <input type="checkbox" onChange={this.handleCheck} style={{marginLeft: '10px'}}/>
+                    <input type="checkbox"  onChange={this.handleCheck} style={{marginLeft: '10px'}}/>
                 </div>
         )
     }
@@ -58,7 +70,7 @@ class SignUpCustomer extends React.Component {
 
         let formData = {
             Firstname: this.state.Firstname,
-            Lastname: this.state.Lastname,
+            Surname: this.state.Surname,
             Address: this.state.Address,
             ContactInfo: this.state.ContactInfo,
             Password: this.state.Password
@@ -74,10 +86,14 @@ class SignUpCustomer extends React.Component {
         if (this.state.isChecked) {
             axios.post('http://localhost:9000/registerManager',formData).then(res => {
                 console.log(res);
+            }).catch(err => {
+                this.setState({errorMessage: "Don't leave any fields empty"});
             })
         } else {
             axios.post('http://localhost:8000/register',formData2, {
                 headers: formData2
+            }).catch(err => {
+                this.setState({errorMessage: "Don't leave any fields empty"});
             })
         }
 
@@ -104,10 +120,13 @@ class SignUpCustomer extends React.Component {
 
                     <this.checkbox/>
 
+                    <this.error/>
+
                     <button className = {styles.button} type="submit"><div style = {{fontSize: '16px', fontWeight: '500'}}>Create a new account</div></button>
                 </form>
             </div>
             </div>
+            
         );
     }
     
