@@ -102,7 +102,7 @@ return (
      (restaurantData) => restaurantData.Name.toLowerCase().includes(this.state.itemSearchString.toLowerCase()))}/>  } />
         <Route path="/register" element={ <RestaurantOrders/> } />   
         <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
-        <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
+        <Route path="/login" element={<CustomerOrders/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />
         <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
