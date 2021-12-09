@@ -1,23 +1,43 @@
 import React, { Component } from 'react'
 import styles from './CreateMenu.module.css'
+import axios from 'axios';
+import Select from 'react-select'
 
 
 
 export default class CreateMenu extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = { 
-            name: "0",
-            category: "0"  
+            //name: "0",
+            category: "0",
+            selectOptions: [],
+            restaurantId: "",
+            Name: "",
             
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
+        this.getOptions = this.getOptions.bind(this);
+    }
+
+    async getOptions() {
+        console.log("ASYNCCIÄ "+ this.props.managerId)
+        const res = await axios.get('/restaurants/' + this.props.managerId);
+        const data = res.data
+
+        const options = data.map(d => ({
+            "value" : d.restaurantId,
+            "label" : d.Name
+        }))
+
+    this.setState({selectOptions: options})
+
     }
 
     handleChange(event) {
-        this.setState({ name: event.target.value });
-        console.log("Helloooo");
+        this.setState({restaurantId:event.value, Name:event.label})
+        console.log("Helloooo " + this.state.restaurantId);
     }
     
     handleChange2(event) {
@@ -25,19 +45,17 @@ export default class CreateMenu extends Component {
         console.log("Hello");
     }
 
+    componentDidMount(){
+        this.getOptions();
+    }
+
     render() {
         return (
             <div>
-            <div className = {styles.title}><h1>Create Menu</h1></div>
+            <div className = {styles.title}> Create Menu</div>
             <div className = {styles.column}>
                 <div className = {styles.topBar}>Add menu item</div> 
-            <select value={this.state.name} onChange={this.handleChange} className={styles.select}>
-                    <option value="0" disabled>Select restaurant</option>
-                    <option value="1">Hugo</option>
-                    <option value="2">ABC</option>                               {/*should add more options when user makes a restaurant*/}
-                    <option value="3">Sushi place</option>
-                    <option value="4">Hesburger</option>
-                </select>
+                <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
                 <select value={this.state.category} onChange={this.handleChange2} className={styles.select} style = {{marginTop: "0px"}}>
                     <option value="0" disabled>Select category</option>
                     <option value="1">category1</option>

@@ -43,3 +43,11 @@
      margin-bottom: 20px;
      font-size: large;
  }
+
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+    .restaurants{
+        display:flex;
+        margin-top: 0px;
+    }
+}

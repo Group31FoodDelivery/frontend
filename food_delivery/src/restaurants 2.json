@@ -1,0 +1,143 @@
+{
+    "restaurants": [
+        {
+            "restaurantId": 1,
+            "Name": "Hugo",
+            "Description": [
+                "Keittiömme loihtii hyvää lihasta, kalasta ja kasviksista raaka-ainelähtöisesti.",
+                "Tarjolla on erinomaista ruokaa kaudelle ominaisista aineksista, jotka saamme läheltä meitä järkevästi ja vastuullisesti."
+            ],
+            "Type": "Fine dining",
+            "Address": "Rantakatu 4, 90100 Oulu",
+            "OperatingHours": "17-23 ",
+            "Image": "hugo.jpeg",
+            "Price_level": "€€€€",
+            "Rating": "5/5",
+            "Menu":[
+                {
+                "id": 1,
+                "name": "VEGGIE MENU",
+                "description": [
+                "Creamy soup,Grilled broccoli, tomato and parmesan",
+                "Butternut squash and goat cheese,Cep risotto",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 78,
+            "image": "hugo.jpeg",
+            "category":"Main dish"
+        },
+        {
+            "id": 2,
+            "name": "MENU HUGO",
+            "description": [
+                "Creamy soup, Local pike perch and sauce of smoked butter",
+                "Buttercup squash and confit of wild duck leg",
+                "Cep risotto",
+                "Sirloin of wild deer, parsnip and lingonberry"
+            ],
+            "price": 78,
+            "image": "hugo2.jpeg",
+            "category":"Main dish"
+        },
+        {
+            "id": 3,
+            "name": "MENU OF THE WEEK",
+            "description": [
+                "Creamy soup,Grilled pike perch,", 
+                "Jerusalem artichoke and smoked butter – sauce",
+                "Sea buckthorn berry and milk chocolate"
+            ],
+            "price": 58,
+            "image": "hugo.jpeg",
+            "category":"Main dish"
+        },
+        {
+            "id": 4,
+            "name": "Cheese assortment for the menu",
+            "description": [
+                "Delicious cheese from France and Italy"
+            ],
+            "price": 14,
+            "image": "cheese.jpeg",
+            "category":"snaks"
+        },
+        {
+            "id": 5,
+            "name": "Wine package for the menu",
+            "description": [
+                "Red and white semidry wine from France and Italy"
+            ],
+            "price": 60,
+            "image": "wine.jpeg",
+            "category":"drink"
+        }
+        ]
+            },
+        {
+            
+            "restaurantId": 2,
+            "Name": "Luckiefun's Sushi Buffet Oulu",
+            "Description": [
+                "Tuoretta ja laadukasta sushia"
+            ],
+            "Type": "Buffet",
+            "Address": "Kirkkokatu 17, 90100 Oulu",
+            "OperatingHours": "10-22",
+            "Image": "sushi.jpeg",
+            "Price_level": "€€",
+            "Rating": "4/5"
+        },
+        {
+            "restaurantId": 3,
+            "Name": "Friends & Brgrs Oulu",
+            "Description": [
+                "Hampurilaisia ja ranskalaisia alusta asti itse tehtynä."
+            ],
+            "Type": "Fast food",
+            "Address": "Isokatu 25, 90100 Oulu",
+            "OperatingHours": "10-22",
+            "Image": "combo.png",
+            "Pricel_evel": "€€",
+            "Rating": "3.9/5"
+        },
+        {
+            "restaurantId": 4,
+            "Name": "M6",
+            "Description": [
+                "Comfy restaurant"
+            ],
+            "Type": "Casual dining",
+            "OperatingHours": "12-22",
+            "Address": "Rantakatu 4, 90100 Oulu",
+            "Image": "pic5.jpg",
+            "Price_level": "€€€",
+            "Rating": "3.5/5"
+        },
+        {
+            "restaurantId": 5,
+            "Name": "Le french restaurant",
+            "Description": [
+                "High quality"
+            ],
+            "Type": "Fine dining",
+            "OperatingHours": "18-23",
+            "Address": "Isokatu 25, 90100 Oulu",
+            "Image": "alexanderpl.jpg",
+            "Price_level": "€€€€",
+            "Rating": "4.2/5"
+        },
+        {
+            "restaurantId": 6,
+            "Name": "ABC",
+            "Description": [
+                "Just your regular ABC"
+            ],
+            "Type": "Casual dining",
+            "OperatingHours": "24h",
+            "Address": "Riihimäki",
+            "Image": "pic5.jpg",
+            "Price_level": "€€",
+            "Rating": "5/5"
+        }
+    ]
+}

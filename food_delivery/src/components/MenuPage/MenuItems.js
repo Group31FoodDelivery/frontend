@@ -1,9 +1,13 @@
 import React from 'react';
 import Restaurants from '../Restaurants/Restaurants';
 import styles from './MenuItems.module.css'
+import { connect } from 'react-redux';
+import { addToCart } from '../../redux/Shopping/shopping-actions';
 
-export default function MenuPage(props) {
+function MenuItems(props) {
 //   const menuData = map.retaurants((restaurants))
+
+    const {addToCart} = props;
 
     return (
         <div className={styles.container}>
@@ -13,8 +17,20 @@ export default function MenuPage(props) {
       </div>
       <div className={styles.bottom}>
       <div className={styles.price}> {props.Price} €</div>
-      <button className={styles.card}>+</button>
+      <button className={styles.card} onClick={() => addToCart(props.itemId)}>+</button>
       </div>
-
         </div>
     )}
+
+    const mapDispatchToProps = dispatch =>
+    {
+
+        return{
+
+            addToCart: (itemId) => dispatch(addToCart(itemId))
+
+        };
+
+    }
+
+    export default connect(null, mapDispatchToProps)(MenuItems)

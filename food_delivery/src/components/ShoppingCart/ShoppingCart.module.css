@@ -1,3 +1,13 @@
+
+.mainContainer{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:5%;
+    padding-top: 2%;
+}
+
+
 .title{
 
     display: flex;
@@ -7,18 +17,10 @@
     height: 90px;
 }
 
-h1{ 
-
-    margin-left: 5%;
-
-}
     
 .container{
 
     background-color: white;
-    margin-left: 35%;
-    margin-top: 30px;
-    margin-bottom: 20px;
     border-radius: 20px;
     width: 500px;
     height: auto;
@@ -48,7 +50,6 @@ h1{
     align-items: center;
     margin-top: 20px;
     height: auto;
-    background-color: white;
     border-radius: 20px;
 
 }
@@ -64,19 +65,68 @@ h1{
 
 }
 
-.checkout{
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+   .title{
+       font-size:20px;
+       height:70px;
+       
+   }
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    background-color: #CC2255;
-    color: white;
-    font-weight: 500;
-    font-size: 18px;
-    border-radius: 20px;
-    width: 130px;
-    height: 45px;
+   .mainContainer{
+    display:flex;
+    flex-direction: column;
+    margin-top: 5%;
+  }
+  .container{
+    width: 400px; 
+    margin-left:7%;
+  }
+  .topBar{
+    
+  width:400px;
+  }
 }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+      .title{
+    font-size:24px;
+    
+      }
 
+    .mainContainer{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 3%;
+      }
+      .container{
+        width: 500px; 
+        margin-left:20%;
+      }
+      .topBar{
+        
+      width:500px;
+      }
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .mainContainer{
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:3%;
+    }
+    .container{
+        width: 500px; 
+        margin-left:0%;
+    }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+   
 
+  }
