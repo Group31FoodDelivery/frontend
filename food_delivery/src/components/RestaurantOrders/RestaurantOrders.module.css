@@ -179,13 +179,19 @@ padding-left: 1%;
         width:315px;
         margin-left:19% 
     }
-    .infoCustomer{
+    .infoCustomer {
         height: 80px;
         overflow:visible;
+        width:150px;
     }
+    
     .status{
         margin-top:15%;
         height: 28px;
+    }
+    .btn1{
+        font-size: 12px;
+        overflow: visable;
     }
 }
 

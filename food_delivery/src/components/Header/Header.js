@@ -133,7 +133,7 @@ const CartButton = () => {
            
             return(
             <Link to="/createrestaurant" style={{textDecoration: 'none'}}><div className={styles.text}>
-            <img src = '/images/register.png' className = {styles.icon}/>Luo ravintola</div></Link>
+            <img src = '/images/register.png' className = {styles.icon}/>Create a restaurant</div></Link>
             )
             } else {
                 return null
