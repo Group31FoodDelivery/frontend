@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import jwt from 'jwt-decode';
-import Alert from 'react-popup-alert';
 import { useNavigate } from 'react-router';
 const qs = require('qs');
 
@@ -24,27 +23,7 @@ export default function PaymentPage(props){
 
     let navigate = useNavigate();
 
-    const [alert, setAlert] = useState({
-        type: 'success',
-        text: 'Thank you!',
-        show: false
-      })
-    
-      function onShowAlert(type) {
-        setAlert({
-          type: type,
-          text: 'Thank you for your purchase!',
-          show: true
-        })
-      }
-
-      function onCloseAlert() {
-        setAlert({
-          type: '',
-          text: '',
-          show: false
-        })
-      }
+    let fail = false;
 
     function getCurrentDate(separator='/'){
 
@@ -93,7 +72,7 @@ export default function PaymentPage(props){
     let timeStamp = getCurrentDate();
 
     axios.post('http://localhost:9000/Addorders' , {
-        time: 20,
+        time: 0,
         customerId: customerId,
         address: address,
         price: price,
@@ -109,6 +88,7 @@ export default function PaymentPage(props){
     })
     .catch(function (error){
         console.log(error.response);
+        fail = true;
     });
     } 
 
@@ -116,7 +96,6 @@ export default function PaymentPage(props){
     const placeItemsIntoOrder = async (orderId) => {
 
         let orderIdString = qs.stringify(orderId).substr(8)
-        let fail = false;
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
 
@@ -145,36 +124,18 @@ export default function PaymentPage(props){
     const purchaseDone = (fail) => {
 
         if(fail == true){
-            console.log('fail')  //mby navigation to failure page and then button back to shopping cart or sum
+            console.log('fail') 
+            navigate('/fail', { replace: true });
         }
         else{
         console.log(fail)
-        onShowAlert('success');
         window.localStorage.removeItem('reduxState');
         navigate('/success', { replace: true });
         }
     }
-   
-    const showAlert = () => {
-        if(alert.show == true) {
 
-            return (<Alert
-            header={'Header'}
-            btnText={'Close'}
-            text={alert.text}
-            type={alert.type}
-            show={alert.show}
-            onClosePress={onCloseAlert}
-            pressCloseOnOutsideClick={true}
-            showBorderBottom={true}
-            alertStyles={{}}
-            headerStyles={{}}
-            textStyles={{}}
-            buttonStyles={{}}
-          />);
-        }
-        else {
-            return <div><div className = {styles.topBar}>Payment</div>
+    return (
+        <div><div className = {styles.topBar}>Payment</div>
             <div className = {styles.container} >
                 CARD NUMBER
                 <input type = 'text' placeholder = 'xxxx-xxxx-xxxx-xxxx' maxLength = {19} onChange={e => setCardNum(e.target.value)} value={cardNum} className = {styles.inputs}/>
@@ -184,14 +145,6 @@ export default function PaymentPage(props){
                 <input type = 'text' placeholder = 'dd/mm/yyyy' maxLength = {10} onChange={e => setExipDate(e.target.value)} value={exipDate} className = {styles.inputs}/>
                <button className = {styles.button} onClick = {handleButtonClick} disabled={!areFieldsFull}>Confirm</button>
             </div>
-            </div>         
-        }
-
-    }
-
-    return (
-        <div>
-        {showAlert()}
-        </div>
+            </div>  
     )
 }

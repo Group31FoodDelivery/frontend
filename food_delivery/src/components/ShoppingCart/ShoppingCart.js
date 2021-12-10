@@ -19,6 +19,7 @@ function ShoppingCart(props) {
     const [totalPrice, setTotalPrice] = useState(0)
 
     useEffect(() => {
+        
         let price = 0;
         cart.forEach(menuItem => {
 
