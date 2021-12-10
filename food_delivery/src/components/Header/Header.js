@@ -63,18 +63,57 @@ function Header(props) {
     }
     }
 
-    const CartButton = () => {
+//
+
+const CartButton = () => {
+    if(props.token) {
+        const user = jwt(props.token);
+        if(user.hasOwnProperty("customer")) {
+            return (
+                <Link to="/shoppingcart" >
+                <button className = {styles.shoppingcartButton}>
+                <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
+                <div style = {{fontSize: '16px'}}>
+                    {cartCounter} items
+                 </div>
+                </button></Link>
+            )
+        } else if (user.hasOwnProperty("manager")){
+
+            return(
+            <Link to="/restaurantorders">
+                <button className = {styles.shoppingcartButton}>
+                <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
+                <div style = {{fontSize: '16px'}}>
+                    Orders
+                 </div>
+                </button></Link>   
+                )         
+        }
+        else{
+            return(null)
+        }
+    } else {
+        return (
+           <div>Not logged in</div>
+        )
+    }
+}
+
+
+
+   /* const CartButton = () => {
         return(
         <Link to="/shoppingcart" >
             <button className = {styles.shoppingcartButton}>
-            <img className = {styles.shoppingIcon} src = "images/Cart.png"></img>
+            <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
             <div style = {{fontSize: '16px'}}>
                 {cartCounter} items
              </div>
             </button></Link>
             )
 
-    }
+    }*/
 
     const CreateRestaurant = () => {
 
@@ -92,7 +131,7 @@ function Header(props) {
 
         } else {
             return (
-                "ei tokenia"
+                ""
             )
         }
     }
