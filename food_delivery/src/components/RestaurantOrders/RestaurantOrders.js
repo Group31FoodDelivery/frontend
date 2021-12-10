@@ -3,7 +3,7 @@ import styles from './RestaurantOrders.module.css';
 import data from './restaurantOrders.json';
 import StatusButton from './StatusButton';
 
-function RestaurantOrders(){
+function RestaurantOrders(props){
     const CustomerOrders=data.map(
         (data)=>{
             return(
@@ -14,7 +14,7 @@ function RestaurantOrders(){
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.date}</b>
               <div className={styles.btn1}>
-                  <StatusButton/>
+                  <StatusButton token={props.token}/>
                   </div>
 
             

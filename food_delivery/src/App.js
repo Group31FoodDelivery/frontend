@@ -130,7 +130,7 @@ return (
         <Route path="/shoppingcart" element={<ShoppingCart token = {this.state.token}/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
         <Route path="/createmenu" element={<CreateMenu token = {this.state.token}/>} /> 
-        <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
+        <Route path="/restaurantorders" element={<RestaurantOrders token = {this.state.token}/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
         <Route path="success" element={<SuccessPage/>}/>
