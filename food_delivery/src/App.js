@@ -20,6 +20,9 @@ import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import useToken from './useToken';
 import jwt from 'jwt-decode';
+import SuccessPage from './components/ShoppingCart/SuccessPage';
+import FailPage from './components/ShoppingCart/FailPage';
+
 
 //const { token, setToken } = useToken();
 
@@ -124,12 +127,14 @@ return (
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
         <Route path="/orders" element={<CustomerOrders/>} />
-        <Route path="/shoppingcart" element={<ShoppingCart/>} /> 
+        <Route path="/shoppingcart" element={<ShoppingCart token = {this.state.token}/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
         <Route path="/createmenu" element={<CreateMenu token = {this.state.token}/>} /> 
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
+        <Route path="/success" element={<SuccessPage/>}/>
+        <Route path="/fail" element={<FailPage/>}/>
       </Routes>
       <BottomBar></BottomBar>
    </div>
@@ -138,7 +143,5 @@ return (
 }
 }
 
-
 export default App;
-
 

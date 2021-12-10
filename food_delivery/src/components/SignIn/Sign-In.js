@@ -57,7 +57,6 @@ function checkbox() {
     //console.log(credentials);
     
     axios.post('http://localhost:9000/loginForJWT',null, {
-
         auth: {
             username: this.state.email,
             password: this.state.password

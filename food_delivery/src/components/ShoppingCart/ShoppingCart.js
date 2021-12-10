@@ -8,7 +8,12 @@ import PaymentPage from '../PaymentPage/PaymentPage';
 import shopReducer from '../../redux/Shopping/shopping-reducer';
 import { useEffect } from 'react';
 
-function ShoppingCart({cart}) {
+//option to choose customer's own address from profile info ?
+
+function ShoppingCart(props) {
+
+    const {cart} = props;
+    const {token} = props;
 
     const [deliveryAddress, setDeliveryAddress] = useState('')
     const [totalPrice, setTotalPrice] = useState(0)
@@ -27,7 +32,7 @@ function ShoppingCart({cart}) {
 
 const handleChange = (event) =>
     {
-        setDeliveryAddress(event.target.value);  //is always one letter behind because of the way setState works, needs to be fixed
+        setDeliveryAddress(event.target.value);  //updates the delivery address
         console.log(deliveryAddress);        
     }
 
@@ -60,14 +65,14 @@ const handleChange = (event) =>
             }   
             </div>
             </div>
-            <PaymentPage cart = {cart} price = {totalPrice} address = {deliveryAddress}/>
+            <PaymentPage cart = {cart} price = {totalPrice} address = {deliveryAddress} token = {token}/>
             </div>
             </div>
     )
 }
 
   
-const mapStateToProps = state => {
+const mapStateToProps = state => { //sends cart state from Redux to props
 
     return{
         
