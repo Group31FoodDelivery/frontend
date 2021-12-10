@@ -48,7 +48,9 @@ function Header(props) {
             const user = jwt(props.token);
             if(user.hasOwnProperty("manager")) {
                 return (
-                    <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
+                  <Link to="/createmenu" style={{textDecoration: 'none'}}>
+                    <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Add menuitems </div>
+                    </Link>
                 )
             } else {
                 return(null)
@@ -84,7 +86,7 @@ function Header(props) {
            
             return(
             <Link to="/createrestaurant" style={{textDecoration: 'none'}}><div className={styles.text}>
-            <img src = '/images/register.png' className = {styles.icon}/>Luo ravintola</div></Link>
+            <img src = '/images/register.png' className = {styles.icon}/>Create a restaurant</div></Link>
             )
             } else {
                 return null
