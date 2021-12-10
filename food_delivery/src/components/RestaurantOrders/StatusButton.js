@@ -13,29 +13,6 @@ export default function StatusButton(){
        if (counter === 7){
            counter = 0;
        }
-    //    if (counter === 0) {
-    //        let status8 = 'Change status';
-    //        setStatus(status8);
-    //    }
-       
-       
-        // switch (counter){ 
-        // if(counter ===1){
-        //    let status1 = 'Recived';
-        //     setStatus(status1);
-        // } else if(counter ===2){
-        //    let  status2 = 'Preparing';
-        //     setStatus(status2);
-        // }
-        // else if(counter ===3){
-        //     let status3 = 'Ready for delivery';
-        //     setStatus(status3);
-        // }
-        // else if(counter ===4){
-        //     let status4 = 'Delivering';
-        //     setStatus(status4);
-        // }
-
            switch (counter){ 
         case 1 : 
             let status1 = 'Recived';
@@ -68,11 +45,6 @@ export default function StatusButton(){
             console.log(counter);
             break;
         }
-                
-        //  } if (counter === 6){
-        //             counter = 0;
-        //         }
-            
 
             
     }
@@ -80,12 +52,8 @@ export default function StatusButton(){
     return(
         <div>
            
-     <button className={styles.btn1} onClick={changeStatus}>{status}</button>
-     {/* <button className={styles.btn2} >Preparing</button> */}
-     {/* <button className={styles.btn3} onClick={}>Ready for delivery</button>
-     <button className={styles.btn4} onClick={}>Delivering</button>
-     <button className={styles.btn5} onClick={}>Delivered</button>  */}
-
+     <button className={styles.btn1} onClick={changeStatus}>{status}
+     </button>
         </div>
     )
 } 
