@@ -126,7 +126,7 @@ return (
         <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
-        <Route path="/orders" element={<CustomerOrders/>} />
+        <Route path="/orders" element={<CustomerOrders token = {this.state.token}/>} />
         <Route path="/shoppingcart" element={<ShoppingCart token = {this.state.token}/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
         <Route path="/createmenu" element={<CreateMenu token = {this.state.token}/>} /> 

@@ -33,7 +33,7 @@ function Header(props) {
     const LoginLogoutButton = () => {
         if(props.token) {
             return (
-                <div onClick={props.logout} style={{cursor: 'pointer'}}>Log out</div>
+                <div onClick={props.logout} style={{cursor: 'pointer'}}><img src = '/images/user.png' className = {styles.icon}/>Log out</div>
             )
         } else {
             return (
@@ -42,17 +42,25 @@ function Header(props) {
             )
         }
     }
-    
+
+
     const RegisterButton = () => {
         if(props.token) {
             const user = jwt(props.token);
             if(user.hasOwnProperty("manager")) {
                 return (
-                  <Link to="/createmenu" style={{textDecoration: 'none'}}>
-                    <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Add menuitems </div>
+                    <Link to="/createmenu" style={{textDecoration: 'none'}}>
+                    <div onClick={props.register} className={styles.text} style={{cursor: 'pointer', marginRight: '30px'}}>
+                    <img src = '/images/create.png' className = {styles.icon}/>Add menuitems </div>
                     </Link>
                 )
-            } else {
+            } 
+            else if(user.hasOwnProperty("customer")){
+                return(
+                <Link to="/orders" style={{textDecoration: 'none'}}><div className={styles.text}>Order history</div></Link>
+                )
+            }        
+              else {
                 return(null)
             }
         } else {
@@ -161,8 +169,9 @@ const CartButton = () => {
         </div>
         <div className={styles.login}>
         <LoginLogoutButton/>
-        <RegisterButton/>
         <CreateRestaurant/>
+        <RegisterButton/>
+        
     </div>
 
         <div className = {styles.buttonContainer}>
