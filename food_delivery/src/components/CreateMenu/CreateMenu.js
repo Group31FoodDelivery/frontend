@@ -135,8 +135,10 @@ export default class CreateMenu extends Component {
             <textarea id="desc" name="desc" rows="5" cols="40" placeholder="Enter a description"  onChange={e => this.setState({Description: e.target.value})}></textarea>     {/*Textarea for desc, submit action has to be figured out*/}
              {/* <input type = "submit" value="Submit"></input> */}
              <this.error/>
+             <div className={styles.btn}>
             <button className = {styles.createButton}>Add an image</button>
             <button type ="submit" className = {styles.createButton} style = {{marginBottom: "20px"}}>Add to the menu</button>
+            </div>
             </form>
             </div>
             </div>    
