@@ -133,7 +133,7 @@ return (
         <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
-        <Route path="/success" element={<SuccessPage/>}/>
+        <Route path="success" element={<SuccessPage/>}/>
         <Route path="/fail" element={<FailPage/>}/>
       </Routes>
       <BottomBar></BottomBar>

@@ -93,7 +93,7 @@ export default function PaymentPage(props){
     let timeStamp = getCurrentDate();
 
     axios.post('http://localhost:9000/Addorders' , {
-        time: 20,
+        time: 0,
         customerId: customerId,
         address: address,
         price: price,
@@ -145,8 +145,8 @@ export default function PaymentPage(props){
     const purchaseDone = (fail) => {
 
         if(fail == true){
-            navigate('/fail');
             console.log('fail')  //mby navigation to failure page and then button back to shopping cart or sum
+            navigate('/fail');
         }
         else{
         console.log(fail)
