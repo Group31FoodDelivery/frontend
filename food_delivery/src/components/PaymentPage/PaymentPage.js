@@ -145,6 +145,7 @@ export default function PaymentPage(props){
     const purchaseDone = (fail) => {
 
         if(fail == true){
+            navigate('/fail');
             console.log('fail')  //mby navigation to failure page and then button back to shopping cart or sum
         }
         else{
