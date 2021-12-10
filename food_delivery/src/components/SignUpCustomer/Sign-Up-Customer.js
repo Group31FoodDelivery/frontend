@@ -55,7 +55,7 @@ class SignUpCustomer extends React.Component {
 
     checkbox() {
         return (
-            <div style={{marginTop: '40px'}}>
+            <div style={{marginTop: '40px', marginLeft: '26px', marginTop: '150px'}}>
                     Check this box if you want to register as a manager!
                     <input type="checkbox"  onChange={this.handleCheck} style={{marginLeft: '10px'}}/>
                 </div>
@@ -117,7 +117,7 @@ class SignUpCustomer extends React.Component {
                     <div style={{marginTop: '20px'}}></div>
 
                     <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => this.setState({Password: e.target.value})}/>
-
+        
                     <this.checkbox/>
 
                     <this.error/>

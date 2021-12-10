@@ -1,0 +1,64 @@
+.pageContainer{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    
+    }
+    .text{
+        display:flex;
+        justify-self: center;
+        margin-left:20%;
+        margin-top:20%;
+        font-weight: bold;
+        font-size:25px;
+        width:100%;
+    
+    }
+    .btnContainer{
+        display:flex;
+        justify-content:center;
+        margin-top:10%;
+        
+    }
+    .btn1{
+        color:white;
+        background-color: #CC2255;
+        border-radius: 10px;
+        height:55px;
+        width: 150px;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: #CC2255;
+    }
+
+    /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px)  { 
+    .text{
+        
+        font-size: 12px;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .text{
+   
+        font-size: 18px;
+    }
+  }
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    .text{
+        font-size:35px;
+        
+     }
+  }
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+      .text{
+         font-size:35px;
+        
+      }
+      
+  }

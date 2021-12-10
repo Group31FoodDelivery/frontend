@@ -33,7 +33,7 @@ function Header(props) {
     const LoginLogoutButton = () => {
         if(props.token) {
             return (
-                <div onClick={props.logout} style={{cursor: 'pointer'}}>Log out</div>
+                <div onClick={props.logout} style={{cursor: 'pointer'}}><img src = '/images/user.png' className = {styles.icon}/>Log out</div>
             )
         } else {
             return (
@@ -42,15 +42,25 @@ function Header(props) {
             )
         }
     }
-    
+
+
     const RegisterButton = () => {
         if(props.token) {
             const user = jwt(props.token);
             if(user.hasOwnProperty("manager")) {
                 return (
-                    <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
+                    <Link to="/createmenu" style={{textDecoration: 'none'}}>
+                    <div onClick={props.register} className={styles.text} style={{cursor: 'pointer', marginRight: '30px'}}>
+                    <img src = '/images/create.png' className = {styles.icon}/>Add menuitems </div>
+                    </Link>
                 )
-            } else {
+            } 
+            else if(user.hasOwnProperty("customer")){
+                return(
+                <Link to="/orders" style={{textDecoration: 'none'}}><div className={styles.text}>Order history</div></Link>
+                )
+            }        
+              else {
                 return(null)
             }
         } else {
@@ -63,18 +73,57 @@ function Header(props) {
     }
     }
 
-    const CartButton = () => {
+//
+
+const CartButton = () => {
+    if(props.token) {
+        const user = jwt(props.token);
+        if(user.hasOwnProperty("customer")) {
+            return (
+                <Link to="/shoppingcart" >
+                <button className = {styles.shoppingcartButton}>
+                <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
+                <div style = {{fontSize: '16px'}}>
+                    {cartCounter} items
+                 </div>
+                </button></Link>
+            )
+        } else if (user.hasOwnProperty("manager")){
+
+            return(
+            <Link to="/restaurantorders">
+                <button className = {styles.shoppingcartButton}>
+                <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
+                <div style = {{fontSize: '16px'}}>
+                    Orders
+                 </div>
+                </button></Link>   
+                )         
+        }
+        else{
+            return(null)
+        }
+    } else {
+        return (
+           <div>Not logged in</div>
+        )
+    }
+}
+
+
+
+   /* const CartButton = () => {
         return(
         <Link to="/shoppingcart" >
             <button className = {styles.shoppingcartButton}>
-            <img className = {styles.shoppingIcon} src = "images/Cart.png"></img>
+            <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
             <div style = {{fontSize: '16px'}}>
                 {cartCounter} items
              </div>
             </button></Link>
             )
 
-    }
+    }*/
 
     const CreateRestaurant = () => {
 
@@ -84,7 +133,7 @@ function Header(props) {
            
             return(
             <Link to="/createrestaurant" style={{textDecoration: 'none'}}><div className={styles.text}>
-            <img src = '/images/register.png' className = {styles.icon}/>Luo ravintola</div></Link>
+            <img src = '/images/register.png' className = {styles.icon}/>Create a restaurant</div></Link>
             )
             } else {
                 return null
@@ -92,7 +141,7 @@ function Header(props) {
 
         } else {
             return (
-                "ei tokenia"
+                ""
             )
         }
     }
@@ -120,8 +169,9 @@ function Header(props) {
         </div>
         <div className={styles.login}>
         <LoginLogoutButton/>
-        <RegisterButton/>
         <CreateRestaurant/>
+        <RegisterButton/>
+        
     </div>
 
         <div className = {styles.buttonContainer}>

@@ -4,11 +4,12 @@
     margin-top: 30px;
     border-radius: 20px;
     width: 500px;
-    box-shadow:     0      10px      10px       rgb(135, 135, 135);    
+    
 }
 
 .topBar{
 
+    margin-left: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,6 +24,8 @@
 }
 
 .SignIn {
+
+    margin-left: 100px;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -33,6 +36,7 @@
     border-bottom-right-radius: 20px;
     width: 500px;
     height: 500px;
+    box-shadow:     0      10px      10px       rgb(135, 135, 135);    
 }
 
 .button{

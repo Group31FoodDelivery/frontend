@@ -26,8 +26,8 @@
 .shoppingcartButton{
 
     background-color: #cc2255;
-    width: '250px';
-    border: 'none';
+    width: 250px;
+    border: none;
     display: flex;
     align-items: center;
     gap: 10px;
