@@ -50,7 +50,13 @@ function Header(props) {
                 return (
                     <div onClick={props.register} style={{cursor: 'pointer', marginRight: '30px'}}>Profile? </div>
                 )
-            } else {
+            } 
+            else if(user.hasOwnProperty("customer")){
+                return(
+                <Link to="/orders" style={{textDecoration: 'none'}}><div className={styles.text}>Order history</div></Link>
+                )
+            }        
+              else {
                 return(null)
             }
         } else {

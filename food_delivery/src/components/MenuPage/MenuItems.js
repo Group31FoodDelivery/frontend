@@ -12,7 +12,7 @@ function MenuItems(props) {
     return (
         <div className={styles.container}>
             <div><img className = {styles.image}  src = {`./images/${props.image}`} alt=""></img></div>
-      <div className ={styles.name}>{props.Name}</div>
+      <div className ={styles.name}>{props.ItemName}</div>
       <div className={styles.description}>{props.Description}
       </div>
       <div className={styles.bottom}>
