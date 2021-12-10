@@ -13,7 +13,9 @@ function RestaurantOrders(){
               <div className={styles.name}><b>{data.name}</b></div>
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.date}</b>
+              <div className={styles.btn1}>
               <StatusButton/>
+              </div>
             
               </div>
               </div>

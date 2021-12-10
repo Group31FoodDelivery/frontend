@@ -121,6 +121,7 @@ color:white;
     color:gray;
     padding-top:10px;
     padding-right:5px;
+    padding-bottom: 5px;
 }
 .status{
     border-radius:12px;
@@ -182,11 +183,17 @@ padding-left: 1%;
     .infoCustomer{
         height: 80px;
         overflow:visible;
+        width:150px;
     }
     .status{
         margin-top:15%;
         height: 28px;
     }
+    .btn1{
+        font-size: 12px;
+        overflow: visable;
+    }
+
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
