@@ -9,19 +9,22 @@ export default function RestaurantOrderDetails(props){
     console.log("gkgkg");
     const [orders, setOrders] = useState([]);
     const {token} = props;
+    const {info} = props;
+    
+console.log("props here")
 
-  console.log(props);
-    const OrderDetails= orders.map(
-        (data)=>{
+  console.log(info);
+   
+   
             return(
                 <div>    
                 <div className={styles.orders}>
                 
-                <img className = {styles.photo} src = {`/images/${data.Image}`} alt="">
+                <img className = {styles.photo} src = {`/images/${info.Image}`} alt="">
                 </img> 
-                <div className = {styles.title}>{data.ItemName}</div>
-                <div className = {styles.number}>{data.Qty}</div>
-                <div className = {styles.price}>{data.Price} € </div>
+                <div className = {styles.title}>{info.ItemName}</div>
+                <div className = {styles.number}>{info.Qty}</div>
+                <div className = {styles.price}>{info.Price} € </div>
                 </div> 
               <div className={styles.btn1}>
                   <StatusButton token={props.token}/>
@@ -29,20 +32,19 @@ export default function RestaurantOrderDetails(props){
                   </div>           
 
     )
-}
-    )
-return(
-    <div>
-        <div>
-            <div className = {styles.order}><h3>Orders</h3></div>
-            <div className={styles.table}>
+
+//return(
+    //<div>
+        //<div>
+           // <div className = {styles.order}><h3>Orders</h3></div>
+           // <div className={styles.table}>
            
-            {orders.map(customer => <CustomerInfo key={customer.customerId} {...customer}/>)}
-        </div>
-        </div>
+           // {orders.map(customer => <CustomerInfo key={customer.customerId} {...customer}/>)}
+       // </div>
+       // </div>
 
-     {OrderDetails}
+     //{OrderDetails}
 
-    </div>
-)
+    //</div>
+//)
 }

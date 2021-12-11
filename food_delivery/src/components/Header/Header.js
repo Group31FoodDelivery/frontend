@@ -80,7 +80,7 @@ const CartButton = () => {
         const user = jwt(props.token);
         if(user.hasOwnProperty("customer")) {
             return (
-                <Link to="/shoppingcart" >
+                <Link to="/shoppingcart" style={{ textDecoration: 'none' }}>
                 <button className = {styles.shoppingcartButton}>
                 <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
                 <div style = {{fontSize: '16px'}}>
@@ -91,9 +91,9 @@ const CartButton = () => {
         } else if (user.hasOwnProperty("manager")){
 
             return(
-            <Link to="/restaurantorders">
+            <Link to="/restaurantorders" style={{ textDecoration: 'none' }}>
                 <button className = {styles.shoppingcartButton}>
-                <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
+                <img className = {styles.orderIcon} src = "images/orders.png"></img>
                 <div style = {{fontSize: '16px'}}>
                     Orders
                  </div>
