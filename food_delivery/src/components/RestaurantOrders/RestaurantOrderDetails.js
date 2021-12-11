@@ -15,7 +15,18 @@ console.log("props here")
 
   console.log(info);
    
-   
+   if(info == "")
+   {
+    return(
+        <div>
+        
+        <div className = {styles.order}><h3>Orders</h3></div>
+        
+          </div>           
+
+)
+   }
+    else {
             return(
                 <div>
                 <div>
@@ -27,7 +38,7 @@ console.log("props here")
                 </div>
 
 
-    //</div>    
+                </div>    
                 <div className={styles.orders}>
                 
                 <img className = {styles.photo} src = {`/images/${info.Image}`} alt="">
@@ -42,6 +53,7 @@ console.log("props here")
                   </div>           
 
     )
+}
 
 //return(
     //<div>

@@ -8,6 +8,7 @@ export default function CustomerInfo(props){
 
     console.log("props final");
     console.log(props)
+
 return(
     <div>
 <div className={styles.titleTable}><h4>Restaurant Orders</h4></div>
