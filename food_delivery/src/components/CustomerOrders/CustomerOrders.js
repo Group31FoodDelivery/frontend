@@ -31,12 +31,12 @@ import { useState } from 'react';
         (info)=>{
             return(
             
-                <tr>
+                <tr key = {info.orderId}>
                     <td>{info.Name}</td>
                     <td>{info.Qty}x</td>
-                    <td>{info.ItemName}</td>
+                    <td>{info.ItemName} </td>
                     <td>{info.TimeStamp}</td>
-                    <td>{info.TotalPrice}€</td>
+                    <td>{info.Price * info.Qty}€</td>
                     <td>{info.State}</td>
                     <td>{info.Time}mins</td>
                 </tr>
