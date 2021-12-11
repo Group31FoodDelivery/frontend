@@ -31,12 +31,12 @@ export default function PaymentPage(props){
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
         let year = newDate.getFullYear();
-        let hours = newDate.getHours() + ':';
-        let minutes = newDate.getMinutes() + ':';
+        let hours = newDate.getHours();
+        let minutes = newDate.getMinutes();
         let seconds =  newDate.getSeconds();
         //let time = newDate.getHours() + ':' + newDate.getMinutes() + ':' + newDate.getSeconds();
         
-        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours}${minutes<10?`0${minutes}`:`${minutes}`}${seconds<10 ? `0${seconds}`: `${seconds}`}`
+        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}:${seconds<10 ? `0${seconds}`: `${seconds}`}`
         }
 
     const areFieldsFull = () => {
@@ -44,6 +44,8 @@ export default function PaymentPage(props){
           }
 
     useEffect(() => {
+
+        console.log(getCurrentDate())
 
        console.log(cardNum)
        console.log(cvc)
