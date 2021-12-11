@@ -10,6 +10,8 @@ import RestaurantOrderDetails from './RestaurantOrderDetails';
 
 function RestaurantOrders(props){
     const [orders, setOrders] = useState([]);
+    const [selected, setSelected] = useState("");
+    const [view, setView] = useState([]);
     const {token} = props;
 
 
@@ -31,11 +33,9 @@ function RestaurantOrders(props){
            })
         }, [])
 
-        const [view, setView] = useState([]);
-        const test=()=>{
-            setView('view');   
-            console.log('view') 
-
+        const activeOrder=(id,data)=>{
+            setSelected(id);
+            orderInfo(data)
         }
         const orderInfo = (info)=> {
             setView(info);   
@@ -48,7 +48,7 @@ function RestaurantOrders(props){
             return(
              <div className={styles.customerOrders}>
     
-             <div key={data.orderId} id={data} onClick={()=> orderInfo(data)} className={styles.infoCustomer} >
+             <div key={data.orderId} style = {{color: selected === data.orderId ? "#CC2255" : ""}} onClick={()=>activeOrder(data.orderId,data)} className={styles.infoCustomer}>
               <div className={styles.name}><b>{data.Username}</b></div>
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.TimeStamp}</b>
