@@ -22,6 +22,7 @@ function RestaurantOrders(props){
        //let customerId = '879d5d3c-ca2b-479b-9aa9-619b81e3875c';
            await axios.get('http://localhost:9000/orders/' + managerId)
            .then((response) => {
+               console.log("responssi")
                console.log(response)
                setOrders(response.data)
            })
@@ -48,7 +49,7 @@ function RestaurantOrders(props){
              <div className={styles.customerOrders}>
     
              <div key={data.orderId} id={data} onClick={()=> orderInfo(data)} className={styles.infoCustomer} >
-              <div className={styles.name}><b>{data.Firstname} {data.Surname}</b></div>
+              <div className={styles.name}><b>{data.Username}</b></div>
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.TimeStamp}</b>
               <div className={styles.btn1}>

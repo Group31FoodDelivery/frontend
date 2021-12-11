@@ -16,8 +16,8 @@ return(
 <div className={styles.rightTable}><b>{info.Name}</b></div>
 </div>
 <div className={styles.infoBox}>
-    <div className={styles.nameBox}><b>Name</b>{info.Firstname} {info.Surname}</div>
-    <div className={styles.addressBox}><b>Address</b>{info.Address}</div>
+    <div className={styles.nameBox}><b>Name</b>{info.Username}</div>
+    <div className={styles.addressBox}><b>Address</b>{info.address}</div>
     <div className={styles.phone}><b>Email</b>{info.ContactInfo}</div>
     </div>
     </div>
