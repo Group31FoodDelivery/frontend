@@ -17,13 +17,23 @@ console.log("props here")
    
    
             return(
-                <div>    
+                <div>
+                <div>
+                <div>
+                <div className = {styles.order}><h3>Orders</h3></div>
+                <div className={styles.table}>
+                 <CustomerInfo info = {info}/>
+                </div>
+                </div>
+
+
+    //</div>    
                 <div className={styles.orders}>
                 
                 <img className = {styles.photo} src = {`/images/${info.Image}`} alt="">
                 </img> 
                 <div className = {styles.title}>{info.ItemName}</div>
-                <div className = {styles.number}>{info.Qty}</div>
+                <div className = {styles.number}>{info.Qty}x</div>
                 <div className = {styles.price}>{info.Price} € </div>
                 </div> 
               <div className={styles.btn1}>
