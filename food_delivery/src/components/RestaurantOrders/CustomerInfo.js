@@ -12,7 +12,7 @@ return(
 <div className={styles.rightTable}><b>{props.Name}</b></div>
 </div>
 <div className={styles.infoBox}>
-    <div className={styles.nameBox}><b>{props.Firstname}</b>{props.Surname}</div>
+    <div className={styles.nameBox}><b>Name</b>{props.Firstname} {props.Surname}</div>
     <div className={styles.addressBox}><b>Address</b>{props.Address}</div>
     <div className={styles.phone}><b>Phone number</b></div>
     </div>

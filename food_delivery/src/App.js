@@ -9,7 +9,7 @@ import CustomerOrders from './components/CustomerOrders/CustomerOrders';
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
 import CustomerInfoPage from './components/CustomerInfoPage/CustomerInfoPage';
 import CreateMenu from "./components/CreateMenu/CreateMenu"
-import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
+import RestaurantOrders from './components/RestaurantOrders/RestaurantOrdersFront';
 import PaymentPage from './components/PaymentPage/PaymentPage';
 import ManagerFrontPage from './components/ManagerFrontPage/ManagerFrontPage'
 import BottomBar from './components/BottomBar/BottomBar';

@@ -6,7 +6,7 @@ import {useState} from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
 import jwt from 'jwt-decode';
-import CustomerInfo from './CustomerInfo';
+import RestaurantOrderDetails from './RestaurantOrderDetails';
 
 function RestaurantOrders(props){
     const [orders, setOrders] = useState([]);
@@ -30,12 +30,24 @@ function RestaurantOrders(props){
            })
         }, [])
 
+        const [view, setView] = useState([]);
+        const test=()=>{
+            setView('view');   
+            console.log('view') 
+
+        }
+        const orderInfo = (info)=> {
+            setView(info);   
+
+          
+            
+        }
     const CustomerOrders=orders.map(
         (data)=>{
             return(
              <div className={styles.customerOrders}>
     
-             <div className={styles.infoCustomer}>
+             <div key={data.orderId} id={data} onClick={()=> orderInfo(data)} className={styles.infoCustomer} >
               <div className={styles.name}><b>{data.Firstname} {data.Surname}</b></div>
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.TimeStamp}</b>
@@ -47,14 +59,7 @@ function RestaurantOrders(props){
               </div>
               </div>
               </div>
-              <div className={styles.orders}>
-                
-                <img className = {styles.photo} src = {`/images/${data.Image}`} alt="">
-                </img> 
-                <div className = {styles.title}>{data.ItemName}</div>
-                <div className = {styles.number}>{data.Qty}</div>
-                <div className = {styles.price}>{data.Price} € </div>
-                </div> 
+            
                 </div>
                 
             )
@@ -65,11 +70,12 @@ function RestaurantOrders(props){
             <div className = {styles.order}><h3>Orders</h3></div>
             <div className={styles.table}>
            
-            {orders.map(customer => <CustomerInfo key={customer.customerId} {...customer}/>)}
- 
+            <RestaurantOrderDetails info={view}/>
+
                  
-                    
+                    <div>
                     {CustomerOrders}
+                    </div>
              </div>       
                     
         </div>
