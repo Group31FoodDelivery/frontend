@@ -32,7 +32,7 @@ import { useState } from 'react';
     const CustomerOrders=orders.map(
         (info)=>{
             return(
-                <div>
+               
                 <tr key = {info.orderId}>
                     <td>{info.Name}</td>
                     <td>{info.Qty}x</td>
@@ -42,7 +42,6 @@ import { useState } from 'react';
                     <td>{info.State}</td>
                     <td>{info.Time}mins</td>
                 </tr>
-                </div>
             
             )
         }
