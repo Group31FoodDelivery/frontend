@@ -13,6 +13,7 @@ import { useState } from 'react';
     const [orders, setOrders] = useState([]);
 
     useEffect(async() => {
+
     const user = jwt(token);
     let customerId = user.customer.customerId;
     console.log(customerId);
@@ -27,7 +28,8 @@ import { useState } from 'react';
        })
     }, [])
 
- 
+    
+
     
     const CustomerOrders=orders.map(
         (info)=>{
