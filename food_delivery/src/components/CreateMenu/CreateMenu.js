@@ -44,6 +44,8 @@ export default class CreateMenu extends Component {
         console.log("STATE: " + this.state.managerId);
         const res = await axios.get("/restaurants/" + this.state.managerId);
         const data = res.data
+        console.log("data")
+        console.log(data);
 
         const options = data.map(d => ({
             "value" : d.restaurantId,
