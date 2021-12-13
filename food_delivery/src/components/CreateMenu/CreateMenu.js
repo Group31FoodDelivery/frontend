@@ -49,6 +49,8 @@ export default class CreateMenu extends Component {
         console.log("STATE: " + this.state.managerId);
         const res = await axios.get("/restaurants/" + this.state.managerId);
         const data = res.data
+        console.log("data")
+        console.log(data);
 
         const options = data.map(d => ({
             "value" : d.restaurantId,
@@ -154,8 +156,9 @@ export default class CreateMenu extends Component {
             <textarea id="desc" name="desc" rows="5" cols="40" placeholder="Enter a description"  onChange={e => this.setState({Description: e.target.value})}></textarea>     {/*Textarea for desc, submit action has to be figured out*/}
              {/* <input type = "submit" value="Submit"></input> */}
              <this.error/>
-            
+
             <button type ="submit" className = {styles.createButton} style = {{marginBottom: "20px"}}>Add to the menu</button>
+            </div>
             </form>
             <input type="file" name="kuva" onChange={this.selectFile} />
             <button className = {styles.createButton} onClick={this.postImage}>Add an image

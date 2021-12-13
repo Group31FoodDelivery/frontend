@@ -16,10 +16,11 @@
 background-color: white;
 display: flex;
 flex-direction: column;
-gap: 30px;
+justify-content: center;
+gap: 5%;
 align-items: center;
 width: 600px;
-height: 640px;
+height: 540px;
 border-radius: 20px;
 margin-left: 33%;
 margin-top: 20px;
@@ -72,6 +73,13 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     justify-content: center;
     background-color: blue;
 }
+.btn{ 
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 22%;
+    
+}
 .createButton {
 
     background-color: #CC2255;
@@ -79,6 +87,7 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     border-radius: 20px;
     width: 150px;
     height: 30px;
+    margin-top:3%;
     border: none;
 
 }
@@ -106,7 +115,7 @@ textarea{
     }
     .createButton {
         width:150px;
-        height:70px;
+        height:50px;
     }
     
 }

@@ -1,63 +1,64 @@
 .pageContainer{
-display:flex;
-justify-content:center;
-flex-direction:column;
-
-}
-.text{
-    display:flex;
-    justify-self: center;
-    margin-left:5%;
-    font-weight: bold;
-    font-size:25px;
-    width:100%;
-
-}
-.btnContainer{
     display:flex;
     justify-content:center;
-    margin-top:10%;
-    gap:10%;
-}
-.btn1{
-    color:white;
-    background-color: #CC2255;
-    border-radius: 10px;
-    height:55px;
-    width: 150px;
-    font-size: 15px;
-    font-weight: bold;
-    border-color: #CC2255;
-}
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px)  { 
+    flex-direction:column;
+    
+    }
     .text{
+        display:flex;
+        justify-self: center;
         margin-left:5%;
-        font-size: 12px;
-    }
-  }
-  
-  /* Small devices (portrait tablets and large phones, 600px and up) */
-  @media only screen and (min-width: 600px) {
-    .text{
-        margin-left:15%;
-        font-size: 18px;
-    }
-  }
-  
-  /* Large devices (laptops/desktops, 992px and up) */
-  @media only screen and (min-width: 992px) {
-    .text{
+        font-weight: bold;
         font-size:25px;
-         margin-left:20%;
-     }
-  }
-  
-  /* Extra large devices (large laptops and desktops, 1200px and up) */
-  @media only screen and (min-width: 1200px) {
-      .text{
-         font-size:25px;
-          margin-left:25%;
+        width:100%;
+    
+    }
+    .btnContainer{
+        display:flex;
+        justify-content:center;
+        margin-top:10%;
+        gap:10%;
+    }
+    .btn1{
+        color:white;
+        background-color: #CC2255;
+        border-radius: 10px;
+        height:55px;
+        width: 150px;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: #CC2255;
+    }
+    /* Extra small devices (phones, 600px and down) */
+    @media only screen and (max-width: 600px)  { 
+        .text{
+            
+            margin-left:5%;
+            font-size: 12px;
+        }
       }
       
-  }
+      /* Small devices (portrait tablets and large phones, 600px and up) */
+      @media only screen and (min-width: 600px) {
+        .text{
+            margin-left:15%;
+            font-size: 18px;
+        }
+      }
+      
+      /* Large devices (laptops/desktops, 992px and up) */
+      @media only screen and (min-width: 992px) {
+        .text{
+            font-size:25px;
+             margin-left:20%;
+         }
+      }
+      
+      /* Extra large devices (large laptops and desktops, 1200px and up) */
+      @media only screen and (min-width: 1200px) {
+          .text{
+             font-size:25px;
+              margin-left:25%;
+          }
+          
+      }

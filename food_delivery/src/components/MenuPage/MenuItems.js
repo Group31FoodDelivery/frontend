@@ -11,7 +11,10 @@ const {addToCart} = props;
     console.log("propsit löytyy"+props.itemId)
     return (
         <div className={styles.container}>
+
             <div><img className = {styles.image}  src = {`http://localhost:9000/menuitems/images/${props.itemId}`} alt=""></img></div>
+
+
       <div className ={styles.name}>{props.ItemName}</div>
       <div className={styles.description}>{props.Description}
       </div>

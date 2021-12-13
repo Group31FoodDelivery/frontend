@@ -71,6 +71,12 @@
     height: 55px;
 }
 
+.orderIcon{
+    display: flex;
+    margin-left: 10px;
+    width: 36px;
+    height: 36px;
+}
 .icon{
 
     margin-right: 8px;

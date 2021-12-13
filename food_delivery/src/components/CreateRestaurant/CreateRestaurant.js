@@ -164,25 +164,25 @@ class CreateRestaurant extends React.Component {
                {/* <input type="text" placeholder="Description" cols="40"  rows="5" 
                className = {styles.descriptionInputs} onChange={e => this.setState({description: e.target.value})}></input> */}
 
-                <input type="text" placeholder="Description"  className = {styles.inputs} onChange={e => this.setState({description: e.target.value})}/>
+                <input type="text" placeholder="Description"  className = {styles.descriptionInputs} onChange={e => this.setState({description: e.target.value})}/>
 
                 <input type="text" placeholder="Operating hours"  className = {styles.inputs} onChange={e => this.setState({operatingHours: e.target.value})}/>
                 <input type="text" placeholder="Address"  className = {styles.inputs} onChange={e => this.setState({address: e.target.value})}/>
 
                <this.error/>
                 {/*<input  type="text" placeholder="Address"  className = {styles.addressInputs} onChange={e => this.setState({address: e.target.value})} > </input> */}
-                
-                <button type="submit" className = {styles.button}>Create</button>
-            
-            </form>
-
-            <div>
-               <input type="file" onChange={this.imagePosting} />
-               <button on onClick={this.ImageUpload}>
+                <div className={styles.chooseFile} >
+               <input type="file" className={styles.file} onChange={this.imagePosting} />
+               <button on onClick={this.ImageUpload} className={styles.btnFile}>
                    Upload
                </button>
 
             </div>
+                <button type="submit" className = {styles.button}>Create</button>
+            
+            </form>
+
+           
             </div>
         );
     }

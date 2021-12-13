@@ -11,6 +11,7 @@ import {adjustQty} from '../../redux/Shopping/shopping-actions';
 
 
  function ShoppingCartItems(props) {
+     console.log(props);
 
     const { removeFromCart} = props;
     const {adjustQty} = props;
@@ -49,7 +50,7 @@ import {adjustQty} from '../../redux/Shopping/shopping-actions';
             </div>
             <div className = {styles.infoArea}>
             <div className = {styles.itemsUp}>
-                <div className = {styles.orderName}>{props.Name}</div>                    {/*Name of the order*/}
+                <div className = {styles.orderName}>{props.ItemName}</div>                    {/*Name of the order*/}
                 <div style = {{marginRight: '20px', marginLeft: '20px'}}></div>
                 <button className = {styles.removeButton} onClick = {() => removeFromCart(props.itemId)}>X</button>                      {/*Remove item button*/}
             </div>

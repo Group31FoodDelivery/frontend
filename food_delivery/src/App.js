@@ -9,7 +9,7 @@ import CustomerOrders from './components/CustomerOrders/CustomerOrders';
 import ShoppingCart from "./components/ShoppingCart/ShoppingCart"
 import CustomerInfoPage from './components/CustomerInfoPage/CustomerInfoPage';
 import CreateMenu from "./components/CreateMenu/CreateMenu"
-import RestaurantOrders from './components/RestaurantOrders/RestaurantOrders';
+import RestaurantOrders from './components/RestaurantOrders/RestaurantOrdersFront';
 import PaymentPage from './components/PaymentPage/PaymentPage';
 import ManagerFrontPage from './components/ManagerFrontPage/ManagerFrontPage'
 import BottomBar from './components/BottomBar/BottomBar';
@@ -126,14 +126,14 @@ return (
         <Route path="/createrestaurant" element={<CreateRestaurant token = {this.state.token}/>}/>
         <Route path="/login" element={<SignIn setToken={this.setToken} getToken={this.getToken}/>} />  
         <Route path="/menupages/:restaurantId" element={ <MenuPage restaurantData = {this.state.restaurantData}/>  } />
-        <Route path="/orders" element={<CustomerOrders/>} />
+        <Route path="/orders" element={<CustomerOrders token = {this.state.token}/>} />
         <Route path="/shoppingcart" element={<ShoppingCart token = {this.state.token}/>} /> 
         <Route path="/customerinfo" element={<CustomerInfoPage/>} />
         <Route path="/createmenu" element={<CreateMenu token = {this.state.token}/>} /> 
-        <Route path="/restaurantorders" element={<RestaurantOrders/>} /> 
+        <Route path="/restaurantorders" element={<RestaurantOrders token = {this.state.token}/>} /> 
         <Route path="/payment" element={<PaymentPage/>} /> 
         <Route path="/managerview" element={<ManagerFrontPage restaurants={this.state.restaurants}/>} /> 
-        <Route path="/success" element={<SuccessPage/>}/>
+        <Route path="success" element={<SuccessPage/>}/>
         <Route path="/fail" element={<FailPage/>}/>
       </Routes>
       <BottomBar></BottomBar>
@@ -144,4 +144,3 @@ return (
 }
 
 export default App;
-

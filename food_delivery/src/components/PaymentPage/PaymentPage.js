@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import jwt from 'jwt-decode';
-import Alert from 'react-popup-alert';
 import { useNavigate } from 'react-router';
 const qs = require('qs');
 
@@ -21,44 +20,26 @@ export default function PaymentPage(props){
     const [cardNum, setCardNum] = useState('')
     const [cvc, setCvc] = useState('')
     const [exipDate, setExipDate] = useState('')
+    const [buttonState, setButtonState] = useState(true)
 
     let navigate = useNavigate();
 
-    const [alert, setAlert] = useState({
-        type: 'success',
-        text: 'Thank you!',
-        show: false
-      })
-    
-      function onShowAlert(type) {
-        setAlert({
-          type: type,
-          text: 'Thank you for your purchase!',
-          show: true
-        })
-      }
+    let fail = false;
 
-      function onCloseAlert() {
-        setAlert({
-          type: '',
-          text: '',
-          show: false
-        })
-      }
+    function getCurrentDate(separator='-'){
 
-    function getCurrentDate(separator='/'){
-
-        let newDate = new Date()
+        let newDate = new Date();
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
         let year = newDate.getFullYear();
+        let hours = newDate.getHours();
+        let minutes = newDate.getMinutes();
+        let seconds =  newDate.getSeconds();
+        //let time = newDate.getHours() + ':' + newDate.getMinutes() + ':' + newDate.getSeconds();
         
-        return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}:${seconds<10 ? `0${seconds}`: `${seconds}`}`
         }
 
-    const areFieldsFull = () => {
-            return cardNum && cvc && exipDate;
-          }
 
     useEffect(() => {
 
@@ -74,8 +55,9 @@ export default function PaymentPage(props){
        console.log(itemId)
        console.log(qnty)
 
+       areFieldsFull();
 
-    }, [cart])
+    }, [cart,cardNum,cvc,exipDate])
 
 
     //creates an order
@@ -93,7 +75,7 @@ export default function PaymentPage(props){
     let timeStamp = getCurrentDate();
 
     axios.post('http://localhost:9000/Addorders' , {
-        time: 20,
+        time: 0,
         customerId: customerId,
         address: address,
         price: price,
@@ -109,6 +91,7 @@ export default function PaymentPage(props){
     })
     .catch(function (error){
         console.log(error.response);
+        fail = true;
     });
     } 
 
@@ -116,7 +99,6 @@ export default function PaymentPage(props){
     const placeItemsIntoOrder = async (orderId) => {
 
         let orderIdString = qs.stringify(orderId).substr(8)
-        let fail = false;
 
         for(let i = 0; i<itemId.length; i++) { //goes through the arrays and sends the itemdIds and their quantities
 
@@ -145,37 +127,32 @@ export default function PaymentPage(props){
     const purchaseDone = (fail) => {
 
         if(fail == true){
-            navigate('/fail');
-            console.log('fail')  //mby navigation to failure page and then button back to shopping cart or sum
+            console.log('fail') 
+            navigate('/fail', { replace: true });
         }
         else{
         console.log(fail)
-        onShowAlert('success');
         window.localStorage.removeItem('reduxState');
         navigate('/success', { replace: true });
         }
     }
-   
-    const showAlert = () => {
-        if(alert.show == true) {
 
-            return (<Alert
-            header={'Header'}
-            btnText={'Close'}
-            text={alert.text}
-            type={alert.type}
-            show={alert.show}
-            onClosePress={onCloseAlert}
-            pressCloseOnOutsideClick={true}
-            showBorderBottom={true}
-            alertStyles={{}}
-            headerStyles={{}}
-            textStyles={{}}
-            buttonStyles={{}}
-          />);
+
+
+    const areFieldsFull = () => {
+        if(cardNum.length == 19 && cvc.length == 3 && exipDate.length == 10){
+        setButtonState(false)
+        return false
+    }
+        else{
+            setButtonState(true)
+            return true
         }
-        else {
-            return <div><div className = {styles.topBar}>Payment</div>
+      }
+    
+    return (
+        <div><div className = {styles.topBar}>Payment</div>
+        
             <div className = {styles.container} >
                 CARD NUMBER
                 <input type = 'text' placeholder = 'xxxx-xxxx-xxxx-xxxx' maxLength = {19} onChange={e => setCardNum(e.target.value)} value={cardNum} className = {styles.inputs}/>
@@ -183,16 +160,8 @@ export default function PaymentPage(props){
                 <input type = 'text' placeholder = 'xxx' maxLength = {3}  onChange={e => setCvc(e.target.value)} value={cvc} className = {styles.inputs} />
                 EXIPIRATION DATE
                 <input type = 'text' placeholder = 'dd/mm/yyyy' maxLength = {10} onChange={e => setExipDate(e.target.value)} value={exipDate} className = {styles.inputs}/>
-               <button className = {styles.button} onClick = {handleButtonClick} disabled={!areFieldsFull}>Confirm</button>
+               <button className = {styles.confirmButton} onClick = {handleButtonClick} disabled={buttonState}>Confirm</button>
             </div>
-            </div>         
-        }
-
-    }
-
-    return (
-        <div>
-        {showAlert()}
-        </div>
+            </div>  
     )
 }

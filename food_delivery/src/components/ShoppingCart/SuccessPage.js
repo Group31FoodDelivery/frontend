@@ -9,10 +9,10 @@ export default function SuccessPage (){
     <div className={styles.text}>The operation was successful! Thank you for your order!
     </div>
     <div className={styles.btnContainer}>
-        <Link to={'/shoppingcart'} >
-        <button className={styles.btn1} src={'/shoppingcart'}>Back to cart</button>
+        <Link to={'/orders'} onclick ={() => {window.location.href="/orders"}}>
+        <button className={styles.btn1} src={'/orders'}>See your orders</button>
         </Link>
-        <Link to={'/'} >
+        <Link to={'/'} onclick={() => window.location.reload()}>
         <button className={styles.btn1} src={'/'}>Main page</button>
     </Link>
     </div>
@@ -20,3 +20,4 @@ export default function SuccessPage (){
     </div>
     )
 }
+
