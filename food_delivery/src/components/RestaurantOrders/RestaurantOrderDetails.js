@@ -52,18 +52,5 @@ console.log("props here")
     )
 }
 
-//return(
-    //<div>
-        //<div>
-           // <div className = {styles.order}><h3>Orders</h3></div>
-           // <div className={styles.table}>
-           
-           // {orders.map(customer => <CustomerInfo key={customer.customerId} {...customer}/>)}
-       // </div>
-       // </div>
 
-     //{OrderDetails}
-
-    //</div>
-//)
 }

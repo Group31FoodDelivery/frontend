@@ -98,6 +98,9 @@ color:white;
     flex-direction: row;
     gap: 1%;
     justify-content: center;
+    height: 90px;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 .infoContainer{
     padding:0%;
@@ -106,7 +109,7 @@ color:white;
     justify-content: center;
     background-color: white;
     border-radius:12px;
-    height:50px;
+    height:90px;
     width:130px;
     padding:0.5%
 
@@ -192,6 +195,7 @@ padding-left: 1%;
     .btn1{
         font-size: 12px;
         overflow: visable;
+
     }
 }
 
