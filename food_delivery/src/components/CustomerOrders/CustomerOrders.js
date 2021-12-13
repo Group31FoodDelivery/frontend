@@ -22,10 +22,12 @@ import { useState } from 'react';
        .then((response) => {
            console.log(response)
            setOrders(response.data)
+           console.log(response.data);
        })
        .catch(error => {
         console.log(error)
        })
+    
     }, [])
 
     

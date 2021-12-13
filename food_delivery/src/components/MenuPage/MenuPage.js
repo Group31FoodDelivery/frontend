@@ -5,7 +5,7 @@ import MenuItems from './MenuItems';
 import DropDown from './DropDown';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import {connect} from 'react-redux';
 import {getMenuItems} from '../../redux/Shopping/shopping-actions';
 
@@ -13,6 +13,7 @@ function MenuPage(props) {
 
     const {menuItems} = props; //redux menuItem state, harcoded, doesn't have api calls yet. props.restaurantId must be passed to redux somehow
     const {getMenuItems} = props;
+    const [categorySearch, setCategorySearch] = useState('')
     //const [menuData, setMenuData] = React.useState([]);
 
     const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
@@ -25,8 +26,12 @@ function MenuPage(props) {
        
     }, [])
     
-
-    
+    const onSearchChange = (event) => {   
+        let searchResult = event.target.value;                         
+        setCategorySearch(searchResult.toLowerCase());   
+        console.log(categorySearch);
+        }
+        
     return (
 
         //Gets restaurants from app.js as normal props
@@ -58,6 +63,8 @@ function MenuPage(props) {
         </div>
     </div>
       </div>
+      <input type="text" placeholder="Search categories..." className={styles.searchBar} onChange={onSearchChange} value={categorySearch}/>
+      
 
 {/* DropDown */}
 
@@ -65,9 +72,8 @@ function MenuPage(props) {
     <DropDown/>
 
 </div>
-
       <div className={styles.menuContainer}>
-      {menuItems.map(menu=> <MenuItems key = {menu.itemId} {...menu}/>)}
+      {menuItems.filter(items => items.Category.toLowerCase().includes(categorySearch)).map(menu=> <MenuItems key = {menu.itemId} {...menu}/>)}
         </div>
 
       </div>  

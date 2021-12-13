@@ -16,6 +16,7 @@ const {addToCart} = props;
 
 
       <div className ={styles.name}>{props.ItemName}</div>
+      <div className={styles.category}> {props.Category}</div>
       <div className={styles.description}>{props.Description}
       </div>
       <div className={styles.bottom}>
