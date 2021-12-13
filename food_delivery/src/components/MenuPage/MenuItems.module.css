@@ -29,6 +29,13 @@
     padding-left: 2%;
     
 }
+
+.category{
+    font-size: 10px;
+    width:80%;
+    height: 80%;
+    padding-left: 2%; 
+}
 .bottom{
     display:flex;
     flex-direction: row;
