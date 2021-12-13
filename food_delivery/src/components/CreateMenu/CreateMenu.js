@@ -81,7 +81,7 @@ export default class CreateMenu extends Component {
         e.preventDefault();
        
         let formData = {
-            Name: this.state.Name,
+            ItemName: this.state.Name,
             Description: this.state.Description,
             Price: this.state.Price,
             Image: "",
