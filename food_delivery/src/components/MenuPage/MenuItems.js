@@ -7,11 +7,14 @@ import { addToCart } from '../../redux/Shopping/shopping-actions';
 function MenuItems(props) {
 //   const menuData = map.retaurants((restaurants))
 
-    const {addToCart} = props;
-
+const {addToCart} = props;
+    console.log("propsit löytyy"+props.itemId)
     return (
         <div className={styles.container}>
-            <div><img className = {styles.image}  src = {`./images/${props.image}`} alt=""></img></div>
+
+            <div><img className = {styles.image}  src = {`http://localhost:9000/menuitems/images/${props.itemId}`} alt=""></img></div>
+
+
       <div className ={styles.name}>{props.ItemName}</div>
       <div className={styles.description}>{props.Description}
       </div>
@@ -32,5 +35,5 @@ function MenuItems(props) {
         };
 
     }
-
+    
     export default connect(null, mapDispatchToProps)(MenuItems)
