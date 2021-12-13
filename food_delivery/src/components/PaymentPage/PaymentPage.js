@@ -13,6 +13,7 @@ export default function PaymentPage(props){
     const {price} = props;
     const {address} = props;
     const {token} = props;
+    const {emptyCart} = props;
 
     const [itemId, setItemId] = useState('')
     const [qnty, setQnty] = useState( )
@@ -131,12 +132,11 @@ export default function PaymentPage(props){
             navigate('/fail', { replace: true });
         }
         else{
-        console.log(fail)
-        window.localStorage.removeItem('reduxState');
-        navigate('/success', { replace: true });
+            console.log(fail)
+            window.localStorage.removeItem('reduxState');
+            navigate('/success', { replace: true }, window.location.href="/success");
         }
     }
-
 
 
     const areFieldsFull = () => {

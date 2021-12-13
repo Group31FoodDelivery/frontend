@@ -40,6 +40,7 @@ const shopReducer  = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentItem: action.payload,
             }
+         
         case actionTypes.GET_MENUITEMS_REQUEST:
             return {
                 ...state
