@@ -63,8 +63,9 @@ function MenuPage(props) {
         </div>
     </div>
       </div>
+      <div className={styles.searchBox}>
       <input type="text" placeholder="Search categories..." className={styles.searchBar} onChange={onSearchChange} value={categorySearch}/>
-      
+      </div>
 
 {/* DropDown */}
 

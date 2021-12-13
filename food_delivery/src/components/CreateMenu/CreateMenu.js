@@ -144,6 +144,7 @@ export default class CreateMenu extends Component {
 
     render() {
         return (
+            <div>
             <div style={{alignItems: 'center', justifyContent: 'center'}}>
             <div className = {styles.title}> Create Menu</div>
             <div className = {styles.column}>
@@ -153,18 +154,20 @@ export default class CreateMenu extends Component {
                 <input className = {styles.textField} type="text" placeholder="Category" onChange={e => this.setState({Category: e.target.value})}/>               
                 <input className = {styles.textField} type="text" placeholder="Name" onChange={e => this.setState({Name: e.target.value})}/>   
                 <input className = {styles.textField} type="text" placeholder="Price" onChange={e => this.setState({Price: e.target.value}, this.setState({itemId: uuidv4()}))}/>
-            <textarea id="desc" name="desc" rows="5" cols="40" placeholder="Enter a description"  onChange={e => this.setState({Description: e.target.value})}></textarea>     {/*Textarea for desc, submit action has to be figured out*/}
+            <textarea id="desc" name="desc" rows="5" cols="40" placeholder="Enter a description"  onChange={e => this.setState({Description: e.target.value})}>
+            </textarea>     {/*Textarea for desc, submit action has to be figured out*/}
              {/* <input type = "submit" value="Submit"></input> */}
+             <input type="file" name="kuva" onChange={this.selectFile} />
+            <button className = {styles.createButton} onClick={this.postImage}>Add an image
+            </button>
              <this.error/>
 
             <button type ="submit" className = {styles.createButton} style = {{marginBottom: "20px"}}>Add to the menu</button>
-            </div>
             </form>
-            <input type="file" name="kuva" onChange={this.selectFile} />
-            <button className = {styles.createButton} onClick={this.postImage}>Add an image
-            </button>
             </div>
-            </div>    
+            
+            </div>
+          </div>
         );
     }
 }

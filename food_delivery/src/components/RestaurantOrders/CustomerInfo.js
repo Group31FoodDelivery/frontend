@@ -10,10 +10,10 @@ export default function CustomerInfo(props){
     console.log(props)
 
 return(
-    <div>
+    <div className={styles.userContainer}>
 <div className={styles.titleTable}><h4>Restaurant Orders</h4></div>
 <div className={styles.tables}>
-<div className={styles.leftTable}><b>Recent orders</b></div>
+<div className={styles.leftTable}></div>
 <div className={styles.rightTable}><b>{info.Name}</b></div>
 </div>
 <div className={styles.infoBox}>

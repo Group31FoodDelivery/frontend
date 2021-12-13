@@ -31,8 +31,8 @@ console.log("props here")
                 <div>
                 <div>
                 <div>
-                <div className = {styles.order}><h3>Orders</h3></div>
-                <div className={styles.table}>
+                <div className = {styles.order}></div>
+                <div className={styles.tableCustomer}>
                  <CustomerInfo info = {info}/>
                 </div>
                 </div>
