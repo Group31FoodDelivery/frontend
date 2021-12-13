@@ -29,6 +29,23 @@ import { useState } from 'react';
     }, [])
 
     
+    let editTimeStamp = (timestamp, separator="-") => {
+
+    console.log(timestamp)
+    let d = new Date(timestamp);
+
+    
+    let date = d.getDate();
+    let month = d.getMonth();
+    let year = d.getFullYear();
+    let hours = d.getUTCHours();
+    let minutes = d.getUTCMinutes();
+    let seconds =  d.getUTCSeconds();
+
+
+    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}:${seconds<10 ? `0${seconds}`: `${seconds}`}`
+
+    }
 
     
     const CustomerOrders=orders.map(
@@ -39,7 +56,7 @@ import { useState } from 'react';
                     <td>{info.Name}</td>
                     <td>{info.Qty}x</td>
                     <td>{info.ItemName} </td>
-                    <td>{info.TimeStamp}</td>
+                    <td>{editTimeStamp(info.TimeStamp)}</td>
                     <td>{info.Price * info.Qty}€</td>
                     <td>{info.State}</td>
                     <td>{info.Time}mins</td>
