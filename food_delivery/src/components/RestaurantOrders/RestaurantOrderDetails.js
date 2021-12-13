@@ -47,9 +47,6 @@ console.log("props here")
                 <div className = {styles.number}>{info.Qty}x</div>
                 <div className = {styles.price}>{info.Price} € </div>
                 </div> 
-              <div className={styles.btn1}>
-                  <StatusButton token={props.token}/>
-                  </div>
                   </div>           
 
     )

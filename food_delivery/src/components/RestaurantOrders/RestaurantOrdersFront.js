@@ -17,16 +17,18 @@ function RestaurantOrders(props){
 
     useEffect(async() => {
         const user = jwt(token);
-        console.log('yeah');
-        let managerId = 'a09cca1d-77d9-483d-a3fd-da2b786acf4e';
+        let managerId = user.manager.managerId;
         console.log(managerId);
 
        //let customerId = '879d5d3c-ca2b-479b-9aa9-619b81e3875c';
            await axios.get('http://localhost:9000/orders/' + managerId)
            .then((response) => {
-               console.log("responssi")
                console.log(response)
-               setOrders(response.data)
+               let orders = response.data.filter((State) => {
+                   return State.State != "Delivered"
+               })
+               console.log("PALAUTETTU " + orders)
+               setOrders(orders)
            })
            .catch(error => {
             console.log(error)
@@ -38,10 +40,7 @@ function RestaurantOrders(props){
             orderInfo(data)
         }
         const orderInfo = (info)=> {
-            setView(info);   
-
-          
-            
+            setView(info);            
         }
     const CustomerOrders=orders.map(
         (data)=>{
@@ -53,7 +52,7 @@ function RestaurantOrders(props){
               <div className={styles.btnData}>
               <div className={styles.date}><b>{data.TimeStamp}</b>
               <div className={styles.btn1}>
-                  <StatusButton token={props.token}/>
+                  <StatusButton orderId={data.orderId}/>
                   </div>
 
             
