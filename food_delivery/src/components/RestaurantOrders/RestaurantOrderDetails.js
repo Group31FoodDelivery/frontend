@@ -20,7 +20,6 @@ console.log("props here")
     return(
         <div>
         
-        <div className = {styles.order}><h3>Orders</h3></div>
         
           </div>           
 
@@ -31,7 +30,6 @@ console.log("props here")
                 <div>
                 <div>
                 <div>
-                <div className = {styles.order}></div>
                 <div className={styles.tableCustomer}>
                  <CustomerInfo info = {info}/>
                 </div>
@@ -41,7 +39,7 @@ console.log("props here")
                 </div>    
                 <div className={styles.orders}>
                 
-                <img className = {styles.photo} src = {`/images/${info.Image}`} alt="">
+                <img className = {styles.photo} src = {`http://localhost:9000/menuitems/images/${info.itemId}`} alt="">
                 </img> 
                 <div className = {styles.title}>{info.ItemName}</div>
                 <div className = {styles.number}>{info.Qty}x</div>
