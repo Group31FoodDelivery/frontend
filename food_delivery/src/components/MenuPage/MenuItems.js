@@ -25,7 +25,7 @@ function MenuItems(props) {
            
                 return (
                     <div className={styles.container}>
-                        <div><img className = {styles.image}  src = {`./images/${props.image}`} alt=""></img></div>
+                        <div><img className = {styles.image} src = {`http://localhost:9000/menuitems/images/${props.itemId}`}></img></div>
                   <div className ={styles.name}>{props.ItemName}</div>
                   <div className={styles.category}> {props.Category}</div>
                   <div className={styles.description}>{props.Description}
@@ -39,7 +39,7 @@ function MenuItems(props) {
             } else if(user.hasOwnProperty("customer")) {
                 return (
                     <div className={styles.container}>
-                        <div><img className = {styles.image}  src = {`./images/${props.image}`} alt=""></img></div>
+                        <div><img className = {styles.image} src = {`http://localhost:9000/menuitems/images/${props.itemId}`}></img></div>
                   <div className ={styles.name}>{props.ItemName}</div>
                   <div className={styles.category}> {props.Category}</div>
                   <div className={styles.description}>{props.Description}
@@ -55,7 +55,7 @@ function MenuItems(props) {
         } else {
             return (
                 <div className={styles.container}>
-                        <div><img className = {styles.image}  src = {`./images/${props.image}`} alt=""></img></div>
+                        <div><img className = {styles.image} src = {`http://localhost:9000/menuitems/images/${props.itemId}`}></img></div>
                   <div className ={styles.name}>{props.ItemName}</div>
                   <div className={styles.category}> {props.Category}</div>
                   <div className={styles.description}>{props.Description}
