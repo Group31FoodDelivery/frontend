@@ -109,9 +109,10 @@ function checkbox() {
             <div className = {styles.topBar}><div style = {{alignSelf: 'center'}}>Sign In</div></div>
             <form onSubmit={handleSubmit}>
             <div className={styles.SignIn}>
-            <div style = {{fontWeight: '500', marginBottom: '20px'}}>Welcome back!</div>
+            <div style = {{fontWeight: '500', marginBottom: '20px'}}>Welcome back! </div>
+            <div style = {{fontWeight: '500', marginBottom: '20px'}}>Managers use contactinfo and users use username! </div>
             <label>
-                <input type="text" placeholder="Email" className ={styles.inputs} onChange={e => {email = setEmail(email = e.target.value)}}/>
+                <input type="text" placeholder="Email or Username (Customer)" className ={styles.inputs} onChange={e => {email = setEmail(email = e.target.value)}}/>
             </label>
             <label>
                 <input type="password" placeholder="Password" className = {styles.inputs} onChange={e => {password = setPassword(password = e.target.value)}}/>
