@@ -3,6 +3,7 @@ import styles from './CreateMenu.module.css'
 import axios from 'axios';
 import Select from 'react-select';
 import jwt from 'jwt-decode';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -18,13 +19,17 @@ export default class CreateMenu extends Component {
             managerId: "",
             Description: "",
             Price: "",
-            errorMessage: ""
+            errorMessage: "",
+            selectedFile: "",
+            itemId: null
             
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.getOptions = this.getOptions.bind(this);
         this.error = this.error.bind(this);
+        this.selectFile = this.selectFile.bind(this);
+        this.postImage = this.postImage.bind(this);
     }
 
     error() {
@@ -80,6 +85,7 @@ export default class CreateMenu extends Component {
         e.preventDefault();
        
         let formData = {
+
             ItemName: this.state.Name,
             Description: this.state.Description,
             Price: this.state.Price,
@@ -88,13 +94,14 @@ export default class CreateMenu extends Component {
             amount: 0,
             restaurantId: this.state.restaurantId
         };
+
        
-       
-        if (this.state.Name && this.state.Description && this.state.Price && this.state.Description){
+        if (this.state.itemId && this.state.Name && this.state.Description && this.state.Price && this.state.Description){
 
        
 
-        console.log("DATA "+ formData);
+        console.log("DATA "+ formData.itemId);
+        
         
 
 
@@ -120,28 +127,38 @@ export default class CreateMenu extends Component {
        }
 
     }
+    selectFile(event) {
+        this.setState({selectedFile: event.target.files[0]});
+        
+    }
+
+    postImage() {
+        console.log(this.state.selectedFile);
+        let formData = new FormData();
+        formData.append("kuva",this.state.selectedFile);
+        //let currentFile = {selectedFile: this.state.selectedFile[0]};
+        axios.put("http://localhost:9000/menuitems/images/" + this.state.itemId, formData,{headers:{"Content-Type": "multipart/form-data" }});
+    }
 
 
     render() {
         return (
             <div>
-            <div className = {styles.title}><div style = {{marginLeft: "20px"}}>Create Menu</div></div>
-            <div style={{alignItems: 'center', justifyContent: 'center', marginLeft: "130px"}}>
-                
+            <div style={{alignItems: 'center', justifyContent: 'center'}}>
+            <div className = {styles.title}> Create Menu</div>
             <div className = {styles.column}>
             <div className = {styles.topBar}>Add a menu item</div>
             <form onSubmit={this.handleSubmit} style={{alignItems: 'center', justifyContent: 'center', height: '600px', width: '300px'}}> 
                 <Select className = {styles.select} options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
                 <input className = {styles.textField} type="text" placeholder="Category" onChange={e => this.setState({Category: e.target.value})}/>               
                 <input className = {styles.textField} type="text" placeholder="Name" onChange={e => this.setState({Name: e.target.value})}/>   
-                <input className = {styles.textField} type="text" placeholder="Price" onChange={e => this.setState({Price: e.target.value})}/>
-            <textarea className = {styles.desc} id="desc" name="desc" rows="5" cols="40" placeholder="Enter a description"  onChange={e => this.setState({Description: e.target.value})}></textarea>     {/*Textarea for desc, submit action has to be figured out*/}
              {/* <input type = "submit" value="Submit"></input> */}
+             <input type="file" name="kuva" onChange={this.selectFile} />
+            <button className = {styles.createButton} onClick={this.postImage}>Add an image
+            </button>
              <this.error/>
-             <div className={styles.btn}>
-            <button className = {styles.createButton}>Add an image</button>
+
             <button type ="submit" className = {styles.createButton} style = {{marginBottom: "20px"}}>Add to the menu</button>
-            </div>
             </form>
             </div>
             </div> 

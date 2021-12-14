@@ -86,5 +86,5 @@ function MenuItems(props) {
         };
 
     }
-
+    
     export default connect(null, mapDispatchToProps)(MenuItems)
