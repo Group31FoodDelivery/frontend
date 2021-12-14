@@ -84,17 +84,32 @@ class SignUpCustomer extends React.Component {
         };
 
         if (this.state.isChecked) {
-            axios.post('http://localhost:9000/registerManager',formData).then(res => {
-                console.log(res);
-            }).catch(err => {
-                this.setState({errorMessage: "Don't leave any fields empty"});
-            })
+            const response = await axios.get('http://localhost:9000/managers');
+            //console.log(response.data(e => e.ContactInfo === this.state.ContactInfo).length > 0);
+            if(response.data.filter(e => e.ContactInfo === this.state.ContactInfo).length > 0) {
+                this.setState({errorMessage: "User already exists, try another email"});
+            } else {
+                axios.post('http://localhost:9000/registerManager',formData).then(res => {
+                    console.log(res);
+                    this.setState({errorMessage: "Success!"})
+                }).catch(err => {
+                    this.setState({errorMessage: "Don't leave any fields empty"});
+                })
+            }
         } else {
-            axios.post('http://localhost:8000/register',formData2, {
-                headers: formData2
+            const response = await axios.get('http://localhost:9000/customers');
+            //console.log(response.data(e => e.ContactInfo === this.state.ContactInfo).length > 0);
+            if(response.data.filter(e => e.Username === this.state.Username).length > 0) {
+                this.setState({errorMessage: "User already exists, try another email"});
+            } else {
+                axios.post('http://localhost:8000/register',formData2, {
+                    headers: formData2
+            }).then(res => {
+                this.setState({errorMessage: "Success!"});
             }).catch(err => {
                 this.setState({errorMessage: "Don't leave any fields empty"});
             })
+        }
         }
 
     }
