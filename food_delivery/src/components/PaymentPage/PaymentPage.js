@@ -131,12 +131,11 @@ export default function PaymentPage(props){
             navigate('/fail', { replace: true });
         }
         else{
-        console.log(fail)
-        window.localStorage.removeItem('reduxState');
-        navigate('/success', { replace: true });
+            console.log(fail)
+            window.localStorage.removeItem('reduxState');
+            navigate('/success', { replace: true }, window.location.href="/success");
         }
     }
-
 
 
     const areFieldsFull = () => {

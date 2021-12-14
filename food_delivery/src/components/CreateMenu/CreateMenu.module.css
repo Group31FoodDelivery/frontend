@@ -22,7 +22,6 @@ align-items: center;
 width: 600px;
 height: 540px;
 border-radius: 20px;
-margin-left: 33%;
 margin-top: 20px;
 margin-bottom: 20px;
 box-shadow:     0      10px      10px       rgb(135, 135, 135);
@@ -47,11 +46,12 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
 .select{
 
     margin-top: 20px;
-    background-color: #F3F3F3;
     border-radius: 15px;
     height: 30px;
-    width: 210px;
-    padding-left: 10px; 
+    width: 220px;
+    padding-left: 10px;
+    margin-left: 32px;
+    margin-bottom: 20px;
 }
 .textField{
 
@@ -66,6 +66,10 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     margin-bottom: 10px;
 }
 
+.desc{
+    padding-left: 10px; 
+    background-color: #F3F3F3;
+}
 .createMenu {
 
     display: flex;

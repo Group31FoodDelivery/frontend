@@ -42,10 +42,8 @@ import { useState } from 'react';
     let year = d.getFullYear();
     let hours = d.getUTCHours();
     let minutes = d.getUTCMinutes();
-    let seconds =  d.getUTCSeconds();
 
-
-    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}:${seconds<10 ? `0${seconds}`: `${seconds}`}`
+    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}`
 
     }
 

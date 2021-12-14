@@ -64,7 +64,6 @@ export default class CreateMenu extends Component {
     async handleChange(event) {
         this.setState({restaurantId:event.value, Name:event.label});
         await this.timeout(500);
-        console.log("Helloooo " + this.state.restaurantId);
     }
     
     handleChange2(event) {
@@ -86,7 +85,7 @@ export default class CreateMenu extends Component {
         e.preventDefault();
        
         let formData = {
-            itemId: this.state.itemId,
+
             ItemName: this.state.Name,
             Description: this.state.Description,
             Price: this.state.Price,
@@ -148,14 +147,11 @@ export default class CreateMenu extends Component {
             <div style={{alignItems: 'center', justifyContent: 'center'}}>
             <div className = {styles.title}> Create Menu</div>
             <div className = {styles.column}>
-            <div className = {styles.topBar}>Add menuitem</div>
+            <div className = {styles.topBar}>Add a menu item</div>
             <form onSubmit={this.handleSubmit} style={{alignItems: 'center', justifyContent: 'center', height: '600px', width: '300px'}}> 
-                <Select options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
+                <Select className = {styles.select} options={this.state.selectOptions} onChange={this.handleChange.bind(this)} />
                 <input className = {styles.textField} type="text" placeholder="Category" onChange={e => this.setState({Category: e.target.value})}/>               
                 <input className = {styles.textField} type="text" placeholder="Name" onChange={e => this.setState({Name: e.target.value})}/>   
-                <input className = {styles.textField} type="text" placeholder="Price" onChange={e => this.setState({Price: e.target.value}, this.setState({itemId: uuidv4()}))}/>
-            <textarea id="desc" name="desc" rows="5" cols="40" placeholder="Enter a description"  onChange={e => this.setState({Description: e.target.value})}>
-            </textarea>     {/*Textarea for desc, submit action has to be figured out*/}
              {/* <input type = "submit" value="Submit"></input> */}
              <input type="file" name="kuva" onChange={this.selectFile} />
             <button className = {styles.createButton} onClick={this.postImage}>Add an image
@@ -165,9 +161,8 @@ export default class CreateMenu extends Component {
             <button type ="submit" className = {styles.createButton} style = {{marginBottom: "20px"}}>Add to the menu</button>
             </form>
             </div>
-            
-            </div>
-          </div>
+            </div> 
+            </div>   
         );
     }
 }
