@@ -166,8 +166,9 @@ class CreateRestaurant extends React.Component {
         return (
             <div>
             <div className = {styles.title}> Create Restaurant </div>
-            <div className = {styles.topBar}>Add a new restaurant</div>
-            <form className={styles.CreateRestaurant} onSubmit={this.handleRestaurant}>
+            <div className={styles.topBar}>Add a new restaurant</div>
+            <div className={styles.CreateRestaurant}>
+            <form className={styles.formContainer} onSubmit={this.handleRestaurant}>
             
                 <div style = {{marginTop: '10px'}}>Restaurant type</div>
                 <select value={this.state.type} onChange={this.handleChange} className = {styles.select} style = {{marginTop: '10px'}} >
@@ -207,20 +208,16 @@ class CreateRestaurant extends React.Component {
                 <input type="text" placeholder="Address"  className = {styles.inputs} onChange={e => this.setState({address: e.target.value}, this.setState({restaurantId: uuidv4()}))}/>
 
                <this.error/>
-                {/*<input  type="text" placeholder="Address"  className = {styles.addressInputs} onChange={e => this.setState({address: e.target.value})} > </input> */}
-                <div className={styles.chooseFile} >
-               
-
-            </div>
-                <button type="submit" className = {styles.button}>Create</button>
-            
+                {/*<input  type="text" placeholder="Address"  className = {styles.addressInputs} onChange={e => this.setState({address: e.target.value})} > </input> */}  
             </form>
+            <div className={styles.chooseFile} >
             <input type="file" className={styles.file} onChange={this.selectFile} />
                <button on onClick={this.postImage} className={styles.btnFile}>
                    Upload
                </button>
-
-           
+               </div>
+               <button type="submit" className = {styles.button}>Create</button>
+     </div>
             </div>
         );
     }

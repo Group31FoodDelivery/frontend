@@ -43,7 +43,20 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     height: 50px;
 
 }
+.formContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    height:850px;
 
+   
+
+}
+.input{
+    width:100%;
+    margin-left:33%;
+
+}
 .select{
 
     margin-top: 20px;
@@ -64,6 +77,7 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     margin-left: 40px;
     margin-top: 10px;
     margin-bottom: 10px;
+
 }
 
 .createMenu {
