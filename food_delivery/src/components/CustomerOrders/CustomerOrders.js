@@ -40,7 +40,7 @@ import { useState } from 'react';
     let date = d.getDate();
     let month = d.getMonth();
     let year = d.getFullYear();
-    let hours = d.getUTCHours();
+    let hours = d.getUTCHours() + 2;
     let minutes = d.getUTCMinutes();
 
     return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}`

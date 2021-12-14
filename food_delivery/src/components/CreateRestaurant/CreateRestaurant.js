@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './CreateRestaurant.module.css';
 import axios from 'axios';
 import jwt from 'jwt-decode';
-import { useNavigate } from 'react-router';
+import { v4 as uuidv4 } from 'uuid';
 
 class CreateRestaurant extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            type: "Fine Dining", 
+            type: "fine_dining", 
             priceLevel: "1",
             name: "",
             description: "",
@@ -16,12 +16,15 @@ class CreateRestaurant extends React.Component {
             address: "",
             rating: "1",
             errorMessage: "",
-            file: ""
+            restaurantId: null,
+            selectedFile: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
         this.handleChange3 = this.handleChange3.bind(this);
         this.error = this.error.bind(this);
+        this.postImage = this.postImage.bind(this);
+        this.selectFile = this.selectFile.bind(this);
         /*
         this.onFormSubmit = this.onFormSubmit.bind(this)
         this.onChange = this.onChange.bind(this)
@@ -48,8 +51,6 @@ class CreateRestaurant extends React.Component {
 
     handleChange2(event) {
         this.setState({ priceLevel: event.target.value});
-        console.log("price");
-        console.log(this.state.priceLevel);
     }
 
     handleChange3(event) {
@@ -62,6 +63,7 @@ class CreateRestaurant extends React.Component {
         e.preventDefault();
        
         let formData = {
+            restaurantId: this.state.restaurantId,
             Name: this.state.name,
             Address: this.state.address,
             OperatingHours: this.state.operatingHours,
@@ -70,7 +72,7 @@ class CreateRestaurant extends React.Component {
             Rating: this.state.rating,
             Description: this.state.description,
             Image: "",
-            managerId: ""
+            managerId: ""  
         };
        
        
@@ -97,6 +99,7 @@ class CreateRestaurant extends React.Component {
         this.setState({errorMessage: "Successful!"});
         await this.timeout(2000);
         this.setState({errorMessage: ""});
+
        }
        else{
            console.log(formData);
@@ -104,6 +107,20 @@ class CreateRestaurant extends React.Component {
            //console.log("KÄYTTÄJÄ " + JSON.stringify(user.manager.managerId));
        }
 
+    }
+
+
+    selectFile(event) {
+        this.setState({selectedFile: event.target.files[0]});
+        
+    }
+
+    postImage() {
+        console.log(this.state.selectedFile);
+        let formData = new FormData();
+        formData.append("kuva",this.state.selectedFile);
+        //let currentFile = {selectedFile: this.state.selectedFile[0]};
+        axios.put("http://localhost:9000/restaurants/images/" + this.state.restaurantId, formData,{headers:{"Content-Type": "multipart/form-data" }});
     }
 
     /*onFormSubmit(e){
@@ -133,24 +150,22 @@ class CreateRestaurant extends React.Component {
 
     /* imagePosting = event => {
         this.setState({image: event.target.files[0]})
-
     }
-
     ImageUpload = () => {
          let PostedImage = {
             Image: this.state.image,
             restaurantId: "this.state.restaurantid"
         }
-
     }*/
 
 
     render() {
         return (
             <div>
-            <div className = {styles.title}><div style = {{marginLeft: "20px", fontSize: "24px"}}>Create Restaurant</div></div>
-            <div className = {styles.topBar}>Add a new restaurant</div>
-            <form className={styles.CreateRestaurant} onSubmit={this.handleRestaurant}>
+            <div className = {styles.title}> Create Restaurant </div>
+            <div className={styles.topBar}>Add a new restaurant</div>
+            <div className={styles.CreateRestaurant}>
+            <form className={styles.formContainer} onSubmit={this.handleRestaurant}>
             
                 <div style = {{marginTop: '10px'}}>Restaurant type</div>
                 <select value={this.state.type} onChange={this.handleChange} className = {styles.select} style = {{marginTop: '10px'}} >
@@ -178,6 +193,7 @@ class CreateRestaurant extends React.Component {
                     <option name="5">5</option>  
                 </select>
 
+
                 <input type="text" placeholder="Name" className = {styles.inputs} onChange={e => this.setState({name: e.target.value})}/>
 
                {/* <input type="text" placeholder="Description" cols="40"  rows="5" 
@@ -186,22 +202,19 @@ class CreateRestaurant extends React.Component {
                 <input type="text" placeholder="Description"  className = {styles.descriptionInputs} onChange={e => this.setState({description: e.target.value})}/>
 
                 <input type="text" placeholder="Operating hours"  className = {styles.inputs} onChange={e => this.setState({operatingHours: e.target.value})}/>
-                <input type="text" placeholder="Address"  className = {styles.inputs} onChange={e => this.setState({address: e.target.value})}/>
+                <input type="text" placeholder="Address"  className = {styles.inputs} onChange={e => this.setState({address: e.target.value}, this.setState({restaurantId: uuidv4()}))}/>
 
                <this.error/>
-                {/*<input  type="text" placeholder="Address"  className = {styles.addressInputs} onChange={e => this.setState({address: e.target.value})} > </input> */}
-                <div className={styles.chooseFile} >
-               <input type="file" className={styles.file} onChange={this.imagePosting} />
-               <button on onClick={this.ImageUpload} className={styles.btnFile}>
+                {/*<input  type="text" placeholder="Address"  className = {styles.addressInputs} onChange={e => this.setState({address: e.target.value})} > </input> */}  
+                <button type="submit" className = {styles.button}>Create</button>
+            </form>
+            <div className={styles.chooseFile} >
+            <input type="file" className={styles.file} onChange={this.selectFile} />
+               <button on onClick={this.postImage} className={styles.btnFile}>
                    Upload
                </button>
-
-            </div>
-                <button type="submit" className = {styles.button}>Create</button>
-            
-            </form>
-
-           
+               </div>
+     </div>
             </div>
         );
     }

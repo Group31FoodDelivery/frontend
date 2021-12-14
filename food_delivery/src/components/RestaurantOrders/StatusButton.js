@@ -1,3 +1,4 @@
+
 import react from 'react';
 import styles from './StatusButton.module.css';
 import {useState} from 'react';
@@ -67,10 +68,12 @@ export default function StatusButton(props){
     }
 
     return(
-        <div>    
+        <div>
+        <div className={styles.btnContainer}>    
      <button className={styles.btn1} onClick={changeStatus}>{status}
      </button>
-     <input placeholder = "Deliverytime" onChange = {e => setTime(e.target.value)}></input>
+     <input className={styles.time} placeholder = "Deliverytime" onChange = {e => setTime(e.target.value)}></input>
+        </div>
         </div>
     )
 } 

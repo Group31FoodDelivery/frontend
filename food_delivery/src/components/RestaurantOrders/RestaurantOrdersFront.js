@@ -35,6 +35,22 @@ function RestaurantOrders(props){
            })
         }, [])
 
+        let editTimeStamp = (timestamp, separator="-") => {
+
+            console.log(timestamp)
+            let d = new Date(timestamp);
+        
+            
+            let date = d.getDate();
+            let month = d.getMonth();
+            let year = d.getFullYear();
+            let hours = d.getUTCHours();
+            let minutes = d.getUTCMinutes();
+        
+            return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}`
+        
+            }
+
         const activeOrder=(id,data)=>{
             setSelected(id);
             orderInfo(data)
@@ -50,7 +66,7 @@ function RestaurantOrders(props){
              <div key={data.orderId} style = {{color: selected === data.orderId ? "#CC2255" : ""}} onClick={()=>activeOrder(data.orderId,data)} className={styles.infoCustomer}>
               <div className={styles.name}><b>{data.Username}</b></div>
               <div className={styles.btnData}>
-              <div className={styles.date}><b>{data.TimeStamp}</b>
+              <div className={styles.date}><b>{editTimeStamp(data.TimeStamp)}</b>
               <div className={styles.btn1}>
                   <StatusButton orderId={data.orderId}/>
                   </div>
