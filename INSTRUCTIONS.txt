@@ -1,0 +1,36 @@
+Download both repositories, frontend and backend
+
+Go inside them and open terminals on both of them, and write npm i and press enter to install necessary things
+
+In backend, open another terminal, so you have two terminals at the same path location. 
+In the other one, type in node routes.js and in the second one, type in node routesCustomer.js
+
+In the frontend terminal, type npm start
+
+If you encounter issues, check both backend terminals, sometimes they have exceeded connection limits (couldn't fix this) 
+- just restart them then
+
+To register a customer and user, open the register form from the top bar and fill in the fields - 
+check the checkbox if you want to register a manager instead, do this before you press the createbutton
+
+To log in, press the login button in the header. Type in the username and password without checking the checkbox if you want to 
+log in as a customer, or contactinfo (like email, whatever you typed in the contactinfo when you registered a manager) 
+and password with the checkbox checked if you want to sign in as a manager
+
+Manager can create restaurants and menuitems to his restaurants from the headerbuttons - just fill the forms and press the createbutton.
+After successfully creating a restaurant or an item, you can upload an image to it via the imageupload buttons (Choose a file and after choosing, press the pink imageposting button)
+
+At headers right you have a button which takes you to order management. Here you will see the orders from your restaurants. 
+You can type in a deliverytime, and after that you can change the status by pressing the statusbutton a few times - 
+until it disappears. These orders will disappear from the list after you go to the frontpage, update the browser and go back :)
+
+As a customer, youi can choose a restaurant and add items from them to your shopping cart. 
+In the shopping cart (headers rightmost side), you can change the amount of items you want to order. 
+After you fill in the forms with the address and the payment info, you can send the order. 
+You can see this order in your order history from the header button - and their info. The status will change via managers handling.
+
+You can also filter restaurants by their names via using the searchbar and typing something there - and after going to a restaurants menu, 
+you can use another searchbar to filter out items via their categories.
+
+If you have trouble running the app, contact me via Discord or email. My email is t8vipy@students.oamk.fi - ask my Discord account from 
+there if you want to or any other instructions or a video call if needed
