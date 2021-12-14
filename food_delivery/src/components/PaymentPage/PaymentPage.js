@@ -13,7 +13,6 @@ export default function PaymentPage(props){
     const {price} = props;
     const {address} = props;
     const {token} = props;
-    const {emptyCart} = props;
 
     const [itemId, setItemId] = useState('')
     const [qnty, setQnty] = useState( )

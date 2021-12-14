@@ -2,22 +2,25 @@ import React from 'react';
 import styles from './CreateRestaurant.module.css';
 import axios from 'axios';
 import jwt from 'jwt-decode';
+import { useNavigate } from 'react-router';
 
 class CreateRestaurant extends React.Component {
     constructor(props) {
         super(props);
         this.state = { 
-            type: "fine_dining", 
+            type: "Fine Dining", 
             priceLevel: "1",
             name: "",
             description: "",
             operatingHours: "",
             address: "",
+            rating: "1",
             errorMessage: "",
             file: ""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleChange2 = this.handleChange2.bind(this);
+        this.handleChange3 = this.handleChange3.bind(this);
         this.error = this.error.bind(this);
         /*
         this.onFormSubmit = this.onFormSubmit.bind(this)
@@ -45,6 +48,14 @@ class CreateRestaurant extends React.Component {
 
     handleChange2(event) {
         this.setState({ priceLevel: event.target.value});
+        console.log("price");
+        console.log(this.state.priceLevel);
+    }
+
+    handleChange3(event) {
+        this.setState({ rating: event.target.value});
+        console.log("rating");
+        console.log(this.state.rating);
     }
 
     handleRestaurant = async e => {
@@ -56,7 +67,7 @@ class CreateRestaurant extends React.Component {
             OperatingHours: this.state.operatingHours,
             Price_level: this.state.priceLevel,
             Type: this.state.type,
-            Rating: 3,
+            Rating: this.state.rating,
             Description: this.state.description,
             Image: "",
             managerId: ""
@@ -86,7 +97,6 @@ class CreateRestaurant extends React.Component {
         this.setState({errorMessage: "Successful!"});
         await this.timeout(2000);
         this.setState({errorMessage: ""});
-
        }
        else{
            console.log(formData);
@@ -138,7 +148,7 @@ class CreateRestaurant extends React.Component {
     render() {
         return (
             <div>
-            <div className = {styles.title}> Create Restaurant </div>
+            <div className = {styles.title}><div style = {{marginLeft: "20px", fontSize: "24px"}}>Create Restaurant</div></div>
             <div className = {styles.topBar}>Add a new restaurant</div>
             <form className={styles.CreateRestaurant} onSubmit={this.handleRestaurant}>
             
@@ -152,6 +162,15 @@ class CreateRestaurant extends React.Component {
 
                 <div style = {{marginTop: '10px'}}>Price level</div>
                 <select value={this.state.priceLevel} onChange={this.handleChange2} className = {styles.select} style = {{marginTop: '10px'}}>
+                    <option name="1">1</option>
+                    <option name="2">2</option>
+                    <option name="3">3</option>
+                    <option name="4">4</option>
+                    <option name="5">5</option>  
+                </select>
+
+                <div style = {{marginTop: '10px'}}>Rating</div>
+                <select value={this.state.rating} onChange={this.handleChange3} className = {styles.select} style = {{marginTop: '10px'}}>
                     <option name="1">1</option>
                     <option name="2">2</option>
                     <option name="3">3</option>
