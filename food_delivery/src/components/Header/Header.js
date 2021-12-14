@@ -38,7 +38,7 @@ function Header(props) {
         } else {
             return (
                 <Link to="/login" style={{textDecoration: 'none'}}><div className={styles.text}>
-                    <img src = '/images/user.png' className = {styles.icon}/>Sign in</div></Link>
+                    <img src = '/images/user.png' className = {styles.icon}/> Sign in</div></Link>
             )
         }
     }
@@ -51,7 +51,7 @@ function Header(props) {
                 return (
                     <Link to="/createmenu" style={{textDecoration: 'none'}}>
                     <div onClick={props.register} className={styles.text} style={{cursor: 'pointer', marginRight: '30px'}}>
-                    <img src = '/images/create.png' className = {styles.icon}/>Add menuitems </div>
+                    <img src = '/images/create.png' className = {styles.icon}/>Add menu items </div>
                     </Link>
                 )
             } 
@@ -80,7 +80,7 @@ const CartButton = () => {
         const user = jwt(props.token);
         if(user.hasOwnProperty("customer")) {
             return (
-                <Link to="/shoppingcart" >
+                <Link to="/shoppingcart" style={{ textDecoration: 'none' }}>
                 <button className = {styles.shoppingcartButton}>
                 <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
                 <div style = {{fontSize: '16px'}}>
@@ -91,9 +91,9 @@ const CartButton = () => {
         } else if (user.hasOwnProperty("manager")){
 
             return(
-            <Link to="/restaurantorders">
+            <Link to="/restaurantorders" style={{ textDecoration: 'none' }}>
                 <button className = {styles.shoppingcartButton}>
-                <img className = {styles.shoppingIcon} src = "images/cart.png"></img>
+                <img className = {styles.orderIcon} src = "images/orders.png"></img>
                 <div style = {{fontSize: '16px'}}>
                     Orders
                  </div>

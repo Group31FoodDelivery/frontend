@@ -25,9 +25,10 @@ return (
         src="../images/ratat.jpg"
         alt="test"
         style={{
-          filter: `brightness(50%)`,
+          filter: `brightness(20%)`,
           transform: `translateY(${offset * 0.5}px)`,
           width: `100%`,
+          
         }}
       />
     </section>

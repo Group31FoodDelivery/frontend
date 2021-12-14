@@ -16,12 +16,12 @@
 background-color: white;
 display: flex;
 flex-direction: column;
-gap: 30px;
+justify-content: center;
+gap: 5%;
 align-items: center;
 width: 600px;
-height: 640px;
+height: 540px;
 border-radius: 20px;
-margin-left: 33%;
 margin-top: 20px;
 margin-bottom: 20px;
 box-shadow:     0      10px      10px       rgb(135, 135, 135);
@@ -46,11 +46,12 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
 .select{
 
     margin-top: 20px;
-    background-color: #F3F3F3;
     border-radius: 15px;
     height: 30px;
-    width: 210px;
-    padding-left: 10px; 
+    width: 220px;
+    padding-left: 10px;
+    margin-left: 32px;
+    margin-bottom: 20px;
 }
 .textField{
 
@@ -65,12 +66,23 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     margin-bottom: 10px;
 }
 
+.desc{
+    padding-left: 10px; 
+    background-color: #F3F3F3;
+}
 .createMenu {
 
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: blue;
+}
+.btn{ 
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 22%;
+    
 }
 .createButton {
 
@@ -79,6 +91,7 @@ box-shadow:     0      10px      10px       rgb(135, 135, 135);
     border-radius: 20px;
     width: 150px;
     height: 30px;
+    margin-top:3%;
     border: none;
 
 }
@@ -106,7 +119,7 @@ textarea{
     }
     .createButton {
         width:150px;
-        height:70px;
+        height:50px;
     }
     
 }

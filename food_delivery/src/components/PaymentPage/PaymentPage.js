@@ -20,24 +20,26 @@ export default function PaymentPage(props){
     const [cardNum, setCardNum] = useState('')
     const [cvc, setCvc] = useState('')
     const [exipDate, setExipDate] = useState('')
+    const [buttonState, setButtonState] = useState(true)
 
     let navigate = useNavigate();
 
     let fail = false;
 
-    function getCurrentDate(separator='/'){
+    function getCurrentDate(separator='-'){
 
-        let newDate = new Date()
+        let newDate = new Date();
         let date = newDate.getDate();
         let month = newDate.getMonth() + 1;
         let year = newDate.getFullYear();
+        let hours = newDate.getHours();
+        let minutes = newDate.getMinutes();
+        let seconds =  newDate.getSeconds();
+        //let time = newDate.getHours() + ':' + newDate.getMinutes() + ':' + newDate.getSeconds();
         
-        return `${date}${separator}${month<10?`0${month}`:`${month}`}${separator}${year}`
+        return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}:${seconds<10 ? `0${seconds}`: `${seconds}`}`
         }
 
-    const areFieldsFull = () => {
-            return cardNum && cvc && exipDate;
-          }
 
     useEffect(() => {
 
@@ -53,8 +55,9 @@ export default function PaymentPage(props){
        console.log(itemId)
        console.log(qnty)
 
+       areFieldsFull();
 
-    }, [cart])
+    }, [cart,cardNum,cvc,exipDate])
 
 
     //creates an order
@@ -128,14 +131,27 @@ export default function PaymentPage(props){
             navigate('/fail', { replace: true });
         }
         else{
-        console.log(fail)
-        window.localStorage.removeItem('reduxState');
-        navigate('/success', { replace: true });
+            console.log(fail)
+            window.localStorage.removeItem('reduxState');
+            navigate('/success', { replace: true }, window.location.href="/success");
         }
     }
 
+
+    const areFieldsFull = () => {
+        if(cardNum.length == 19 && cvc.length == 3 && exipDate.length == 10){
+        setButtonState(false)
+        return false
+    }
+        else{
+            setButtonState(true)
+            return true
+        }
+      }
+    
     return (
         <div><div className = {styles.topBar}>Payment</div>
+        
             <div className = {styles.container} >
                 CARD NUMBER
                 <input type = 'text' placeholder = 'xxxx-xxxx-xxxx-xxxx' maxLength = {19} onChange={e => setCardNum(e.target.value)} value={cardNum} className = {styles.inputs}/>
@@ -143,7 +159,7 @@ export default function PaymentPage(props){
                 <input type = 'text' placeholder = 'xxx' maxLength = {3}  onChange={e => setCvc(e.target.value)} value={cvc} className = {styles.inputs} />
                 EXIPIRATION DATE
                 <input type = 'text' placeholder = 'dd/mm/yyyy' maxLength = {10} onChange={e => setExipDate(e.target.value)} value={exipDate} className = {styles.inputs}/>
-               <button className = {styles.button} onClick = {handleButtonClick} disabled={!areFieldsFull}>Confirm</button>
+               <button className = {styles.confirmButton} onClick = {handleButtonClick} disabled={buttonState}>Confirm</button>
             </div>
             </div>  
     )

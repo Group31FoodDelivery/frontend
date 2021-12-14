@@ -13,6 +13,7 @@ import { useState } from 'react';
     const [orders, setOrders] = useState([]);
 
     useEffect(async() => {
+
     const user = jwt(token);
     let customerId = user.customer.customerId;
     console.log(customerId);
@@ -21,22 +22,42 @@ import { useState } from 'react';
        .then((response) => {
            console.log(response)
            setOrders(response.data)
+           console.log(response.data);
        })
        .catch(error => {
         console.log(error)
        })
+    
     }, [])
+
+    
+    let editTimeStamp = (timestamp, separator="-") => {
+
+    console.log(timestamp)
+    let d = new Date(timestamp);
+
+    
+    let date = d.getDate();
+    let month = d.getMonth();
+    let year = d.getFullYear();
+    let hours = d.getUTCHours();
+    let minutes = d.getUTCMinutes();
+
+    return `${year}${separator}${month<10?`0${month}`:`${month}`}${separator}${date} ${hours<10 ?`0${hours}`:`${hours}`}:${minutes<10 ? `0${minutes}`:`${minutes}`}`
+
+    }
+
     
     const CustomerOrders=orders.map(
         (info)=>{
             return(
-            
-                <tr>
+               
+                <tr key = {info.orderId}>
                     <td>{info.Name}</td>
                     <td>{info.Qty}x</td>
-                    <td>{info.ItemName}</td>
-                    <td>{info.TimeStamp}</td>
-                    <td>{info.TotalPrice}€</td>
+                    <td>{info.ItemName} </td>
+                    <td>{editTimeStamp(info.TimeStamp)}</td>
+                    <td>{info.Price * info.Qty}€</td>
                     <td>{info.State}</td>
                     <td>{info.Time}mins</td>
                 </tr>

@@ -36,7 +36,7 @@
 
 .searchBar {
     border-radius: 15px 0 0 15px;
-    width: 400px;
+    width: 100px;
     height: 50%;
     padding-left: 10px;
     border: none;
@@ -71,6 +71,12 @@
     height: 55px;
 }
 
+.orderIcon{
+    display: flex;
+    margin-left: 10px;
+    width: 36px;
+    height: 36px;
+}
 .icon{
 
     margin-right: 8px;
@@ -109,6 +115,7 @@
         height:32.5px;
     }
     .login{
+       
         display:flex;
         flex-direction: row;
         padding-top:6%;
@@ -222,7 +229,6 @@
     }
     .text{
         width:100%;
-
     }
 }
 

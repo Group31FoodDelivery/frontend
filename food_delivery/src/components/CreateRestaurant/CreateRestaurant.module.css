@@ -35,7 +35,7 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     width: 600px;
-    height: 500px;
+    height: 550px;
     margin-left: 33%;
     margin-bottom: 20px;
     background-color: white;
@@ -67,6 +67,26 @@
     margin-top: 30px;
     width:200px;
     
+    
+}
+.addressInputs{
+    height:70px;
+    overflow: scroll;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin-top: 30px;
+    width:200px;
+}
+
+.chooseFile{
+    display:flex;
+    justify-content: center;
+    padding-top: 5%;   
+
+}
+
+.btnFile{
+    border-radius: 15px;
 }
 
 .button{
@@ -81,14 +101,8 @@
     color: white;
     border: none;
 }
-.addressInputs{
-    height:70px;
-    overflow: scroll;
-    padding-left: 10px;
-    border-radius: 15px;
-    margin-top: 30px;
-    width:200px;
-}
+
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px)  { 
@@ -143,6 +157,7 @@
     }
     .CreateRestaurant {
         margin-left: 30%;
+        height: 550px;
     }
     .button{
         height: 50px;

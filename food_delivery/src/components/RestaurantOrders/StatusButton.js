@@ -1,21 +1,25 @@
 import react from 'react';
 import styles from './StatusButton.module.css';
 import {useState} from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
+import jwt from 'jwt-decode';
 
-export default function StatusButton(){
+export default function StatusButton(props){
 
-    const [status, setStatus] = useState('Change status');
+    const [status, setStatus] = useState('Recived');
+    const [time, setTime] = useState('');
     let [counter, setCounter] = useState(1);
-
-    
-   const changeStatus = ()=>{ 
+    const {orderId} = props;
+        
+   const changeStatus = () => {
        setCounter(counter + 1);
        if (counter === 7){
            counter = 0;
        }
            switch (counter){ 
         case 1 : 
-            let status1 = 'Recived';
+            let status1 = 'Received';
             setStatus(status1);
             console.log(counter);
             break;
@@ -45,15 +49,28 @@ export default function StatusButton(){
             console.log(counter);
             break;
         }
+        updateOrder();        
+    }
 
-            
+    const updateOrder = async () => {
+
+        console.log("status")
+        console.log(status)
+        console.log("time")
+        console.log(time)
+        console.log("orderId")
+        console.log(orderId)
+        await axios.put('/orders/' + orderId, {
+            state: status,
+            time: time
+        });
     }
 
     return(
-        <div>
-           
+        <div>    
      <button className={styles.btn1} onClick={changeStatus}>{status}
      </button>
+     <input placeholder = "Deliverytime" onChange = {e => setTime(e.target.value)}></input>
         </div>
     )
 } 

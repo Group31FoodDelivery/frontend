@@ -5,7 +5,7 @@ import MenuItems from './MenuItems';
 import DropDown from './DropDown';
 import { useParams } from 'react-router';
 import { useEffect } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import {connect} from 'react-redux';
 import {getMenuItems} from '../../redux/Shopping/shopping-actions';
 
@@ -13,6 +13,8 @@ function MenuPage(props) {
 
     const {menuItems} = props; //redux menuItem state, harcoded, doesn't have api calls yet. props.restaurantId must be passed to redux somehow
     const {getMenuItems} = props;
+    const {token} = props;
+    const [categorySearch, setCategorySearch] = useState('')
     //const [menuData, setMenuData] = React.useState([]);
 
     const {restaurantId} = useParams(); //Takes the id which is in the url /menupages/:restaurantId (App.js)
@@ -22,11 +24,17 @@ function MenuPage(props) {
 
         getMenuItems(restaurantId)
         console.log(getMenuItems)
+        
        
     }, [])
     
+    const onSearchChange = (event) => {   
+        let searchResult = event.target.value;                         
+        setCategorySearch(searchResult.toLowerCase());   
+        console.log(categorySearch);
+        }
+        
 
-    
     return (
 
         //Gets restaurants from app.js as normal props
@@ -35,7 +43,7 @@ function MenuPage(props) {
             <HeaderParallax/>
         <div className={styles.header}>
         <div className={styles.name}>
-          {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Name}</div>)}  
+          {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Name} {info.Rating}/5</div>)}  
     </div>
     <div className = {styles.container}>
         <div className={styles.description}>
@@ -44,30 +52,26 @@ function MenuPage(props) {
 </div><div>
        <div className={styles.restaurantInfo}>
            <div className={styles.address}>
-           {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>Addres: {info.Address}</div>)}     
+           {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>Address: {info.Address}</div>)}     
        </div>
-       <div className={styles.time}>
+       <div>
         {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>Open: {info.OperatingHours}</div>)}
         </div>
-        <div className={styles.type}>
+        <div>
         {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Type}</div>)}
         </div>
-        <div className={styles.rating}>
-        {props.restaurantData.filter(info => info.restaurantId === restaurantId).map(info => <div>{info.Rating}/5</div>)}
-        </div>
+        
         </div>
     </div>
       </div>
+      <input type="text" placeholder="Search categories..." className={styles.searchBar} onChange={onSearchChange} value={categorySearch}/>
 
-{/* DropDown */}
+    <div className={styles.dropdown}>
+   {/*<DropDown/>*/}
 
-<div className={styles.dropdown}>
-    <DropDown/>
-
-</div>
-
+    </div>
       <div className={styles.menuContainer}>
-      {menuItems.map(menu=> <MenuItems key = {menu.itemId} {...menu}/>)}
+      {menuItems.filter(items => items.Category.toLowerCase().includes(categorySearch)).map(menu=> <MenuItems key = {menu.itemId} {...menu} token = {token}/>)}
         </div>
 
       </div>  
